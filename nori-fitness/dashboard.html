@@ -1,0 +1,3943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nori-Fitness LLC | Train Strong. Live Confident.</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body class="dashboard-earth">
+  <header class="top-banner2 dashboard-header">
+    <div class="banner-inner">
+      <a href="index.html" class="logo">
+        <img src="logo.png" alt="Nori-Fitness LLC">
+      </a>
+      <h1>Train Strong | Live Confident</h1>
+      <p></p>
+    </div>
+  </header>
+
+  <main class="page dashboard-page-tight">
+    <h1 class="dashboard-page-title">Dashboard</h1>
+
+    <div id="status" class="dashboard-status-line">
+      Checking login...
+    </div>
+
+    <div id="welcomeBanner" class="section-card dashboard-welcome-card">
+      <div id="welcomeGreeting" class="dashboard-welcome-greeting">Welcome</div>
+      <div id="welcomeSubtext" class="dashboard-welcome-subtext">
+        Select a section below to view your training, nutrition, and calorie tools.
+      </div>
+    </div>
+
+    <section class="section-card dashboard-main-tabs-shell">
+      <div class="dashboard-main-tabs dashboard-main-tabs-updated" role="tablist" aria-label="Dashboard Sections">
+        <button id="mainTabOverview" class="dashboard-main-tab active" type="button" aria-selected="true">Overview</button>
+        <button id="mainTabInperson" class="dashboard-main-tab" type="button" aria-selected="false">InPerson</button>
+        <button id="mainTabOnline" class="dashboard-main-tab" type="button" aria-selected="false">Online Training</button>
+        <button id="mainTabNutrition" class="dashboard-main-tab" type="button" aria-selected="false">Nutrition</button>
+        <button id="mainTabCalories" class="dashboard-main-tab" type="button" aria-selected="false">Calorie Count</button>
+        <button id="mainTabMessages" class="dashboard-main-tab" type="button" aria-selected="false" style="display:none;">
+          Messages<span id="mainTabMessagesBadge" class="msg-tab-badge" style="display:none;">0</span>
+        </button>
+      </div>
+    </section>
+
+    <section id="mainPanelOverview" class="main-dashboard-panel" style="display:block;">
+      <div class="overview-common-shell">
+        <div class="overview-common-inner">
+          <div class="overview-top-grid">
+            <article class="overview-card snapshot-card">
+              <div class="overview-card-label">Overview</div>
+
+              <div class="snapshot-head">
+                <div class="snapshot-title-wrap">
+                  <h2 id="overviewSnapshotTitle">Your Weekly Snapshot</h2>
+                  <p id="overviewSnapshotText">
+                    A quick look at your training status, schedule, workouts, nutrition, and calorie progress.
+                  </p>
+                </div>
+
+                <div id="overviewTodayChip" class="overview-date-chip">Today</div>
+              </div>
+
+              <div class="snapshot-stat-grid">
+                <div class="snapshot-stat">
+                  <div class="snapshot-stat-label">InPerson</div>
+                  <div id="overviewInpersonStatus" class="snapshot-stat-value">Not Active</div>
+                </div>
+
+                <div class="snapshot-stat">
+                  <div class="snapshot-stat-label">Online</div>
+                  <div id="overviewOnlineStatus" class="snapshot-stat-value">Inactive</div>
+                </div>
+
+                <div class="snapshot-stat snapshot-stat-wide">
+                  <div class="snapshot-stat-label">Calories Left To Consume Today</div>
+                  <div id="overviewCaloriesLeft" class="snapshot-stat-value">0 kcal</div>
+                </div>
+              </div>
+            </article>
+
+            <article class="overview-card month-card">
+              <div class="overview-card-label">Monthly Calendar</div>
+
+              <div class="month-card-title-row">
+                <h3 id="overviewCalendarTitle">This Month</h3>
+              </div>
+
+              <div id="overviewMiniCalendar" class="overview-mini-calendar"></div>
+
+              <div class="overview-calendar-key">
+                <div class="overview-key-pill">
+                  <span class="overview-key-dot overview-key-dot-today"></span>
+                  Today
+                </div>
+
+                <div class="overview-key-pill">
+                  <span class="overview-key-dot overview-key-dot-inperson"></span>
+                  InPerson
+                </div>
+
+                <div class="overview-key-pill">
+                  <span class="overview-key-dot overview-key-dot-online"></span>
+                  Online
+                </div>
+
+                <div class="overview-key-pill">
+                  <span class="overview-key-dot overview-key-dot-pending"></span>
+                  Pending
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="overview-bottom-grid">
+            <article class="overview-card summary-card">
+              <div class="summary-head">
+                <div class="summary-head-copy">
+                  <div class="overview-card-label">In-Person</div>
+                  <h3>Schedule / Plan</h3>
+                </div>
+                <button id="overviewOpenInpersonBtn" type="button" class="summary-open-btn">Open</button>
+              </div>
+
+              <div id="overviewInpersonCard" class="summary-body">
+                <div class="summary-pill-box">Loading...</div>
+              </div>
+            </article>
+
+            <article class="overview-card summary-card">
+              <div class="summary-head">
+                <div class="summary-head-copy">
+                  <div class="overview-card-label">Online</div>
+                  <h3>Workout Progress</h3>
+                </div>
+                <button id="overviewOpenOnlineBtn" type="button" class="summary-open-btn">Open</button>
+              </div>
+
+              <div id="overviewOnlineCard" class="summary-body">
+                <div class="summary-pill-box">Loading...</div>
+              </div>
+            </article>
+
+            <article class="overview-card summary-card">
+              <div class="summary-head">
+                <div class="summary-head-copy">
+                  <div class="overview-card-label">Nutrition</div>
+                  <h3>Nutrition Focus</h3>
+                </div>
+                <button id="overviewOpenNutritionBtn" type="button" class="summary-open-btn">Open</button>
+              </div>
+
+              <div id="overviewNutritionCard" class="summary-body">
+                <div class="summary-pill-box">Loading...</div>
+              </div>
+            </article>
+
+            <article class="overview-card summary-card">
+              <div class="summary-head">
+                <div class="summary-head-copy">
+                  <div class="overview-card-label">Calories</div>
+                  <h3>Daily Summary</h3>
+                </div>
+                <button id="overviewOpenCaloriesBtn" type="button" class="summary-open-btn">Open</button>
+              </div>
+
+              <div id="overviewCaloriesCard" class="summary-body">
+                <div class="summary-pill-box">Loading...</div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="mainPanelInperson" class="main-dashboard-panel" style="display:none;">
+      <div class="dashboard-panel-shell">
+        <div class="dashboard-panel-inner">
+          <div id="inpersonPaymentBanner" class="section-card" style="display:none; margin-bottom:18px;">
+            <div style="display:grid; gap:12px;">
+              <div style="display:flex; flex-wrap:wrap; gap:14px; align-items:center; justify-content:space-between;">
+                <div style="display:grid; gap:6px;">
+                  <div style="font-weight:900; font-size:22px; color:var(--earth-ink);">
+                    In-Person Payments
+                  </div>
+                  <div style="font-weight:700; color:var(--earth-muted);">
+                    Approved items waiting for payment will appear here.
+                  </div>
+                </div>
+              </div>
+
+              <div id="inpersonPaymentCards" style="display:grid; gap:12px;"></div>
+            </div>
+          </div>
+
+          <section id="inpersonSection" style="display:none;">
+            <h2 style="font-size:48px; margin:22px 0 8px 0; font-weight:900; text-align:center; color:var(--earth-ink);">
+              Your In-Person Sessions
+            </h2>
+
+            <div style="text-align:center; font-weight:900; margin:8px 0 6px 0; color:var(--earth-olive-dark);">
+              <span id="inpersonPlanStatus">—</span>
+            </div>
+
+            <div id="inpersonRules" style="text-align:center; opacity:0.95; margin-bottom:6px; color:var(--earth-muted);">—</div>
+            <div id="inpersonHint" style="text-align:center; opacity:0.95; margin-bottom:18px; color:var(--earth-muted);">—</div>
+
+           <div class="tabsRow inperson-tabs-row" style="display:flex; gap:14px; justify-content:flex-start; margin:18px 0 14px 0; flex-wrap:nowrap; overflow-x:auto; overflow-y:hidden; -webkit-overflow-scrolling:touch;">
+  <button id="tabBooked" class="tabBtn active" type="button"
+    style="min-width:220px; padding:16px 18px; border-radius:14px; font-weight:900; border:1px solid var(--earth-line); background:var(--earth-tab); color:var(--earth-ink); cursor:pointer; flex:0 0 auto; white-space:nowrap;">
+    Booked Schedule
+  </button>
+
+  <button id="tabRequest" class="tabBtn" type="button"
+    style="min-width:220px; padding:16px 18px; border-radius:14px; font-weight:900; border:1px solid var(--earth-line); background:var(--earth-tab); color:var(--earth-ink); cursor:pointer; flex:0 0 auto; white-space:nowrap;">
+    Request / Change
+  </button>
+</div>
+
+            <div id="panelBooked" style="display:block;">
+              <div class="section-card" style="margin-top:10px;">
+                <div class="section-title">Booked / Approved Schedule</div>
+
+                <div id="inpersonScheduleBox" style="display:none;">
+                  <div class="schedule-table-wrap">
+                    <table class="schedule-table" style="width:100%; border-collapse:collapse;">
+                      <thead>
+                        <tr>
+                          <th style="text-align:left; padding:10px; border-bottom:1px solid var(--earth-line);">Session</th>
+                          <th style="text-align:left; padding:10px; border-bottom:1px solid var(--earth-line);">Day</th>
+                          <th style="text-align:left; padding:10px; border-bottom:1px solid var(--earth-line);">Time</th>
+                          <th style="text-align:left; padding:10px; border-bottom:1px solid var(--earth-line);">Location</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td style="padding:10px; border-bottom:1px solid var(--earth-soft-line); font-weight:900;">1</td>
+                          <td id="schedDay1" style="padding:10px; border-bottom:1px solid var(--earth-soft-line);">—</td>
+                          <td id="schedTime1" style="padding:10px; border-bottom:1px solid var(--earth-soft-line);">—</td>
+                          <td id="schedLoc1" class="schedule-location-cell" style="padding:10px; border-bottom:1px solid var(--earth-soft-line);">—</td>
+                        </tr>
+
+                        <tr id="schedRow2" style="display:none;">
+                          <td style="padding:10px; border-bottom:1px solid var(--earth-soft-line); font-weight:900;">2</td>
+                          <td id="schedDay2" style="padding:10px; border-bottom:1px solid var(--earth-soft-line);">—</td>
+                          <td id="schedTime2" style="padding:10px; border-bottom:1px solid var(--earth-soft-line);">—</td>
+                          <td id="schedLoc2" class="schedule-location-cell" style="padding:10px; border-bottom:1px solid var(--earth-soft-line);">—</td>
+                        </tr>
+
+                        <tr id="schedRow3" style="display:none;">
+                          <td style="padding:10px; border-bottom:1px solid var(--earth-soft-line); font-weight:900;">3</td>
+                          <td id="schedDay3" style="padding:10px; border-bottom:1px solid var(--earth-soft-line);">—</td>
+                          <td id="schedTime3" style="padding:10px; border-bottom:1px solid var(--earth-soft-line);">—</td>
+                          <td id="schedLoc3" class="schedule-location-cell" style="padding:10px; border-bottom:1px solid var(--earth-soft-line);">—</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div style="margin-top:10px; opacity:0.9; color:var(--earth-muted);">
+                    To change your schedule, request at least 7 days before the change.
+                  </div>
+                 <div style="margin-top:10px; text-align:right;">
+  <button
+    type="button"
+    onclick="cancelClientSubscription('inperson')"
+    class="cancel-link">
+    Cancel subscription
+  </button>
+</div>
+                </div>
+              </div>
+
+              <div class="section-card" style="margin-top:16px;">
+                <div class="section-title">Pay-As-You-Go Bookings</div>
+                <div id="paygList" style="opacity:0.95;">Loading...</div>
+              </div>
+
+              <div id="inpersonSessionLogCard" class="section-card" style="margin-top:16px;">
+                <div class="section-title">Your Session Workouts</div>
+                <div class="section-subtitle" style="opacity:0.92;">
+                  Logged by your coach after each in-person session.
+                </div>
+                <div id="inpersonSessionList" style="opacity:0.95;">Loading...</div>
+              </div>
+
+              <div id="inpersonCalendarBox" class="section-card" style="margin-top:16px;">
+                <div class="section-title">Available Times (Google Calendar)</div>
+                <div class="section-subtitle" style="opacity:0.92;">
+                  If this is blank, you must use a Google Calendar EMBED URL (not a calendar.app.google share link).
+                </div>
+                <iframe
+                  id="inpersonCalendarFrame"
+                  title="Availability"
+                  src=""
+                  style="width:100%; height:720px; border:0; border-radius:14px; background:rgba(255,255,255,0.35);">
+                </iframe>
+              </div>
+            </div>
+                        <div id="panelRequest" style="display:none;">
+              <div class="section-card" style="margin-top:10px;">
+                <div class="section-title">Request / Change</div>
+                <div id="inpersonStepText" style="opacity:0.92; margin-bottom:12px; color:var(--earth-muted);">
+                  Choose plan + times + location, then send request.
+                </div>
+
+                <div id="inpersonRequestBox" style="display:block;">
+                  <div style="margin-bottom:12px;">
+                    <div style="font-weight:900; margin-bottom:8px; color:var(--earth-ink);">Choose your plan</div>
+
+                    <input id="inpersonPlanChoice" type="hidden" value="inperson_1x" />
+
+                    <div id="inpersonPlanGrid" style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:14px;">
+                      <button class="plan-card selected" data-plan="inperson_1x" type="button"
+                        style="text-align:left; padding:18px; border-radius:16px; border:2px solid var(--earth-accent); background:var(--earth-card-2); color:var(--earth-ink); cursor:pointer;">
+                        <div style="font-weight:900; font-size:22px;">1x / Week</div>
+                        <div style="font-weight:900; font-size:28px; margin-top:4px; color:var(--earth-accent);">$35 <span style="font-size:15px; font-weight:800;">/ week</span></div>
+                        <div style="opacity:0.9; margin-top:6px; color:var(--earth-muted);">12-week commitment</div>
+                      </button>
+
+                      <button class="plan-card" data-plan="inperson_3x" type="button"
+                        style="text-align:left; padding:18px; border-radius:16px; border:1px solid var(--earth-line); background:var(--earth-card-2); color:var(--earth-ink); cursor:pointer;">
+                        <div style="font-weight:900; font-size:22px;">3x / Week</div>
+                        <div style="font-weight:900; font-size:28px; margin-top:4px; color:var(--earth-accent);">$100 <span style="font-size:15px; font-weight:800;">/ week</span></div>
+                        <div style="opacity:0.9; margin-top:6px; color:var(--earth-muted);">12-week commitment</div>
+                      </button>
+
+                      <button class="plan-card" data-plan="inperson_payg" type="button"
+                        style="grid-column:1 / -1; text-align:left; padding:18px; border-radius:16px; border:1px solid var(--earth-line); background:var(--earth-card-2); color:var(--earth-ink); cursor:pointer;">
+                        <div style="font-weight:900; font-size:22px;">Pay-As-You-Go ($40/session)</div>
+                        <div style="opacity:0.9; margin-top:6px; color:var(--earth-muted);">Single session</div>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div style="opacity:0.92; margin:10px 0 14px 0; color:var(--earth-muted);">
+                    Pick your preferred day/time and location. For 3x/week you will pick 3 slots.
+                  </div>
+
+                  <div class="section-card" style="padding:14px; margin-top:10px;">
+                    <div style="font-weight:900; font-size:18px; margin-bottom:10px;">Session 1</div>
+
+                    <label style="font-weight:900;">Day</label>
+                    <select id="day1" class="log-input">
+                      <option value="">Select day</option>
+                      <option>Monday</option><option>Tuesday</option><option>Wednesday</option><option>Thursday</option>
+                      <option>Friday</option><option>Saturday</option><option>Sunday</option>
+                    </select>
+
+                    <div style="height:10px;"></div>
+                    <label style="font-weight:900;">Time</label>
+
+                    <div style="display:flex; gap:8px; align-items:center;">
+                      <select id="time1_hour" class="log-input" style="max-width:90px;">
+                        <option value="">Hr</option>
+                      </select>
+
+                      <select id="time1_min" class="log-input" style="max-width:90px;">
+                        <option value="">Min</option>
+                      </select>
+
+                      <select id="time1_ampm" class="log-input" style="max-width:100px;">
+                        <option value="">AM/PM</option>
+                        <option value="AM">AM</option>
+                        <option value="PM">PM</option>
+                      </select>
+                    </div>
+
+                    <input type="hidden" id="time1" />
+
+                    <div style="height:10px;"></div>
+
+                    <label style="font-weight:900;">Preferred Location</label>
+                    <select id="location1Preset" class="log-input">
+                      <option value="">Choose a preferred location or enter your own below</option>
+                      <option value="4620 Kenmore Ave, Alexandria, VA 22304">4620 Kenmore Ave, Alexandria, VA 22304</option>
+                      <option value="6123 Backlick Rd, Springfield, VA 22150">6123 Backlick Rd, Springfield, VA 22150</option>
+                    </select>
+
+                    <div style="height:10px;"></div>
+
+                    <label style="font-weight:900;">Custom Location</label>
+                    <input id="location1" class="log-input" placeholder="Must be within the DMV range" />
+
+                    <div style="margin-top:8px; font-size:13px; font-weight:800; color:var(--earth-muted);">
+                      You can pick one of the two preferred locations above, or enter another location within the DMV range.
+                    </div>
+                  </div>
+
+                  <div id="slot2" class="section-card" style="padding:14px; margin-top:12px; display:none;">
+                    <div style="font-weight:900; font-size:18px; margin-bottom:10px;">Session 2</div>
+
+                    <label style="font-weight:900;">Day</label>
+                    <select id="day2" class="log-input">
+                      <option value="">Select day</option>
+                      <option>Monday</option><option>Tuesday</option><option>Wednesday</option><option>Thursday</option>
+                      <option>Friday</option><option>Saturday</option><option>Sunday</option>
+                    </select>
+
+                    <div style="height:10px;"></div>
+
+                    <label style="font-weight:900;">Time</label>
+                    <div style="display:flex; gap:8px; align-items:center;">
+                      <select id="time2_hour" class="log-input" style="max-width:90px;">
+                        <option value="">Hr</option>
+                      </select>
+
+                      <select id="time2_min" class="log-input" style="max-width:90px;">
+                        <option value="">Min</option>
+                      </select>
+
+                      <select id="time2_ampm" class="log-input" style="max-width:100px;">
+                        <option value="">AM/PM</option>
+                        <option value="AM">AM</option>
+                        <option value="PM">PM</option>
+                      </select>
+                    </div>
+
+                    <input type="hidden" id="time2" />
+
+                    <div style="height:10px;"></div>
+
+                    <label style="font-weight:900;">Preferred Location</label>
+                    <select id="location2Preset" class="log-input">
+                      <option value="">Choose a preferred location or enter your own below</option>
+                      <option value="4620 Kenmore Ave, Alexandria, VA 22304">4620 Kenmore Ave, Alexandria, VA 22304</option>
+                      <option value="6123 Backlick Rd, Springfield, VA 22150">6123 Backlick Rd, Springfield, VA 22150</option>
+                    </select>
+
+                    <div style="height:10px;"></div>
+
+                    <label style="font-weight:900;">Custom Location</label>
+                    <input id="location2" class="log-input" placeholder="Must be within the DMV range" />
+
+                    <div style="margin-top:8px; font-size:13px; font-weight:800; color:var(--earth-muted);">
+                      You can pick one of the two preferred locations above, or enter another location within the DMV range.
+                    </div>
+                  </div>
+
+                  <div id="slot3" class="section-card" style="padding:14px; margin-top:12px; display:none;">
+                    <div style="font-weight:900; font-size:18px; margin-bottom:10px;">Session 3</div>
+
+                    <label style="font-weight:900;">Day</label>
+                    <select id="day3" class="log-input">
+                      <option value="">Select day</option>
+                      <option>Monday</option><option>Tuesday</option><option>Wednesday</option><option>Thursday</option>
+                      <option>Friday</option><option>Saturday</option><option>Sunday</option>
+                    </select>
+
+                    <div style="height:10px;"></div>
+
+                    <label style="font-weight:900;">Time</label>
+                    <div style="display:flex; gap:8px; align-items:center;">
+                      <select id="time3_hour" class="log-input" style="max-width:90px;">
+                        <option value="">Hr</option>
+                      </select>
+
+                      <select id="time3_min" class="log-input" style="max-width:90px;">
+                        <option value="">Min</option>
+                      </select>
+
+                      <select id="time3_ampm" class="log-input" style="max-width:100px;">
+                        <option value="">AM/PM</option>
+                        <option value="AM">AM</option>
+                        <option value="PM">PM</option>
+                      </select>
+                    </div>
+
+                    <input type="hidden" id="time3" />
+
+                    <div style="height:10px;"></div>
+
+                    <label style="font-weight:900;">Preferred Location</label>
+                    <select id="location3Preset" class="log-input">
+                      <option value="">Choose a preferred location or enter your own below</option>
+                      <option value="4620 Kenmore Ave, Alexandria, VA 22304">4620 Kenmore Ave, Alexandria, VA 22304</option>
+                      <option value="6123 Backlick Rd, Springfield, VA 22150">6123 Backlick Rd, Springfield, VA 22150</option>
+                    </select>
+
+                    <div style="height:10px;"></div>
+
+                    <label style="font-weight:900;">Custom Location</label>
+                    <input id="location3" class="log-input" placeholder="Must be within the DMV range" />
+
+                    <div style="margin-top:8px; font-size:13px; font-weight:800; color:var(--earth-muted);">
+                      You can pick one of the two preferred locations above, or enter another location within the DMV range.
+                    </div>
+                  </div>
+
+                  <div style="margin-top:14px;">
+                    <button id="sendInpersonRequestBtn" type="button"
+                      style="padding:14px 18px; border-radius:14px; border:0; cursor:pointer; font-weight:900; background:var(--earth-olive); color:#fff;">
+                      Send Request
+                    </button>
+
+                    <span id="inpersonMsg" style="margin-left:12px; font-weight:900; color:var(--earth-ink);"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div id="inpersonUnavailableBox" class="section-card" style="display:none;">
+            <div class="section-title">In-Person Training</div>
+            <div class="section-subtitle">
+              In-person training is not active on your account right now.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="mainPanelOnline" class="main-dashboard-panel" style="display:none;">
+      <div class="dashboard-panel-shell">
+        <div class="dashboard-panel-inner">
+          <section id="onlineSection" style="display:none; margin-top:0;">
+            <div id="weekWelcomeSection" class="section-card" style="margin-top:16px; display:none;">
+              <div class="section-title">Welcome to the Week</div>
+              <div id="weekWelcomeText" class="section-subtitle">
+                Your coach’s weekly welcome video will appear here.
+              </div>
+              <div id="weekWelcomeVideoWrap"></div>
+            </div>
+
+            <div id="nutritionGuideSection" class="section-card" style="margin-top:16px; display:none;">
+              <div class="section-title">Weekly Nutrition Guide</div>
+              <div id="nutritionGuideText" class="section-subtitle">
+                Your weekly nutrition guide will appear here.
+              </div>
+              <a
+                id="nutritionGuideLink"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="guide-link"
+                style="display:inline-flex; align-items:center; gap:8px; font-weight:900; text-decoration:none;"
+              >
+                Open This Week’s Nutrition Guide
+              </a>
+            </div>
+
+            <div class="section-card" style="margin-top:16px;">
+              <div class="section-title">Weekly Calendar</div>
+              <div id="weekLabel" class="section-subtitle"></div>
+              <div id="calendar"></div>
+            </div>
+                        <div class="online-workout-row" style="margin-top:16px;">
+              <div class="section-card">
+                <div class="section-title">Workout Details</div>
+                <div id="workoutDetails"></div>
+              </div>
+
+              <div class="section-card">
+                <div class="section-title">Log an Exercise</div>
+
+                <div style="font-weight:900; margin-bottom:10px;">
+                  Selected: <span id="selectedExerciseLabel">(none)</span>
+                </div>
+
+                <div class="online-grid-2">
+                  <div>
+                    <label style="font-weight:900;">Actual Weight</label>
+                    <input id="actualWeight" class="log-input" />
+
+                    <div style="height:10px;"></div>
+
+                    <label style="font-weight:900;">Sets</label>
+                    <input id="actualSets" class="log-input" type="number" />
+
+                    <div style="height:10px;"></div>
+
+                    <label style="font-weight:900;">Reps</label>
+                    <input id="actualReps" class="log-input" />
+                  </div>
+
+                  <div>
+                    <label style="font-weight:900;">Notes</label>
+                    <textarea id="setsReps" class="log-input" style="height:154px;"></textarea>
+
+                    <div style="height:10px;"></div>
+
+                    <label style="display:flex; gap:10px; align-items:center; font-weight:900;">
+                      <input id="completedCheck" type="checkbox" />
+                      Mark completed
+                    </label>
+
+                    <div style="height:10px;"></div>
+
+                    <button id="markCompleteBtn" type="button"
+                      style="padding:12px 16px; border-radius:12px; border:0; cursor:pointer; font-weight:900; background:var(--earth-olive); color:#fff;">
+                      Save Log
+                    </button>
+
+                    <div id="saveMsg" style="margin-top:10px; font-weight:900;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="videoSection" class="section-card" style="margin-top:16px; display:none;">
+              <div class="section-title">Workout Videos</div>
+              <div id="videoList"></div>
+            </div>
+
+            <div id="formCheckSection" class="section-card" style="margin-top:16px; display:none;">
+              <div class="section-title">Pro Form Check</div>
+              <div class="section-subtitle">
+                Upload your workout video + notes on the left. Coach feedback appears on the right.
+              </div>
+
+              <div class="twoCol formCheckTwoCol">
+                <div class="innerCard">
+                  <div style="font-weight:900; font-size:18px; margin-bottom:10px;">Upload Your Video</div>
+
+                  <label style="font-weight:900;">Workout video (mp4 / mov / webm / browser-supported formats)</label>
+                  <input id="clientVideoFile" class="log-input" type="file" accept="video/*" />
+
+                  <div style="height:10px;"></div>
+
+                  <label style="font-weight:900;">Notes for coach (optional)</label>
+                  <textarea id="clientVideoNotes" class="log-input" style="height:120px;"
+                    placeholder="What should I look for? Any pain? What are you working on?"></textarea>
+
+                  <div style="margin-top:12px;">
+                    <button id="clientUploadBtn" type="button"
+                      style="padding:12px 16px; border-radius:12px; border:0; cursor:pointer; font-weight:900; background:var(--earth-olive); color:#fff;">
+                      Upload
+                    </button>
+                    <span id="clientUploadMsg" style="margin-left:10px; font-weight:900;"></span>
+                  </div>
+
+                  <div style="margin-top:18px; font-weight:900;">Your submissions</div>
+                  <div id="clientSubmissionsList" style="margin-top:10px;"></div>
+                </div>
+
+                <div class="innerCard" id="clientFeedbackPanel">
+                  <div style="font-weight:900; font-size:18px; margin-bottom:10px;">Coach Feedback</div>
+                  <div style="opacity:0.9; margin-bottom:10px; color:var(--earth-muted);">
+                    Coach responses and reviewed videos will appear here.
+                  </div>
+                  <div id="clientFeedbackList" style="margin-top:10px;">No coach feedback yet.</div>
+                </div>
+
+                <div id="coachReviewPanel" class="innerCard" style="display:none; grid-column:1 / -1;">
+                  <div style="font-weight:900; font-size:18px; margin-bottom:10px;">Coach Feedback Panel</div>
+
+                  <div style="opacity:0.9; margin-bottom:10px; color:var(--earth-muted);">
+                    Select a submission from the queue, then upload a corrective video and/or notes.
+                  </div>
+
+                  <div id="coachQueueList" style="display:grid; gap:10px;"></div>
+
+                  <div style="height:14px;"></div>
+
+                  <div id="coachSelectedMeta" style="font-weight:900; opacity:0.95;">Selected submission: (none)</div>
+
+                  <div style="height:10px;"></div>
+
+                  <label style="font-weight:900;">Corrective video (optional)</label>
+                  <input id="coachVideoFile" class="log-input" type="file" accept="video/*" />
+
+                  <div style="height:10px;"></div>
+
+                  <label style="font-weight:900;">Written feedback (optional)</label>
+                  <textarea id="coachNotes" class="log-input" style="height:140px;"
+                    placeholder="Cues, corrections, tempo, form notes..."></textarea>
+
+                  <div style="margin-top:12px;">
+                    <button id="coachSendBtn" type="button"
+                      style="padding:12px 16px; border-radius:12px; border:0; cursor:pointer; font-weight:900; background:var(--earth-olive); color:#fff;">
+                      Send Feedback
+                    </button>
+                    <span id="coachSendMsg" style="margin-left:10px; font-weight:900;"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div id="onlineUnavailableBox" class="section-card" style="display:none;">
+            <div class="section-title">Online Training</div>
+            <div class="section-subtitle">
+              Online training is not active on your account right now.
+            </div>
+          </div>
+          <div id="onlineAddonPurchaseBox" class="section-card" style="display:none; margin-top:16px;">
+            <div class="section-title">Add Online Training</div>
+            <div class="section-subtitle">Choose an online plan to activate your dashboard workouts.</div>
+
+            <div style="display:grid; gap:12px; max-width:520px;">
+              <label for="onlineAddonPlanSelect" style="font-weight:900; color:var(--earth-ink);">Choose Plan</label>
+
+              <select id="onlineAddonPlanSelect" class="log-input">
+                <option value="starter_monthly">Starter Monthly</option>
+                <option value="starter_3">Starter (3 Months)</option>
+                <option value="starter_6">Starter (6 Months)</option>
+                <option value="pro_monthly">Pro Monthly</option>
+                <option value="pro_3">Pro (3 Months)</option>
+              </select>
+
+              <button
+                id="onlineAddonBuyBtn"
+                type="button"
+                style="padding:14px 18px; border-radius:14px; border:0; cursor:pointer; font-weight:900; background:var(--earth-olive); color:#fff;">
+                Buy Online Plan
+              </button>
+
+              <div id="onlineAddonStatus" style="font-weight:900; color:var(--earth-ink);"></div>
+            </div>
+          </div>
+
+          <div id="onlineAddonActiveBox" class="section-card" style="display:none; margin-top:16px;">
+  <div class="section-title">Online Training Active</div>
+  <div class="section-subtitle">Your online training plan is active.</div>
+
+<div style="margin-top:10px; text-align:right;">
+  <button
+    type="button"
+    onclick="cancelClientSubscription('online')"
+    class="cancel-link">
+    Cancel subscription
+  </button>
+</div>
+</div>
+          <section id="renewSection" style="display:none; margin-top:18px;">
+            <div class="section-card">
+              <div class="section-title">Subscription Expired</div>
+              <div class="section-subtitle">Please renew to continue.</div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section id="mainPanelNutrition" class="main-dashboard-panel" style="display:none;">
+      <div class="dashboard-panel-shell">
+        <div class="dashboard-panel-inner">
+          <section id="nutritionPanel">
+            <section class="priority-banner">
+              <div id="weekBannerChip" class="priority-date-pill">This Week</div>
+
+              <div class="priority-copy">
+                <h2 id="weekBannerTitle">Your weekly nutrition guide</h2>
+                <p id="weekBannerText">
+                  This tab loads your nutrition page from the link stored in your current client week.
+                </p>
+              </div>
+
+              <div class="priority-points">
+                <div class="priority-point">Your weekly nutrition link loads here.</div>
+                <div class="priority-point">If the page is blocked in the dashboard, use the open button.</div>
+                <div class="priority-point">The old hardcoded nutrition content has been removed.</div>
+              </div>
+            </section>
+
+            <section id="nutritionGuideEmbedShell" class="section-card" style="margin-top:18px;">
+              <div style="font-weight:900; font-size:24px; margin-bottom:10px; color:var(--earth-ink);">
+                Nutrition Guide
+              </div>
+
+              <div style="color:var(--earth-muted); font-weight:700;">
+                Your linked nutrition page will load here.
+              </div>
+            </section>
+
+            <section class="nutrition-visual-grid">
+              <article class="visual-card">
+                <img
+                  src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1200&q=80"
+                  alt="Balanced healthy meal"
+                  loading="lazy"
+                />
+                <div class="visual-card-copy">
+                  <h3>Build Better Meals</h3>
+                  <p>Prioritize protein, produce, fiber-rich carbs, and consistency across the week.</p>
+                </div>
+              </article>
+
+              <article class="visual-card">
+                <img
+                  src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=80"
+                  alt="Nutrition prep ingredients"
+                  loading="lazy"
+                />
+                <div class="visual-card-copy">
+                  <h3>Stay Prepared</h3>
+                  <p>Simple meal prep and smart grocery choices make adherence easier day to day.</p>
+                </div>
+              </article>
+            </section>
+                        <div style="display:none !important;">
+              <section id="weekWelcomeSectionNutrition" style="display:none;">
+                <div id="weekWelcomeTextNutrition"></div>
+                <div id="weekWelcomeVideoWrapNutrition"></div>
+              </section>
+
+              <section id="nutritionGuideSectionNutrition" style="display:none;">
+                <div id="nutritionGuideTextNutrition"></div>
+                <a id="nutritionGuideLinkNutrition" href="#"></a>
+              </section>
+
+              <div id="nutritionBlogBody"></div>
+              <div id="nutritionFocusTitle"></div>
+              <div id="nutritionFocusText"></div>
+              <div id="groceryFocusBox"></div>
+              <div id="easyCarbsBox"></div>
+              <div id="substitutionsBox"></div>
+              <button type="button" id="downloadMealPlanBtn"></button>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section id="mainPanelCalories" class="main-dashboard-panel" style="display:none;">
+      <div class="dashboard-panel-shell">
+        <div class="dashboard-panel-inner">
+          <section id="calorieTrackerPanel">
+            <section class="tracker-hero-card">
+              <div class="tracker-hero-pill">Nutrition Tool</div>
+              <h2>Calorie Tracker</h2>
+              <p>
+                Estimate daily calorie needs, log meals, and compare calories consumed against the daily target.
+              </p>
+            </section>
+
+            <section class="calorie-visual-grid">
+              <article class="visual-card">
+                <img
+                  src="https://images.unsplash.com/photo-1467453678174-768ec283a940?auto=format&fit=crop&w=1200&q=80"
+                  alt="Healthy ingredients and meal planning"
+                  loading="lazy"
+                />
+                <div class="visual-card-copy">
+                  <h3>Track Intake Clearly</h3>
+                  <p>Use the calculator for your target, then log what you actually eat throughout the day.</p>
+                </div>
+              </article>
+
+              <article class="visual-card">
+                <img
+                  src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1200&q=80"
+                  alt="Healthy meal on a plate"
+                  loading="lazy"
+                />
+                <div class="visual-card-copy">
+                  <h3>Stay On Target</h3>
+                  <p>Monitor consumed versus remaining calories so adjustments stay simple and controlled.</p>
+                </div>
+              </article>
+            </section>
+
+            <section class="tracker-grid">
+              <div class="tracker-card">
+                <div class="section-heading tracker-heading">
+                  <h2>Daily Calorie Calculator</h2>
+                  <p>Enter your details below to estimate daily calorie needs.</p>
+                </div>
+
+                <div class="tracker-form">
+                  <div class="tracker-field">
+                    <label for="gender">Gender</label>
+                    <select id="gender" class="tracker-input">
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                    </select>
+                  </div>
+
+                  <div class="tracker-field">
+                    <label for="age">Age</label>
+                    <input id="age" type="number" class="tracker-input" placeholder="Enter age">
+                  </div>
+
+                  <div class="tracker-height-grid">
+                    <div class="tracker-field">
+                      <label for="heightFeet">Height (ft)</label>
+                      <input id="heightFeet" type="number" class="tracker-input" placeholder="Feet">
+                    </div>
+
+                    <div class="tracker-field">
+                      <label for="heightInches">Height (in)</label>
+                      <input id="heightInches" type="number" class="tracker-input" placeholder="Inches">
+                    </div>
+                  </div>
+
+                  <div class="tracker-field">
+                    <label for="weight">Weight (lb)</label>
+                    <input id="weight" type="number" class="tracker-input" placeholder="Enter weight in pounds">
+                  </div>
+
+                  <div class="tracker-field">
+                    <label for="activity">Activity Level</label>
+                    <select id="activity" class="tracker-input">
+                      <option value="1.2">Sedentary</option>
+                      <option value="1.375">Light Activity</option>
+                      <option value="1.55">Moderate</option>
+                      <option value="1.725">Very Active</option>
+                    </select>
+                  </div>
+
+                  <button id="calculateBtn" type="button" class="tracker-btn">
+                    Calculate Daily Calories
+                  </button>
+
+                  <div class="result-box">
+                    <div class="result-label">Estimated Daily Calories</div>
+                    <div id="dailyCalories" class="result-value">—</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tracker-card">
+                <div class="section-heading tracker-heading">
+                  <h2>Food Tracker</h2>
+                  <p>Look calories up in WebMD, then enter the food and calories manually.</p>
+                </div>
+
+                <div class="tracker-form">
+                  <div class="food-helper-card">
+                    <div class="food-helper-title">Need help finding calories?</div>
+                    <p class="food-helper-text">
+                      Open the calorie lookup tool below in a new tab, find the food you ate, then return here and enter the food name and calories manually.
+                    </p>
+
+                    <div class="food-helper-actions one-btn">
+                      <a
+                        href="https://www.webmd.com/diet/healthtool-food-calorie-counter"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="lookup-btn"
+                      >
+                        Open WebMD Calorie Counter
+                      </a>
+                    </div>
+
+                    <div class="food-helper-note">
+                      Enter calories for the actual portion you ate.
+                    </div>
+                  </div>
+
+                  <div class="tracker-field">
+                    <label for="foodName">Food Name</label>
+                    <input id="foodName" class="tracker-input" placeholder="e.g. Chicken and rice">
+                  </div>
+
+                  <div class="tracker-field">
+                    <label for="foodCalories">Calories</label>
+                    <input id="foodCalories" type="number" class="tracker-input" placeholder="e.g. 450">
+                  </div>
+
+                  <button id="addFoodBtn" type="button" class="tracker-btn">
+                    Add Food
+                  </button>
+
+                  <div class="food-list-wrap">
+                    <div class="food-list" id="foodList"></div>
+                  </div>
+
+                  <div class="summary-grid-calories">
+                    <div class="summary-card-calories">
+                      <div class="summary-title">Total Consumed</div>
+                      <div class="summary-value"><span id="consumed">0</span> kcal</div>
+                    </div>
+
+                    <div class="summary-card-calories">
+                      <div class="summary-title">Remaining</div>
+                      <div class="summary-value"><span id="remaining">0</span> kcal</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section id="mainPanelMessages" class="main-dashboard-panel" style="display:none;">
+      <div class="dashboard-panel-shell">
+        <div class="dashboard-panel-inner">
+          <div class="section-card">
+            <div class="section-title">Messages</div>
+            <div class="section-subtitle">
+              Send a direct message to your coach. Replies appear here, and you can pick up the conversation anytime.
+            </div>
+
+            <div id="msgThread" class="msg-thread" aria-live="polite">Loading messages...</div>
+
+            <div class="msg-composer">
+              <textarea
+                id="msgInput"
+                class="log-input msg-input"
+                rows="4"
+                maxlength="4000"
+                placeholder="Write a message to your coach..."></textarea>
+              <button id="msgSendBtn" type="button" class="msg-send-btn">Send</button>
+            </div>
+
+            <div id="msgStatus" class="msg-status"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="videoModal"
+      style="display:none; position:fixed; inset:0; background:rgba(45,58,39,0.52); z-index:9999; align-items:center; justify-content:center; padding:18px;">
+      <div class="videoModalInner">
+        <div class="videoModalHeader">
+          <div id="videoModalTitle" class="title">Workout Video</div>
+          <button id="videoModalClose" class="closeBtn" type="button">Close</button>
+        </div>
+
+        <video id="videoModalPlayer" controls playsinline
+          style="width:100%; border-radius:16px; background:#000; border:1px solid var(--earth-line);">
+          <source id="videoModalSource" src="" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+
+    <div style="margin-top:26px; display:flex; justify-content:center;">
+      <button id="logoutBtn" type="button"
+        style="min-width:240px; padding:12px 14px; border-radius:14px; border:1px solid var(--earth-line); background:var(--earth-tab); color:var(--earth-ink); cursor:pointer; font-weight:900;">
+        Log Out
+      </button>
+    </div>
+
+  <style>
+      :root{
+        --earth-bg:#e8e4d8;
+        --earth-bg-2:#eef2e6;
+        --earth-card:#f7f4ec;
+        --earth-card-2:#eef3e7;
+        --earth-tab:#edf2e8;
+        --earth-line:rgba(89,108,73,0.24);
+        --earth-soft-line:rgba(89,108,73,0.14);
+        --earth-ink:#2c261f;
+        --earth-muted:#5c564c;
+        --earth-olive:#7e9362;
+        --earth-olive-dark:#576b46;
+        --earth-accent:#a07a4b;
+        --earth-shadow:0 12px 30px rgba(64, 72, 50, 0.12);
+
+        --cream-bg:#e9e4d7;
+        --card:#f5f2eb;
+        --card-2:#f8f5ef;
+        --line:#d8d2c4;
+        --earth:#b07a3f;
+        --olive:#7e9362;
+        --olive-dark:#576b46;
+        --ink:#241913;
+        --muted:#62574c;
+        --shadow:0 14px 34px rgba(54, 40, 27, 0.10);
+
+        --nf-cream:#e9e4d7;
+        --nf-card:#f7f3ec;
+        --nf-line:rgba(36,25,19,0.08);
+        --nf-ink:#241913;
+        --nf-muted:#62574c;
+        --nf-earth:#b07a3f;
+        --nf-olive:#7e9362;
+        --nf-olive-dark:#576b46;
+        --nf-shadow:0 14px 34px rgba(54, 40, 27, 0.10);
+
+        --overview-shell-bg-1:#c9b785;
+        --overview-shell-bg-2:#9bad7d;
+        --overview-shell-bg-3:#d8c8a1;
+      }
+
+      *{
+        box-sizing:border-box;
+      }
+
+      html, body{
+        width:100%;
+        overflow-x:hidden;
+      }
+
+      body.dashboard-earth{
+        margin:0;
+        background:linear-gradient(180deg, var(--earth-bg-2) 0%, var(--earth-bg) 100%);
+        color:var(--earth-ink);
+        font-family:"Inter", sans-serif;
+      }
+
+      .dashboard-header{
+        background:rgba(241,238,228,0.96);
+        backdrop-filter:blur(10px);
+        border-bottom:1px solid var(--earth-line);
+      }
+
+      .dashboard-header .banner-inner h1{
+        color:var(--earth-olive-dark);
+      }
+
+      main.page{
+        width:100%;
+      }
+
+      .dashboard-page-tight{
+        width:100%;
+        max-width:none;
+        margin:0;
+        padding:10px 18px 28px;
+      }
+
+      .main-dashboard-panel{
+        display:block;
+        width:100%;
+      }
+
+      .dashboard-page-title,
+      .dashboard-status-line{
+        display:none !important;
+      }
+
+      .section-card{
+        background: var(--earth-card);
+        border: 1px solid var(--earth-line);
+        border-radius: 18px;
+        padding: 16px;
+        box-shadow: var(--earth-shadow);
+        color:var(--earth-ink);
+      }
+
+      .section-title{
+        font-weight:900;
+        font-size:22px;
+        margin:0 0 12px 0;
+        color:var(--earth-ink);
+      }
+
+      .section-subtitle{
+        opacity:0.95;
+        margin:0 0 14px 0;
+        color:var(--earth-muted);
+      }
+
+      .dashboard-welcome-card{
+        display:grid;
+        gap:8px;
+        margin-bottom:8px;
+        padding:14px 18px;
+      }
+
+      .dashboard-welcome-greeting{
+        font-family:"Poppins", sans-serif;
+        font-size:30px;
+        font-weight:800;
+        color:var(--earth-olive-dark);
+        line-height:1.05;
+      }
+
+      .dashboard-welcome-subtext{
+        font-size:16px;
+        font-weight:700;
+        color:var(--earth-muted);
+      }
+
+      .dashboard-main-tabs-shell{
+        display:block !important;
+        width:100% !important;
+        max-width:none !important;
+        margin:0 0 0 0 !important;
+        padding:8px;
+        overflow-x:auto;
+        overflow-y:hidden;
+        border-radius:18px;
+        -webkit-overflow-scrolling:touch;
+      }
+
+      .dashboard-main-tabs-updated{
+        display:flex;
+        justify-content:flex-start;
+        align-items:center;
+        flex-wrap:nowrap;
+        gap:10px;
+        width:max-content;
+        min-width:0;
+        margin:0;
+      }
+
+      .dashboard-main-tab{
+        flex:0 0 auto;
+        min-width:170px;
+        min-height:52px;
+        padding:12px 18px;
+        border:1px solid rgba(89,108,73,0.24);
+        border-radius:14px;
+        background:#fbfaf6;
+        color:var(--earth-ink);
+        cursor:pointer;
+        font-weight:900;
+        font-size:15px;
+        line-height:1;
+        transition:background 140ms ease, color 140ms ease, border-color 140ms ease, transform 140ms ease, box-shadow 140ms ease;
+        box-shadow:0 2px 0 rgba(89,108,73,0.06);
+        white-space:nowrap;
+        text-align:center;
+      }
+
+      .dashboard-main-tab:hover{
+        background:#f0ece2;
+        border-color:rgba(89,108,73,0.36);
+        transform:translateY(-1px);
+      }
+
+      .dashboard-main-tab.active{
+        background:#5f7153;
+        color:#fff;
+        border-color:#5f7153;
+        box-shadow:none;
+      }
+
+      .msg-tab-badge{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        min-width:20px;
+        height:20px;
+        margin-left:8px;
+        padding:0 6px;
+        border-radius:999px;
+        background:#a04545;
+        color:#fff;
+        font-size:12px;
+        font-weight:900;
+        line-height:1;
+        vertical-align:middle;
+      }
+
+      .dashboard-main-tab.active .msg-tab-badge{
+        background:#fff;
+        color:#5f7153;
+      }
+
+      .msg-thread{
+        display:flex;
+        flex-direction:column;
+        gap:10px;
+        max-height:460px;
+        min-height:220px;
+        overflow-y:auto;
+        padding:16px;
+        margin-top:6px;
+        border-radius:18px;
+        border:1px solid var(--earth-line);
+        background:var(--earth-card-2);
+      }
+
+      .msg-bubble{
+        max-width:78%;
+        padding:11px 14px;
+        border-radius:16px;
+        font-weight:600;
+        line-height:1.45;
+        word-break:break-word;
+        white-space:pre-wrap;
+        box-shadow:0 2px 6px rgba(54,40,27,0.06);
+      }
+
+      .msg-bubble .msg-meta{
+        display:block;
+        margin-top:6px;
+        font-size:11px;
+        font-weight:800;
+        opacity:0.7;
+      }
+
+      .msg-mine{
+        align-self:flex-end;
+        background:var(--earth-olive);
+        color:#fff;
+        border-bottom-right-radius:6px;
+      }
+
+      .msg-theirs{
+        align-self:flex-start;
+        background:#fbfaf6;
+        color:var(--earth-ink);
+        border:1px solid var(--earth-soft-line);
+        border-bottom-left-radius:6px;
+      }
+
+      .msg-empty{
+        margin:auto;
+        text-align:center;
+        font-weight:800;
+        color:var(--earth-muted);
+      }
+
+      .msg-composer{
+        display:flex;
+        flex-direction:column;
+        align-items:stretch;
+        gap:12px;
+        width:100%;
+        margin-top:14px;
+      }
+
+      .msg-input{
+        width:100%;
+        resize:vertical;
+        min-height:120px;
+      }
+
+      .msg-send-btn{
+        align-self:flex-end;
+        min-width:160px;
+        padding:14px 22px;
+        border-radius:14px;
+        border:0;
+        cursor:pointer;
+        font-weight:900;
+        background:var(--earth-olive);
+        color:#fff;
+      }
+
+      .msg-send-btn:hover{
+        background:var(--earth-olive-dark);
+      }
+
+      .msg-send-btn:disabled{
+        opacity:0.6;
+        cursor:default;
+      }
+
+      @media (max-width:640px){
+        .msg-send-btn{
+          align-self:stretch;
+          width:100%;
+        }
+      }
+
+      .msg-status{
+        margin-top:10px;
+        font-weight:900;
+        color:var(--earth-muted);
+      }
+
+           #mainPanelOverview,
+      #mainPanelInperson,
+      #mainPanelOnline,
+      #mainPanelNutrition,
+      #mainPanelCalories{
+        margin-top:4px !important;
+        padding-top:0 !important;
+      }
+
+      .overview-common-shell{
+        margin:0;
+        padding:0;
+        width:100%;
+      }
+
+      .overview-common-inner{
+        margin:0;
+        width:100%;
+        max-width:100%;
+        padding:8px;
+        border-radius:22px;
+        background:
+          linear-gradient(
+            145deg,
+            rgba(216,200,161,0.95),
+            rgba(201,183,133,0.95),
+            rgba(155,173,125,0.95)
+          );
+        border:1px solid rgba(87,107,70,0.22);
+        box-shadow:0 16px 34px rgba(64,72,50,0.14);
+        display:grid;
+        gap:8px;
+      }
+      .dashboard-panel-shell{
+        margin:0;
+        padding:0;
+        width:100%;
+      }
+
+      .dashboard-panel-inner{
+        margin:0;
+        width:100%;
+        max-width:100%;
+        padding:8px;
+        border-radius:22px;
+        background:
+          linear-gradient(
+            145deg,
+            rgba(216,200,161,0.95),
+            rgba(201,183,133,0.95),
+            rgba(155,173,125,0.95)
+          );
+        border:1px solid rgba(87,107,70,0.22);
+        box-shadow:0 16px 34px rgba(64,72,50,0.14);
+        display:grid;
+        gap:8px;
+      }
+      .overview-top-grid{
+        display:grid;
+        grid-template-columns:minmax(0, 0.92fr) minmax(0, 1.28fr);
+        gap:8px;
+        align-items:stretch;
+        margin:0;
+      }
+
+      .overview-bottom-grid{
+        display:grid;
+        grid-template-columns:repeat(2, minmax(0,1fr));
+        gap:8px;
+        margin:0;
+      }
+
+      .overview-card{
+        background:rgba(250,247,241,0.94);
+        border:1px solid rgba(36,25,19,0.08);
+        border-radius:18px;
+        box-shadow:var(--shadow);
+        min-width:0;
+      }
+
+      .snapshot-card,
+      .month-card{
+        padding:14px;
+      }
+
+      .summary-card{
+        padding:12px;
+      }
+
+      .overview-card-label{
+        font-size:11px;
+        font-weight:900;
+        letter-spacing:0.08em;
+        text-transform:uppercase;
+        color:var(--earth-olive-dark);
+        margin-bottom:4px;
+      }
+
+      .snapshot-head{
+        display:flex;
+        justify-content:space-between;
+        gap:8px;
+        align-items:flex-start;
+      }
+
+      .snapshot-title-wrap{
+        flex:1 1 auto;
+        min-width:0;
+      }
+
+      .snapshot-title-wrap h2{
+        margin:0;
+        font-family:"Poppins", sans-serif;
+        font-size:28px;
+        line-height:1.02;
+        color:var(--earth-ink);
+        letter-spacing:-0.03em;
+      }
+
+      #overviewSnapshotText{
+        margin:4px 0 0 0;
+        font-size:14px;
+        line-height:1.36;
+        color:var(--earth-muted);
+        font-weight:700;
+        max-width:420px;
+      }
+
+      .overview-date-chip{
+        flex:0 0 auto;
+        min-height:36px;
+        padding:6px 12px;
+        border-radius:999px;
+        border:1px solid rgba(36,25,19,0.08);
+        background:#fbf8f2;
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        font-weight:900;
+        color:var(--earth-olive-dark);
+        white-space:nowrap;
+      }
+
+      .snapshot-stat-grid{
+        margin-top:10px;
+        display:grid;
+        grid-template-columns:repeat(2, minmax(0,1fr));
+        gap:8px;
+      }
+
+      .snapshot-stat{
+        background:#fbf8f2;
+        border:1px solid rgba(36,25,19,0.08);
+        border-radius:12px;
+        padding:10px 12px;
+        min-width:0;
+      }
+
+      .snapshot-stat-wide{
+        grid-column:1 / -1;
+      }
+
+      .snapshot-stat-label{
+        font-size:10px;
+        font-weight:900;
+        text-transform:uppercase;
+        letter-spacing:0.08em;
+        color:var(--earth-muted);
+        margin-bottom:6px;
+      }
+
+      .snapshot-stat-value{
+        font-size:18px;
+        line-height:1.2;
+        font-weight:900;
+        color:var(--earth-ink);
+      }
+
+      .month-card-title-row h3{
+        margin:0;
+        font-family:"Poppins", sans-serif;
+        font-size:20px;
+        line-height:1.02;
+        color:var(--earth-ink);
+      }
+
+      .overview-mini-calendar{
+        margin-top:6px;
+      }
+
+      .overview-calendar-grid{
+        display:grid;
+        grid-template-columns:repeat(7, minmax(0,1fr));
+        gap:6px;
+      }
+
+      .overview-calendar-weekday{
+        text-align:center;
+        font-size:10px;
+        font-weight:900;
+        text-transform:uppercase;
+        color:var(--earth-muted);
+        padding:0 0 2px;
+      }
+
+      .overview-calendar-cell{
+        position:relative;
+        min-height:52px;
+        border-radius:12px;
+        border:1px solid rgba(36,25,19,0.08);
+        background:#fbf8f2;
+        display:flex;
+        align-items:flex-end;
+        justify-content:center;
+        padding:18px 0 8px;
+        font-weight:900;
+        color:var(--earth-ink);
+      }
+
+      .overview-calendar-cell.empty{
+        background:transparent;
+        border:none;
+      }
+
+      .overview-calendar-cell.today{
+        border:2px solid rgba(126,147,98,0.85);
+      }
+
+      .marker-stack{
+        position:absolute;
+        top:5px;
+        left:50%;
+        transform:translateX(-50%);
+        display:flex;
+        flex-direction:column;
+        gap:3px;
+        align-items:center;
+      }
+
+      .overview-calendar-marker{
+        width:8px;
+        height:8px;
+        border-radius:999px;
+      }
+
+      .overview-calendar-marker.inperson{ background:#7e9362; }
+      .overview-calendar-marker.online{ background:#5e86b6; }
+      .overview-calendar-marker.pending{ background:#b07a3f; }
+
+      .overview-calendar-key{
+        margin-top:8px;
+        display:flex;
+        flex-wrap:wrap;
+        gap:6px;
+      }
+
+      .overview-key-pill{
+        display:inline-flex;
+        align-items:center;
+        gap:7px;
+        padding:6px 10px;
+        border-radius:999px;
+        border:1px solid rgba(36,25,19,0.08);
+        background:#fbf8f2;
+        font-weight:800;
+        font-size:12px;
+        color:var(--earth-muted);
+      }
+
+      .overview-key-dot{
+        width:9px;
+        height:9px;
+        border-radius:999px;
+        display:inline-block;
+      }
+
+      .overview-key-dot-today{
+        border:2px solid #7e9362;
+        background:transparent;
+      }
+
+      .overview-key-dot-inperson{ background:#7e9362; }
+      .overview-key-dot-online{ background:#5e86b6; }
+      .overview-key-dot-pending{ background:#b07a3f; }
+
+      .summary-head{
+        display:grid;
+        grid-template-columns:minmax(0,1fr) 122px;
+        gap:10px;
+        align-items:start;
+      }
+
+      .summary-head-copy h3{
+        margin:0;
+        font-family:"Poppins", sans-serif;
+        font-size:20px;
+        line-height:1.02;
+        color:var(--earth-ink);
+      }
+
+      .summary-open-btn{
+        width:122px;
+        min-height:42px;
+        padding:10px 14px;
+        border:none;
+        border-radius:12px;
+        background:#8a9d62;
+        color:#fff;
+        cursor:pointer;
+        font-weight:900;
+        justify-self:end;
+      }
+
+      .summary-body{
+        margin-top:8px;
+        display:grid;
+        gap:6px;
+      }
+
+      .summary-pill-box{
+        background:#fbf8f2;
+        border:1px solid rgba(36,25,19,0.08);
+        border-radius:12px;
+        padding:10px 12px;
+        font-weight:800;
+        color:var(--earth-ink);
+        line-height:1.4;
+      }
+
+      .summary-video-grid{
+        display:grid;
+        grid-template-columns:repeat(3, minmax(0,1fr));
+        gap:6px;
+      }
+
+      .summary-video-card{
+        border:1px solid rgba(36,25,19,0.08);
+        background:#fbf8f2;
+        border-radius:12px;
+        overflow:hidden;
+      }
+
+      .summary-video-preview{
+        width:100%;
+        aspect-ratio:1 / 1;
+        border:0;
+        background:
+          linear-gradient(135deg, rgba(126,147,98,0.18), rgba(176,122,63,0.18)),
+          #eef3e7;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        position:relative;
+      }
+
+      .summary-video-preview::before{
+        content:"▶";
+        width:38px;
+        height:38px;
+        border-radius:999px;
+        background:rgba(44,38,31,0.76);
+        color:#fff;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-size:16px;
+        font-weight:900;
+      }
+
+      .summary-video-caption{
+        padding:7px;
+        font-size:12px;
+        font-weight:800;
+        line-height:1.25;
+        color:var(--earth-ink);
+        text-align:center;
+      }
+
+      .summary-image{
+        width:100%;
+        height:128px;
+        object-fit:cover;
+        border-radius:12px;
+        border:1px solid rgba(36,25,19,0.08);
+        display:block;
+      }
+
+      .snapshot-extra-grid{
+        margin-top:12px;
+        display:grid;
+        grid-template-columns:1.15fr 0.85fr;
+        gap:10px;
+      }
+
+      .snapshot-extra-card{
+        min-width:0;
+        border:1px solid rgba(36,25,19,0.08);
+        border-radius:14px;
+        background:#fbf8f2;
+        overflow:hidden;
+      }
+
+      .snapshot-extra-image{
+        width:100%;
+        height:100%;
+        min-height:226px;
+        object-fit:cover;
+        display:block;
+      }
+
+      .snapshot-extra-caption{
+        padding:10px 12px;
+        text-align:center;
+        font-size:12px;
+        font-weight:800;
+        color:var(--earth-ink);
+      }
+
+      .overview-inline-image-grid{
+        display:grid;
+        grid-template-columns:repeat(2, minmax(0,1fr));
+        gap:10px;
+      }
+
+      .overview-inline-image-card{
+        border:1px solid rgba(36,25,19,0.08);
+        border-radius:12px;
+        overflow:hidden;
+        background:#fbf8f2;
+      }
+
+      .overview-inline-image{
+        width:100%;
+        height:148px;
+        object-fit:cover;
+        display:block;
+      }
+
+      .overview-inline-image-caption{
+        padding:8px 10px;
+        text-align:center;
+        font-size:12px;
+        font-weight:800;
+        color:var(--earth-ink);
+      }
+
+      .overview-chart-wrap{
+        height:100%;
+        border:1px solid rgba(36,25,19,0.08);
+        border-radius:14px;
+        background:#fbf8f2;
+        padding:12px;
+      }
+
+      .overview-chart-head{
+        display:grid;
+        gap:4px;
+        margin-bottom:10px;
+      }
+
+      .overview-chart-title{
+        font-size:14px;
+        font-weight:900;
+        color:var(--earth-ink);
+      }
+
+      .overview-chart-subtitle{
+        font-size:12px;
+        font-weight:700;
+        color:var(--earth-muted);
+      }
+
+      .overview-chart-bars{
+        height:180px;
+        display:grid;
+        grid-template-columns:repeat(7, minmax(0,1fr));
+        gap:8px;
+        align-items:end;
+      }
+
+      .overview-chart-col{
+        min-width:0;
+        display:grid;
+        gap:6px;
+        align-items:end;
+        justify-items:center;
+      }
+
+      .overview-chart-value{
+        font-size:11px;
+        font-weight:800;
+        color:var(--earth-muted);
+        line-height:1;
+      }
+
+      .overview-chart-bar{
+        width:100%;
+        height:132px;
+        display:flex;
+        align-items:flex-end;
+        justify-content:center;
+        border-radius:12px;
+        background:linear-gradient(180deg, rgba(126,147,98,0.08) 0%, rgba(176,122,63,0.12) 100%);
+        overflow:hidden;
+      }
+
+      .overview-chart-fill{
+        width:100%;
+        border-radius:12px 12px 0 0;
+        background:linear-gradient(180deg, #9bad7d 0%, #7e9362 100%);
+      }
+
+      .overview-chart-fill.hit-target{
+        background:linear-gradient(180deg, #c7a06b 0%, #a07a4b 100%);
+      }
+
+      .overview-chart-day{
+        font-size:11px;
+        font-weight:900;
+        color:var(--earth-ink);
+      }
+
+      .tabsRow{
+        flex-wrap: nowrap !important;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .tabBtn{
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        width: auto !important;
+        flex: 0 0 auto;
+        white-space: nowrap;
+      }
+
+      @media (max-width: 900px){
+        .tabsRow{ flex-wrap: wrap !important; overflow-x: visible; }
+      }
+
+      .online-workout-row{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:16px;
+      }
+
+      @media (max-width:980px){
+        .online-workout-row{ grid-template-columns:1fr; }
+      }
+
+      .online-grid-2{
+        display:grid;
+        grid-template-columns:1.1fr 0.9fr;
+        gap:14px;
+      }
+
+      @media (max-width:980px){
+        .online-grid-2{ grid-template-columns:1fr; }
+      }
+
+      .online-daybox{
+        border: 1px solid var(--earth-line);
+        background: var(--earth-card-2);
+        border-radius: 14px;
+        padding: 12px;
+        transition: transform 120ms ease, border-color 120ms ease, background 120ms ease;
+        cursor:pointer;
+        color:var(--earth-ink);
+      }
+
+      .online-daybox:hover{
+        transform: translateY(-1px);
+        border-color: rgba(126,147,98,0.85);
+        background: #e7efe0;
+      }
+
+      .exerciseRow{
+        border: 1px solid var(--earth-line);
+        border-radius: 12px;
+        padding: 12px;
+        background: #f4f1e8;
+        transition: transform 120ms ease, border-color 120ms ease, background 120ms ease;
+        cursor:pointer;
+        color:var(--earth-ink);
+      }
+
+      .exerciseRow:hover{
+        transform: translateY(-1px);
+        border-color: rgba(126,147,98,0.85);
+        background: #ebf1e5;
+      }
+
+      .exerciseVideoHint{
+        margin-top:8px;
+        font-size:12px;
+        font-weight:900;
+        opacity:0.95;
+        color:var(--earth-olive-dark);
+      }
+
+      .log-input{
+        width:100%;
+        padding:12px;
+        border-radius:12px;
+        border:1px solid var(--earth-line);
+        background: #fbfaf6;
+        color:var(--earth-ink);
+        outline:none;
+        box-sizing:border-box;
+      }
+
+      .log-input:focus{
+        border-color: rgba(126,147,98,0.9);
+        box-shadow:0 0 0 3px rgba(126,147,98,0.12);
+      }
+
+      .tabBtn.active{
+        border: 2px solid rgba(126,147,98,0.9) !important;
+        background: rgba(126,147,98,0.14) !important;
+      }
+
+      .plan-card.selected{
+        border: 2px solid rgba(126,147,98,0.9) !important;
+        background: rgba(126,147,98,0.12) !important;
+      }
+
+        .workout-video-group{
+        margin-top:20px;
+        padding:18px;
+        border-radius:20px;
+        border:1px solid rgba(36,25,19,0.08);
+        background:rgba(250,247,241,0.96);
+        box-shadow:0 12px 26px rgba(54,40,27,0.10);
+      }
+
+      .workout-video-group:first-child{
+        margin-top:0;
+      }
+
+      .workout-video-group-title{
+        margin:0 0 14px 0;
+        padding-bottom:12px;
+        border-bottom:1px solid rgba(36,25,19,0.10);
+        font-family:"Poppins", sans-serif;
+        font-size:24px;
+        line-height:1.1;
+        font-weight:800;
+        color:var(--earth-ink);
+      }
+
+      .workout-video-row{
+        display:grid;
+        grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+        gap:0;
+        border:1px solid rgba(36,25,19,0.08);
+        border-radius:16px;
+        overflow:hidden;
+        background:#fbf8f2;
+      }
+
+      .videoTile{
+        width:100%;
+        border:none !important;
+        background:transparent !important;
+        text-align:left;
+        cursor:pointer;
+        padding:16px;
+        border-right:1px solid rgba(36,25,19,0.08) !important;
+        min-width:0 !important;
+        max-width:none !important;
+        border-radius:0 !important;
+        box-shadow:none !important;
+      }
+
+      .videoTile:last-child{
+        border-right:none !important;
+      }
+
+      .videoThumb{
+        width:100%;
+        height:220px;
+        border-radius:14px;
+        overflow:hidden;
+        border:1px solid rgba(36,25,19,0.10);
+        background:#000;
+        box-shadow:0 8px 18px rgba(0,0,0,0.14);
+        position:relative;
+      }
+
+      .videoThumb video{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        display:block;
+        background:#000;
+      }
+
+      .videoLabel{
+        margin-top:10px;
+        font-weight:900;
+        font-size:15px;
+        line-height:1.3;
+        color:var(--earth-ink);
+      }
+
+      @media (max-width:900px){
+        .workout-video-row{
+          grid-template-columns:repeat(2, minmax(0,1fr));
+        }
+
+        .videoTile:nth-child(2n){
+          border-right:none !important;
+        }
+
+        .videoTile:nth-child(n + 3){
+          border-top:1px solid rgba(36,25,19,0.08) !important;
+        }
+      }
+
+      @media (max-width:640px){
+        .workout-video-group{
+          padding:14px;
+          border-radius:18px;
+        }
+
+        .workout-video-group-title{
+          font-size:20px;
+          margin-bottom:12px;
+          padding-bottom:10px;
+        }
+
+        .workout-video-row{
+          grid-template-columns:1fr;
+        }
+
+        .videoTile{
+          padding:14px;
+          border-right:none !important;
+          border-top:1px solid rgba(36,25,19,0.08) !important;
+        }
+
+        .videoTile:first-child{
+          border-top:none !important;
+        }
+
+        .videoThumb{
+          height:200px;
+        }
+      }
+
+      .guide-link{
+        padding:12px 14px;
+        border-radius:12px;
+        border:1px solid var(--earth-line);
+        background: var(--earth-card-2);
+        color:var(--earth-ink);
+      }
+
+      .guide-link:hover{
+        background: rgba(126,147,98,0.14);
+        border-color: rgba(126,147,98,0.55);
+      }
+
+      #videoModal{
+        display:none;
+        position:fixed;
+        inset:0;
+        z-index:9999;
+        background: rgba(44,58,34,0.52);
+        backdrop-filter: blur(6px);
+        align-items:center;
+        justify-content:center;
+        padding:18px;
+      }
+
+      .videoModalInner{
+        width: min(720px, 94vw);
+        display:flex;
+        flex-direction:column;
+        gap:12px;
+      }
+
+      .videoModalHeader{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:12px 14px;
+        border-radius:14px;
+        background: var(--earth-card);
+        border:1px solid var(--earth-line);
+      }
+
+      .videoModalHeader .title{
+        font-weight:900;
+        overflow:hidden;
+        text-overflow:ellipsis;
+        white-space:nowrap;
+        color:var(--earth-ink);
+      }
+
+      .videoModalHeader .closeBtn{
+        cursor:pointer;
+        border:0;
+        border-radius:12px;
+        padding:10px 12px;
+        font-weight:900;
+        background: var(--earth-card-2);
+        color:var(--earth-ink);
+      }
+
+      .videoModalHeader .closeBtn:hover{
+        background: rgba(126,147,98,0.22);
+      }
+
+      #videoModalPlayer{
+        width: min(720px, 94vw) !important;
+        max-height: 78vh;
+        height: auto;
+        display:block;
+        margin: 0 auto;
+        border-radius:16px;
+        background:#000;
+        object-fit: contain;
+        border:1px solid var(--earth-line);
+        box-shadow: 0 12px 40px rgba(0,0,0,0.24);
+      }
+
+      @media (max-width:480px){
+        #videoModalPlayer{ width: min(340px, 92vw) !important; }
+      }
+
+      .twoCol{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:14px;
+        align-items:start;
+      }
+
+      @media (max-width:980px){
+        .twoCol{ grid-template-columns:1fr; }
+      }
+
+      .formCheckTwoCol{
+        grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);
+        align-items:start;
+      }
+
+      @media (max-width:980px){
+        .formCheckTwoCol{
+          grid-template-columns:1fr;
+        }
+      }
+
+      .innerCard{
+        background: var(--earth-card-2);
+        border: 1px solid var(--earth-line);
+        border-radius: 16px;
+        padding: 14px;
+        height: 100%;
+        align-self: start;
+        min-width: 0;
+        color:var(--earth-ink);
+      }
+
+      .reviewCard{
+        margin-top:12px;
+        padding:12px;
+        border-radius:14px;
+        border:1px solid var(--earth-line);
+        background: #f6f3eb;
+      }
+
+      .miniVideo{
+        width:100%;
+        border-radius:14px;
+        border:1px solid var(--earth-line);
+        background:#000;
+        max-height:320px;
+        object-fit: cover;
+      }
+
+      .noteBox{
+        padding:10px;
+        border-radius:12px;
+        border:1px solid var(--earth-line);
+        background: #fbfaf6;
+        opacity:0.98;
+        white-space:pre-wrap;
+        color:var(--earth-ink);
+      }
+
+      .pill{
+        display:inline-flex;
+        align-items:center;
+        padding:6px 10px;
+        border-radius:999px;
+        font-weight:900;
+        font-size:12px;
+        border:1px solid var(--earth-line);
+        background: var(--earth-card-2);
+        color:var(--earth-ink);
+      }
+
+      .pill-green{
+        border-color: rgba(126,147,98,0.55);
+        background: rgba(126,147,98,0.14);
+      }
+
+      .pill-yellow{
+        border-color: rgba(176,122,63,0.45);
+        background: rgba(176,122,63,0.12);
+      }
+
+      .queueItem{
+        text-align:left;
+        padding:12px;
+        border-radius:14px;
+        border:1px solid var(--earth-line);
+        background: var(--earth-card-2);
+        color:var(--earth-ink);
+        cursor:pointer;
+      }
+
+      .queueItem:hover{
+        border-color: rgba(126,147,98,0.6);
+        background: #e9f0e3;
+      }
+
+      .queueItem.selected{
+        border:2px solid rgba(126,147,98,0.9);
+        background: rgba(126,147,98,0.12);
+      }
+
+      .queueVideo{
+        width:100%;
+        border-radius:14px;
+        border:1px solid var(--earth-line);
+        background:#000;
+        max-height:200px;
+        object-fit:cover;
+      }
+
+      .schedule-table-wrap{
+        width:100%;
+        overflow-x:auto;
+        -webkit-overflow-scrolling:touch;
+      }
+
+      .schedule-table{
+        table-layout:fixed;
+      }
+
+      .schedule-location-cell{
+        white-space:normal;
+        overflow-wrap:anywhere;
+        word-break:break-word;
+      }
+
+      .priority-banner,
+      .tracker-hero-card,
+      .tracker-card{
+        background:rgba(250,247,241,0.92);
+        border:1px solid rgba(36,25,19,0.08);
+        border-radius:30px;
+        box-shadow:var(--shadow);
+      }
+
+      .priority-banner{
+        display:grid;
+        grid-template-columns:260px minmax(0,1fr) 360px;
+        gap:14px;
+        align-items:center;
+        padding:12px 20px;
+        margin-bottom:24px;
+      }
+
+      .priority-date-pill{
+        min-height:62px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        text-align:center;
+        border-radius:24px;
+        border:1px solid rgba(36,25,19,0.08);
+        background:rgba(255,255,255,0.35);
+        font-family:"Poppins", sans-serif;
+        font-weight:700;
+        font-size:18px;
+        color:var(--earth);
+        text-transform:uppercase;
+        letter-spacing:0.02em;
+        padding:10px 18px;
+      }
+
+      .priority-copy{
+        text-align:center;
+        max-width:640px;
+        margin:0 auto;
+      }
+
+      .priority-copy h2{
+        margin:0 0 6px 0;
+        font-family:"Poppins", sans-serif;
+        font-size:28px;
+        line-height:1.02;
+        font-weight:800;
+        letter-spacing:-0.04em;
+        color:var(--ink);
+      }
+
+      .priority-copy p{
+        margin:0;
+        font-size:15px;
+        line-height:1.35;
+        font-weight:700;
+        color:#685c50;
+      }
+
+      .priority-points{
+        display:grid;
+        gap:8px;
+      }
+
+      .priority-point{
+        min-height:66px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        text-align:center;
+        padding:12px 16px 12px 40px;
+        border-radius:20px;
+        border:1px solid rgba(36,25,19,0.08);
+        background:rgba(255,255,255,0.45);
+        position:relative;
+        font-size:14px;
+        line-height:1.25;
+        font-weight:800;
+        color:var(--ink);
+      }
+
+      .priority-point::before{
+        content:"";
+        position:absolute;
+        left:16px;
+        top:50%;
+        transform:translateY(-50%);
+        width:10px;
+        height:10px;
+        border-radius:999px;
+        background:#95a66f;
+      }
+
+      .tracker-hero-card{
+        text-align:center;
+        padding:30px 28px;
+        margin-bottom:22px;
+      }
+
+      .tracker-hero-pill{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        padding:10px 16px;
+        border-radius:999px;
+        border:1px solid var(--nf-line);
+        background:rgba(126,147,98,0.10);
+        color:var(--nf-olive-dark);
+        font-family:"Poppins", sans-serif;
+        font-size:14px;
+        font-weight:700;
+        text-transform:uppercase;
+        letter-spacing:0.03em;
+        margin-bottom:18px;
+      }
+
+      .tracker-hero-card h2{
+        margin:0;
+        font-family:"Poppins", sans-serif;
+        font-size:54px;
+        line-height:0.98;
+        letter-spacing:-0.04em;
+        color:var(--nf-ink);
+      }
+
+      .tracker-hero-card p{
+        max-width:880px;
+        margin:14px auto 0;
+        color:#685c50;
+        font-size:18px;
+        font-weight:700;
+        line-height:1.75;
+      }
+
+      .tracker-grid{
+        display:grid;
+        grid-template-columns:repeat(2, minmax(0,1fr));
+        gap:22px;
+      }
+
+      .tracker-card{
+        padding:28px 24px 26px;
+      }
+
+      .tracker-heading h2{
+        font-size:38px;
+        color:var(--nf-ink);
+      }
+
+      .tracker-heading p{
+        color:#6a5e53;
+        font-size:16px;
+        font-weight:700;
+        line-height:1.7;
+      }
+
+      .tracker-form{
+        max-width:100%;
+      }
+
+      .tracker-field{
+        margin-bottom:14px;
+      }
+
+      .tracker-field label{
+        display:block;
+        margin-bottom:8px;
+        font-size:15px;
+        font-weight:800;
+        color:var(--nf-ink);
+      }
+
+      .tracker-height-grid{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:14px;
+      }
+
+      .tracker-input{
+        width:100%;
+        padding:14px 16px;
+        border-radius:16px;
+        border:1px solid rgba(36,25,19,0.12);
+        background:#f4efe6;
+        color:var(--nf-ink);
+        font-size:16px;
+        font-weight:600;
+        outline:none;
+      }
+
+      .tracker-input:focus{
+        border-color:rgba(87,107,70,0.42);
+        box-shadow:0 0 0 4px rgba(126,147,98,0.12);
+        background:#fbf8f2;
+      }
+
+      .tracker-btn{
+        width:100%;
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        border:none;
+        border-radius:16px;
+        background:#829660;
+        color:#fff;
+        font-family:"Inter", sans-serif;
+        font-weight:800;
+        font-size:17px;
+        padding:15px 18px;
+        cursor:pointer;
+        box-shadow:0 8px 18px rgba(87,107,70,0.24);
+        margin-top:6px;
+      }
+
+      .tracker-btn:hover{
+        background:#728654;
+      }
+
+      .result-box{
+        margin-top:18px;
+        padding:18px;
+        border-radius:22px;
+        border:1px solid rgba(36,25,19,0.08);
+        background:#f2ede4;
+        text-align:center;
+      }
+
+      .result-label{
+        font-size:14px;
+        font-weight:800;
+        text-transform:uppercase;
+        letter-spacing:0.03em;
+        color:var(--nf-earth);
+        margin-bottom:8px;
+      }
+
+      .result-value{
+        font-family:"Poppins", sans-serif;
+        font-size:32px;
+        line-height:1.1;
+        color:var(--nf-olive-dark);
+        font-weight:800;
+      }
+
+      .food-helper-card{
+        margin-bottom:18px;
+        padding:18px;
+        border-radius:22px;
+        border:1px solid rgba(36,25,19,0.08);
+        background:#f2ede4;
+      }
+
+      .food-helper-title{
+        font-family:"Poppins", sans-serif;
+        font-size:20px;
+        line-height:1.1;
+        color:var(--nf-ink);
+        font-weight:800;
+        margin-bottom:10px;
+      }
+
+      .food-helper-text{
+        margin:0 0 14px 0;
+        color:#5f5449;
+        font-size:15px;
+        line-height:1.7;
+        font-weight:700;
+      }
+
+      .food-helper-actions{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:10px;
+      }
+
+      .lookup-btn{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        min-height:52px;
+        border:none;
+        border-radius:14px;
+        background:#829660;
+        color:#fff;
+        text-decoration:none;
+        font-family:"Inter", sans-serif;
+        font-size:15px;
+        font-weight:800;
+        padding:12px 14px;
+        box-shadow:0 8px 18px rgba(87,107,70,0.20);
+        text-align:center;
+      }
+
+      .lookup-btn:hover{
+        background:#728654;
+      }
+
+      .food-helper-note{
+        margin-top:12px;
+        font-size:13px;
+        font-weight:800;
+        color:#6a5e53;
+        text-transform:uppercase;
+        letter-spacing:0.03em;
+      }
+
+      .food-list-wrap{
+        margin-top:18px;
+        padding:16px;
+        border-radius:22px;
+        border:1px solid rgba(36,25,19,0.08);
+        background:#f2ede4;
+        min-height:120px;
+      }
+
+      .food-list{
+        display:grid;
+        gap:10px;
+      }
+
+      .food-item{
+        display:flex;
+        justify-content:space-between;
+        gap:12px;
+        padding:12px 14px;
+        border-radius:14px;
+        border:1px solid rgba(36,25,19,0.08);
+        background:#fbf8f2;
+        color:var(--nf-ink);
+        font-weight:700;
+        word-break:break-word;
+      }
+
+      .food-item-empty{
+        color:#6a5e53;
+        font-weight:700;
+        text-align:center;
+        padding:16px 10px;
+      }
+
+      .food-item-main{
+        flex:1 1 auto;
+        min-width:0;
+      }
+
+      .food-item-name{
+        display:block;
+      }
+
+      .food-item-meta{
+        display:block;
+        margin-top:4px;
+        font-size:13px;
+        color:#6a5e53;
+        font-weight:700;
+      }
+
+      .food-item-right{
+        flex:0 0 auto;
+        display:flex;
+        align-items:center;
+        gap:8px;
+      }
+
+      .food-delete-btn{
+        border:none;
+        background:#b07a3f;
+        color:#fff;
+        border-radius:10px;
+        padding:8px 10px;
+        font-weight:800;
+        cursor:pointer;
+      }
+
+      .food-delete-btn:hover{
+        background:#966530;
+      }
+
+      .summary-grid-calories{
+        display:grid;
+        grid-template-columns:repeat(2, minmax(0,1fr));
+        gap:14px;
+        margin-top:18px;
+      }
+
+      .summary-card-calories{
+        padding:18px 16px;
+        border-radius:22px;
+        border:1px solid rgba(36,25,19,0.08);
+        background:#f2ede4;
+        text-align:center;
+      }
+
+      .summary-title{
+        font-size:14px;
+        font-weight:800;
+        text-transform:uppercase;
+        letter-spacing:0.03em;
+        color:var(--nf-earth);
+        margin-bottom:8px;
+      }
+
+      .summary-value{
+        font-family:"Poppins", sans-serif;
+        font-size:24px;
+        line-height:1.15;
+        color:var(--nf-ink);
+        font-weight:800;
+      }
+
+      footer{
+        margin-top:28px;
+        padding:18px 16px 28px;
+        border-top:1px solid rgba(89,108,73,0.18);
+        background:rgba(247,244,236,0.68);
+      }
+
+      footer nav{
+        max-width:1200px;
+        margin:0 auto;
+        display:flex;
+        flex-wrap:wrap;
+        gap:10px;
+        align-items:center;
+        justify-content:center;
+        text-align:center;
+        font-size:14px;
+        line-height:1.5;
+        color:var(--earth-muted);
+      }
+
+      footer nav a{
+        color:var(--earth-olive-dark);
+        text-decoration:none;
+        font-weight:800;
+      }
+
+      footer nav .logo img{
+        max-height:34px;
+        width:auto;
+        display:block;
+      }
+
+      .nutrition-visual-grid,
+      .calorie-visual-grid{
+        display:grid;
+        grid-template-columns:repeat(2, minmax(0,1fr));
+        gap:18px;
+        margin-top:18px;
+      }
+
+      .visual-card{
+        background:rgba(250,247,241,0.92);
+        border:1px solid rgba(36,25,19,0.08);
+        border-radius:24px;
+        box-shadow:var(--shadow);
+        overflow:hidden;
+        min-width:0;
+      }
+
+      .visual-card img{
+        width:100%;
+        height:320px;
+        object-fit:cover;
+        display:block;
+      }
+
+      .visual-card-copy{
+        padding:16px 18px 18px;
+      }
+
+      .visual-card-copy h3{
+        margin:0 0 6px 0;
+        font-family:"Poppins", sans-serif;
+        font-size:22px;
+        line-height:1.08;
+        color:var(--earth-ink);
+      }
+
+      .visual-card-copy p{
+        margin:0;
+        color:var(--earth-muted);
+        font-size:15px;
+        line-height:1.55;
+        font-weight:700;
+      }
+
+      .video-preview-grid{
+        display:grid;
+        grid-template-columns:repeat(2, minmax(0,1fr));
+        gap:16px;
+        margin-top:12px;
+      }
+
+      .video-preview-card{
+        background:var(--earth-card-2);
+        border:1px solid var(--earth-line);
+        border-radius:18px;
+        padding:12px;
+        min-width:0;
+      }
+
+      .video-preview-meta{
+        margin-top:10px;
+        display:grid;
+        gap:6px;
+      }
+
+      .video-preview-title{
+        font-weight:900;
+        font-size:15px;
+        line-height:1.3;
+        color:var(--earth-ink);
+      }
+
+      .video-preview-subtitle{
+        font-size:13px;
+        line-height:1.35;
+        font-weight:700;
+        color:var(--earth-muted);
+      }
+
+      .video-preview-open{
+        margin-top:4px;
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        min-height:42px;
+        padding:10px 14px;
+        border:none;
+        border-radius:12px;
+        background:#8a9d62;
+        color:#fff;
+        cursor:pointer;
+        font-weight:900;
+      }
+
+      @media (max-width:1380px){
+        .priority-banner{
+          grid-template-columns:220px minmax(0,1fr) 300px;
+          gap:12px;
+          padding:10px 16px;
+        }
+
+        .priority-date-pill{
+          min-height:58px;
+          font-size:16px;
+        }
+
+        .priority-copy h2{
+          font-size:24px;
+        }
+
+        .priority-copy p{
+          font-size:14px;
+        }
+
+        .priority-point{
+          min-height:60px;
+          font-size:13px;
+        }
+      }
+
+      @media (max-width:1100px){
+        .overview-top-grid{
+          grid-template-columns:1fr;
+        }
+      }
+
+      @media (max-width:980px){
+        .tracker-grid{
+          grid-template-columns:1fr;
+        }
+
+        .overview-bottom-grid{
+          grid-template-columns:1fr;
+        }
+
+        .nutrition-visual-grid,
+        .calorie-visual-grid,
+        .video-preview-grid{
+          grid-template-columns:1fr;
+        }
+      }
+
+      @media (max-width:860px){
+        .tracker-height-grid,
+        .summary-grid-calories,
+        .food-helper-actions{
+          grid-template-columns:1fr;
+        }
+
+        .food-item{
+          flex-direction:column;
+          align-items:flex-start;
+        }
+
+        .food-item-right{
+          width:100%;
+          justify-content:space-between;
+        }
+
+        .summary-video-grid{
+          grid-template-columns:1fr 1fr;
+        }
+      }
+
+      @media (max-width:760px){
+        .priority-banner,
+        .tracker-hero-card,
+        .tracker-card{
+          border-radius:24px;
+          padding:18px 16px 20px;
+        }
+
+        .priority-banner{
+          padding:14px;
+          grid-template-columns:1fr;
+        }
+
+        .priority-date-pill{
+          font-size:16px;
+          min-height:54px;
+          border-radius:22px;
+        }
+
+        .priority-copy h2{
+          font-size:22px;
+        }
+
+        .priority-copy p{
+          font-size:14px;
+        }
+
+        .priority-point{
+          min-height:58px;
+          font-size:13px;
+          padding:12px 12px 12px 36px;
+          border-radius:18px;
+        }
+
+        .priority-point::before{
+          left:14px;
+          width:10px;
+          height:10px;
+        }
+
+        .dashboard-main-tabs-shell{
+          padding:6px;
+        }
+
+        .dashboard-main-tabs-updated{
+          gap:8px;
+          width:max-content;
+          min-width:0;
+        }
+
+        .dashboard-main-tab{
+          min-width:150px !important;
+          min-height:50px !important;
+          font-size:14px !important;
+          padding:11px 14px !important;
+        }
+
+        .summary-head{
+          grid-template-columns:1fr;
+        }
+
+        .summary-open-btn{
+          width:100%;
+          justify-self:stretch;
+        }
+
+        .snapshot-head{
+          flex-direction:column;
+          align-items:flex-start;
+        }
+
+        .snapshot-stat-grid{
+          grid-template-columns:1fr;
+        }
+
+        .dashboard-page-tight{
+          padding:8px 12px 20px !important;
+        }
+
+        .dashboard-welcome-greeting{
+          font-size:24px !important;
+        }
+
+        .dashboard-welcome-subtext{
+          font-size:14px !important;
+          line-height:1.45 !important;
+        }
+
+                .overview-common-inner,
+        .dashboard-panel-inner{
+          padding:8px;
+          border-radius:20px;
+        }
+
+        .overview-top-grid,
+        .overview-bottom-grid{
+          gap:8px;
+        }
+
+        .visual-card img{
+          height:240px;
+        }
+
+        .videoThumb{
+          height:190px;
+        }
+      }
+
+      @media (max-width:700px){
+        .schedule-table th,
+        .schedule-table td{
+          font-size:13px;
+          padding:8px !important;
+          vertical-align:top;
+        }
+
+        .schedule-table th:nth-child(1),
+        .schedule-table td:nth-child(1){
+          width:56px;
+        }
+
+        .schedule-table th:nth-child(2),
+        .schedule-table td:nth-child(2){
+          width:90px;
+        }
+
+        .schedule-table th:nth-child(3),
+        .schedule-table td:nth-child(3){
+          width:92px;
+        }
+
+        .schedule-table th:nth-child(4),
+        .schedule-table td:nth-child(4){
+          min-width:0;
+        }
+
+        .schedule-location-cell{
+          max-width:0;
+        }
+
+        .summary-video-grid{
+          grid-template-columns:1fr;
+        }
+      }
+
+      /* ===== FINAL DASHBOARD OVERRIDES ===== */
+
+      #membershipSummaryBar,
+      #welcomeBanner,
+      .dashboard-main-tabs-shell,
+      #mainPanelOverview,
+      #mainPanelInperson,
+      #mainPanelOnline,
+      #mainPanelNutrition,
+      #mainPanelCalories{
+        width:100% !important;
+        max-width:none !important;
+        margin-left:0 !important;
+        margin-right:0 !important;
+      }
+
+      .dashboard-main-tabs-shell{
+        display:block !important;
+        overflow-x:auto !important;
+        overflow-y:hidden !important;
+        -webkit-overflow-scrolling:touch !important;
+      }
+
+      .dashboard-main-tabs,
+      .dashboard-main-tabs-updated{
+        display:flex !important;
+        flex-wrap:nowrap !important;
+        justify-content:flex-start !important;
+        align-items:center !important;
+        gap:10px !important;
+        width:max-content !important;
+        min-width:0 !important;
+        margin:0 !important;
+      }
+
+      .dashboard-main-tab{
+        flex:0 0 auto !important;
+        width:auto !important;
+        min-width:170px !important;
+        white-space:nowrap !important;
+        text-align:center !important;
+      }
+
+      .tabsRow{
+        display:flex !important;
+        flex-wrap:nowrap !important;
+        justify-content:flex-start !important;
+        gap:14px !important;
+        overflow-x:auto !important;
+        overflow-y:hidden !important;
+        -webkit-overflow-scrolling:touch !important;
+      }
+
+      .tabBtn{
+        flex:0 0 auto !important;
+        width:auto !important;
+        white-space:nowrap !important;
+      }
+
+      #calendar{
+        display:grid !important;
+        grid-template-columns:repeat(7, minmax(0,1fr)) !important;
+        gap:10px !important;
+        width:100% !important;
+      }
+
+      #workoutDetails,
+      #nutritionGuideEmbedShell,
+      #calorieTrackerPanel,
+      #nutritionPanel{
+        width:100% !important;
+      }
+
+      .priority-banner{
+        display:grid !important;
+        grid-template-columns:260px minmax(0,1fr) !important;
+        gap:14px !important;
+        align-items:center !important;
+      }
+
+      .priority-points{
+        display:none !important;
+      }
+
+      .tracker-grid{
+        display:grid !important;
+        grid-template-columns:repeat(2, minmax(0,1fr)) !important;
+        gap:22px !important;
+      }
+
+      .tracker-card,
+      .section-card,
+      .overview-card{
+        min-width:0 !important;
+      }
+
+      .food-list-wrap,
+      .summary-grid-calories,
+      .tracker-form,
+      .online-workout-row,
+      .online-grid-2{
+        width:100% !important;
+      }
+
+      .online-workout-row{
+        display:grid !important;
+        grid-template-columns:1fr 1fr !important;
+        gap:16px !important;
+      }
+
+      .online-grid-2{
+        display:grid !important;
+        grid-template-columns:1.1fr 0.9fr !important;
+        gap:14px !important;
+      }
+
+      #inpersonCalendarFrame{
+        display:block !important;
+        width:100% !important;
+        min-height:720px !important;
+      }
+
+      @media (max-width:980px){
+        .priority-banner{
+          grid-template-columns:1fr !important;
+          text-align:center !important;
+        }
+
+        .priority-date-pill{
+          margin:0 auto !important;
+        }
+
+        .tracker-grid{
+          grid-template-columns:1fr !important;
+        }
+
+        .online-workout-row{
+          grid-template-columns:1fr !important;
+        }
+
+        .online-grid-2{
+          grid-template-columns:1fr !important;
+        }
+
+        .overview-bottom-grid{
+          grid-template-columns:1fr !important;
+        }
+      }
+
+      @media (max-width:900px){
+        .tabsRow{
+          flex-wrap:nowrap !important;
+          overflow-x:auto !important;
+          overflow-y:hidden !important;
+          justify-content:flex-start !important;
+          -webkit-overflow-scrolling:touch !important;
+        }
+      }
+
+      @media (max-width:760px){
+        .dashboard-main-tabs,
+        .dashboard-main-tabs-updated{
+          gap:8px !important;
+          width:max-content !important;
+          min-width:0 !important;
+        }
+
+        .dashboard-main-tab{
+          min-width:150px !important;
+          min-height:50px !important;
+          font-size:14px !important;
+          padding:11px 14px !important;
+        }
+
+        #calendar{
+          grid-template-columns:1fr !important;
+        }
+
+        .tracker-hero-card,
+        .tracker-card,
+        .priority-banner{
+          border-radius:24px !important;
+        }
+      }
+            .overview-video-strip{
+        display:grid;
+        grid-template-columns:repeat(2, minmax(0,1fr));
+        gap:10px;
+      }
+
+      .overview-video-tile{
+        display:block;
+        width:100%;
+        border:1px solid rgba(36,25,19,0.08);
+        border-radius:12px;
+        background:#fbf8f2;
+        padding:8px;
+        text-align:left;
+        cursor:pointer;
+      }
+
+      .overview-video-thumb-live{
+        position:relative;
+        width:100%;
+        height:130px;
+        border-radius:10px;
+        overflow:hidden;
+        border:1px solid rgba(36,25,19,0.08);
+        background:#000;
+      }
+
+      .overview-video-thumb-player{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        display:block;
+        background:#000;
+        pointer-events:none;
+      }
+
+      .overview-video-overlay{
+        position:absolute;
+        inset:0;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        pointer-events:none;
+        background:linear-gradient(to top, rgba(0,0,0,0.22), rgba(0,0,0,0.10));
+      }
+
+      .overview-video-play-icon{
+        width:42px;
+        height:42px;
+        border-radius:999px;
+        background:rgba(44,38,31,0.78);
+        color:#fff;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-size:16px;
+        font-weight:900;
+      }
+
+      .overview-video-tile-caption{
+        margin-top:8px;
+        font-size:12px;
+        line-height:1.3;
+        font-weight:800;
+        color:var(--earth-ink);
+        text-align:center;
+      }
+
+      @media (max-width:700px){
+        .overview-video-strip{
+          grid-template-columns:1fr;
+        }
+
+        .overview-video-thumb-live{
+          height:160px;
+        }
+
+        .snapshot-extra-grid{
+          grid-template-columns:1fr;
+        }
+
+        .snapshot-extra-image{
+          min-height:180px;
+        }
+
+        .overview-inline-image-grid{
+          grid-template-columns:1fr;
+        }
+
+        .overview-inline-image{
+          height:170px;
+        }
+
+        .overview-chart-bars{
+          gap:6px;
+          height:160px;
+        }
+
+        .overview-chart-bar{
+          height:118px;
+        }
+      }
+
+      @media (max-width: 900px) {
+  html,
+  body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  main.page,
+  .dashboard-page-tight,
+  .dashboard-panel-shell,
+  .dashboard-panel-inner,
+  #mainPanelInperson,
+  #inpersonSection,
+  #panelBooked,
+  #panelRequest,
+  #inpersonCalendarBox,
+  #inpersonScheduleBox,
+  #paygList {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  #panelBooked .section-card,
+  #panelRequest .section-card,
+  #inpersonPaymentBanner,
+  #inpersonCalendarBox {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  #inpersonSection h2 {
+    font-size: 28px !important;
+    line-height: 1.15 !important;
+    margin: 14px 0 8px 0 !important;
+    padding: 0 4px !important;
+    text-align: center !important;
+    word-break: break-word !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  #inpersonPlanStatus,
+  #inpersonRules,
+  #inpersonHint {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 4px !important;
+    box-sizing: border-box !important;
+    word-break: break-word !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  .inperson-tabs-row {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    gap: 10px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding-bottom: 4px !important;
+  }
+
+  .inperson-tabs-row .tabBtn {
+    flex: 0 0 auto !important;
+    min-width: 170px !important;
+    max-width: none !important;
+    white-space: nowrap !important;
+  }
+
+  .schedule-table-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .schedule-table {
+    width: 100% !important;
+    min-width: 520px !important;
+    table-layout: auto !important;
+  }
+
+  .schedule-table th,
+  .schedule-table td {
+    font-size: 13px !important;
+    padding: 8px !important;
+    vertical-align: top !important;
+  }
+
+  .schedule-location-cell {
+    white-space: normal !important;
+    word-break: break-word !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  #inpersonCalendarFrame {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: 360px !important;
+    min-height: 360px !important;
+    border: 0 !important;
+  }
+
+  #paygList > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+}
+
+@media (max-width: 640px) {
+  #inpersonSection h2 {
+    font-size: 24px !important;
+  }
+
+  #inpersonCalendarFrame {
+    height: 320px !important;
+    min-height: 320px !important;
+  }
+
+  .schedule-table {
+    min-width: 480px !important;
+  }
+}
+      .dashboard-video-block{
+        display:grid;
+        gap:12px;
+        min-width:0;
+      }
+
+      .dashboard-video-block-title{
+        font-weight:900;
+        font-size:22px;
+        color:var(--earth-ink);
+        line-height:1.15;
+      }
+
+      .dashboard-responsive-video-frame{
+        position:relative;
+        width:100%;
+        padding-top:56.25%;
+        border-radius:16px;
+        overflow:hidden;
+        background:#000;
+      }
+
+      .dashboard-responsive-video-frame iframe{
+        position:absolute;
+        inset:0;
+        width:100%;
+        height:100%;
+        border:0;
+        display:block;
+      }
+
+      .dashboard-responsive-video-player{
+        width:100%;
+        max-width:100%;
+        max-height:620px;
+        border-radius:16px;
+        background:#000;
+        display:block;
+      }
+
+      #weekWelcomeSection,
+      #weekWelcomeVideoWrap,
+      #weekWelcomeVideoWrap .dashboard-video-block,
+      #weekWelcomeVideoWrap .dashboard-responsive-video-frame,
+      #weekWelcomeVideoWrap .dashboard-responsive-video-player{
+        width:100%;
+        max-width:100%;
+        min-width:0;
+      }
+
+      @media (max-width:900px){
+        #mainPanelOnline,
+        #mainPanelOnline .dashboard-panel-shell,
+        #mainPanelOnline .dashboard-panel-inner,
+        #onlineSection,
+        #weekWelcomeSection,
+        #weekWelcomeVideoWrap{
+          width:100% !important;
+          max-width:100% !important;
+          min-width:0 !important;
+          overflow-x:hidden !important;
+          box-sizing:border-box !important;
+        }
+
+        #weekWelcomeSection{
+          padding:14px !important;
+        }
+
+        .dashboard-video-block-title{
+          font-size:18px !important;
+          line-height:1.2 !important;
+        }
+
+        .dashboard-responsive-video-frame{
+          border-radius:14px !important;
+        }
+
+        .dashboard-responsive-video-player{
+          max-height:340px !important;
+          border-radius:14px !important;
+        }
+      }
+
+      @media (max-width:640px){
+        #weekWelcomeSection{
+          margin-top:12px !important;
+          padding:12px !important;
+        }
+
+        #weekWelcomeText{
+          font-size:14px !important;
+          line-height:1.45 !important;
+        }
+
+        .dashboard-video-block-title{
+          font-size:16px !important;
+        }
+
+        .dashboard-responsive-video-player{
+          max-height:260px !important;
+        }
+      }
+      .cancel-btn-subtle{
+  width:auto;
+  padding:6px 10px;
+  border:none;
+  background:none;
+  color:var(--earth-muted);
+  font-weight:700;
+  font-size:13px;
+  text-decoration:underline;
+  cursor:pointer;
+}
+
+.cancel-btn-subtle:hover{
+  color:#b07a3f;
+}
+.cancel-link{
+  background:none;
+  border:none;
+  padding:0;
+  font-size:13px;
+  font-weight:600;
+  color:rgba(44,38,31,0.55);
+  cursor:pointer;
+  text-decoration:none;
+}
+
+.cancel-link:hover{
+  color:#b07a3f;
+  text-decoration:underline;
+}
+
+.cancel-link:active{
+  opacity:0.7;
+}
+
+.cancel-link:disabled{
+  opacity:0.4;
+  cursor:not-allowed;
+}
+
+      /* ==========================================================
+         Professional polish layer
+         Refinements layered on top of the existing earth theme:
+         crisper type rendering, softer layered depth, consistent
+         interaction states, accessible focus, and tidy scrollbars.
+         ========================================================== */
+
+      body.dashboard-earth{
+        -webkit-font-smoothing:antialiased;
+        -moz-osx-font-smoothing:grayscale;
+        text-rendering:optimizeLegibility;
+        letter-spacing:-0.002em;
+      }
+
+      ::selection{
+        background:rgba(126,147,98,0.28);
+        color:var(--earth-ink);
+      }
+
+      /* Sticky, premium-feeling header */
+      .dashboard-header{
+        position:sticky;
+        top:0;
+        z-index:50;
+        box-shadow:0 1px 0 rgba(89,108,73,0.10), 0 10px 24px -18px rgba(54,40,27,0.45);
+      }
+
+      /* Softer, layered depth on the main cards */
+      .section-card,
+      .overview-card{
+        box-shadow:0 1px 2px rgba(54,40,27,0.05),
+                   0 10px 28px -14px rgba(54,40,27,0.30);
+        transition:box-shadow 220ms ease, transform 220ms ease, border-color 220ms ease;
+      }
+
+      .overview-common-inner,
+      .dashboard-panel-inner{
+        box-shadow:0 2px 6px rgba(64,72,50,0.10),
+                   0 22px 48px -24px rgba(64,72,50,0.55);
+      }
+
+      /* Gentle lift on interactive summary cards */
+      .summary-card{
+        transition:box-shadow 220ms ease, transform 220ms ease;
+      }
+      .summary-card:hover{
+        transform:translateY(-2px);
+        box-shadow:0 2px 4px rgba(54,40,27,0.06),
+                   0 18px 36px -16px rgba(54,40,27,0.40);
+      }
+
+      /* Unified, smooth interaction on buttons */
+      .dashboard-earth button{
+        transition:filter 160ms ease, transform 160ms ease,
+                   box-shadow 160ms ease, background 160ms ease,
+                   border-color 160ms ease, color 160ms ease;
+      }
+      .dashboard-earth button:not(.dashboard-main-tab):not(:disabled):hover{
+        filter:brightness(1.04) saturate(1.03);
+      }
+      .dashboard-earth button:not(:disabled):active{
+        transform:translateY(1px) scale(0.995);
+      }
+
+      /* Refined primary action buttons */
+      .summary-open-btn{
+        background:linear-gradient(180deg,#93a76c,#7d915c);
+        box-shadow:0 1px 0 rgba(255,255,255,0.25) inset,
+                   0 8px 18px -8px rgba(87,107,70,0.65);
+        letter-spacing:0.01em;
+      }
+      .summary-open-btn:hover{
+        box-shadow:0 1px 0 rgba(255,255,255,0.30) inset,
+                   0 12px 22px -8px rgba(87,107,70,0.75);
+      }
+
+      /* Polished tabs: clearer active state, crisper rest state */
+      .dashboard-main-tab{
+        box-shadow:0 1px 2px rgba(89,108,73,0.08);
+      }
+      .dashboard-main-tab.active{
+        background:linear-gradient(180deg,#6a7d5b,#586a47);
+        box-shadow:0 1px 0 rgba(255,255,255,0.18) inset,
+                   0 10px 20px -10px rgba(64,72,50,0.70);
+      }
+
+      /* Subtle, premium hover on snapshot stats & key pills */
+      .snapshot-stat,
+      .overview-date-chip{
+        transition:border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+      }
+      .snapshot-stat:hover{
+        border-color:rgba(89,108,73,0.30);
+        box-shadow:0 6px 16px -10px rgba(54,40,27,0.45);
+      }
+
+      /* Accessible, consistent keyboard focus */
+      .dashboard-earth a:focus-visible,
+      .dashboard-earth button:focus-visible,
+      .dashboard-earth [role="tab"]:focus-visible,
+      .dashboard-earth [tabindex]:focus-visible,
+      .dashboard-earth input:focus-visible,
+      .dashboard-earth select:focus-visible,
+      .dashboard-earth textarea:focus-visible{
+        outline:2px solid var(--earth-olive);
+        outline-offset:2px;
+        border-radius:8px;
+      }
+      .dashboard-earth button:focus:not(:focus-visible){
+        outline:none;
+      }
+
+      /* Tidy, on-theme scrollbars */
+      .dashboard-earth *{
+        scrollbar-width:thin;
+        scrollbar-color:rgba(89,108,73,0.40) transparent;
+      }
+      .dashboard-earth ::-webkit-scrollbar{
+        width:10px;
+        height:10px;
+      }
+      .dashboard-earth ::-webkit-scrollbar-track{
+        background:transparent;
+      }
+      .dashboard-earth ::-webkit-scrollbar-thumb{
+        background:rgba(89,108,73,0.34);
+        border-radius:999px;
+        border:2px solid transparent;
+        background-clip:padding-box;
+      }
+      .dashboard-earth ::-webkit-scrollbar-thumb:hover{
+        background:rgba(89,108,73,0.52);
+        background-clip:padding-box;
+      }
+
+      /* Graceful panel entrance when switching tabs */
+      @keyframes nfPanelIn{
+        from{ opacity:0; transform:translateY(6px); }
+        to{ opacity:1; transform:translateY(0); }
+      }
+      .main-dashboard-panel{
+        animation:nfPanelIn 320ms ease both;
+      }
+
+      @media (prefers-reduced-motion: reduce){
+        .main-dashboard-panel{ animation:none; }
+        .summary-card:hover{ transform:none; }
+        .dashboard-earth *{
+          transition-duration:0.01ms !important;
+          animation-duration:0.01ms !important;
+        }
+      }
+    </style>
+  </main>
+
+  <footer>
+    <nav>
+      <div class="logo">
+        <a href="index.html" class="logo">
+          <img src="logo.png" alt="Nori-Fitness LLC">
+        </a>
+      </div>
+      © 2026 Nori-Fitness LLC. All Rights Reserved. |
+      <a href="terms.html">Terms</a> |
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </footer>
+
+ <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase.js"></script>
+<script src="dashboard.js"></script>
+<script src="cancel-subscription.js"></script>
+
+  <script>
+(function setupAllTimeDropdowns() {
+  function setupOne(hourId, minId, ampmId, hiddenId) {
+    const hourSelect = document.getElementById(hourId);
+    const minSelect = document.getElementById(minId);
+    const ampmSelect = document.getElementById(ampmId);
+    const hiddenInput = document.getElementById(hiddenId);
+
+    if (!hourSelect || !minSelect || !ampmSelect || !hiddenInput) return;
+
+    if (!hourSelect.dataset.filled) {
+      hourSelect.innerHTML = '<option value="">Hr</option>';
+      for (let h = 1; h <= 12; h++) {
+        const opt = document.createElement("option");
+        opt.value = String(h);
+        opt.textContent = String(h);
+        hourSelect.appendChild(opt);
+      }
+      hourSelect.dataset.filled = "1";
+    }
+
+    if (!minSelect.dataset.filled) {
+      minSelect.innerHTML = '<option value="">Min</option>';
+      ["00", "15", "30", "45"].forEach((m) => {
+        const opt = document.createElement("option");
+        opt.value = m;
+        opt.textContent = m;
+        minSelect.appendChild(opt);
+      });
+      minSelect.dataset.filled = "1";
+    }
+
+    function updateTimeValue() {
+      const h = hourSelect.value;
+      const m = minSelect.value;
+      const ap = ampmSelect.value;
+      hiddenInput.value = h && m && ap ? `${h}:${m} ${ap}` : "";
+    }
+
+    hourSelect.addEventListener("change", updateTimeValue);
+    minSelect.addEventListener("change", updateTimeValue);
+    ampmSelect.addEventListener("change", updateTimeValue);
+
+    updateTimeValue();
+  }
+
+  function run() {
+    setupOne("time1_hour", "time1_min", "time1_ampm", "time1");
+    setupOne("time2_hour", "time2_min", "time2_ampm", "time2");
+    setupOne("time3_hour", "time3_min", "time3_ampm", "time3");
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", run, { once: true });
+  } else {
+    run();
+  }
+})();
+</script>
+
+<script>
+(function enforceDashboardTabBehavior() {
+  function run() {
+    const inpersonCalendarFrame = document.getElementById("inpersonCalendarFrame");
+    const tabBooked = document.getElementById("tabBooked");
+
+    if (tabBooked && tabBooked.dataset.calendarWired !== "1") {
+      tabBooked.dataset.calendarWired = "1";
+
+      tabBooked.addEventListener("click", () => {
+        if (!inpersonCalendarFrame) return;
+        if (inpersonCalendarFrame.src) return;
+        inpersonCalendarFrame.src = "https://calendar.google.com/calendar/embed?src=info%40nori-fitness.com&ctz=America%2FNew_York";
+      });
+    }
+
+    if (inpersonCalendarFrame && tabBooked && tabBooked.classList.contains("active") && !inpersonCalendarFrame.src) {
+      inpersonCalendarFrame.src = "https://calendar.google.com/calendar/embed?src=info%40nori-fitness.com&ctz=America%2FNew_York";
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", run, { once: true });
+  } else {
+    run();
+  }
+})();
+</script>
+
+<script>
+(function forceScrollableRows() {
+  function run() {
+    const mainTabsShell = document.querySelector(".dashboard-main-tabs-shell");
+    const mainTabs = document.querySelector(".dashboard-main-tabs-updated") || document.querySelector(".dashboard-main-tabs");
+    const tabsRow = document.querySelector(".tabsRow");
+
+    if (mainTabsShell) {
+      mainTabsShell.style.overflowX = "auto";
+      mainTabsShell.style.overflowY = "hidden";
+      mainTabsShell.style.webkitOverflowScrolling = "touch";
+    }
+
+    if (mainTabs) {
+      mainTabs.style.display = "flex";
+      mainTabs.style.flexWrap = "nowrap";
+      mainTabs.style.justifyContent = "flex-start";
+      mainTabs.style.alignItems = "center";
+      mainTabs.style.gap = "10px";
+      mainTabs.style.width = "max-content";
+      mainTabs.style.minWidth = "max-content";
+    }
+
+    document.querySelectorAll(".dashboard-main-tab").forEach((btn) => {
+      btn.style.flex = "0 0 auto";
+      btn.style.width = "auto";
+      btn.style.minWidth = "170px";
+      btn.style.whiteSpace = "nowrap";
+      btn.style.textAlign = "center";
+    });
+
+    if (tabsRow) {
+      tabsRow.style.display = "flex";
+      tabsRow.style.flexWrap = "nowrap";
+      tabsRow.style.overflowX = "auto";
+      tabsRow.style.overflowY = "hidden";
+      tabsRow.style.justifyContent = "flex-start";
+      tabsRow.style.gap = "14px";
+      tabsRow.style.webkitOverflowScrolling = "touch";
+    }
+
+    document.querySelectorAll(".tabBtn").forEach((btn) => {
+      btn.style.flex = "0 0 auto";
+      btn.style.width = "auto";
+      btn.style.whiteSpace = "nowrap";
+    });
+  }
+
+  window.addEventListener("resize", run);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", run, { once: true });
+  } else {
+    run();
+  }
+})();
+</script>
+  
+</body>
+</html>
