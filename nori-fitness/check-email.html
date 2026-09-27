@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nori-Fitness LLC | Thanks For Signing Up</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body>
+  <header class="top-banner nutrition-inspired-header">
+    <div class="banner-inner nutrition-inspired-inner">
+      <a href="index.html" class="logo nutrition-inspired-logo-link">
+        <img src="logo.png" alt="Nori-Fitness LLC" class="nutrition-inspired-logo">
+      </a>
+
+      <div class="nutrition-inspired-branding">
+        <h1>Welcome Aboard</h1>
+        <p>Train Strong | Live Confident</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="confirm-page">
+    <section class="confirm-hero-card">
+      <div class="confirm-pill">Account Created</div>
+      <h2>Thank you for signing up</h2>
+      <p id="heroIntroText">
+        Your Nori-Fitness account is ready. The last step is confirming your email address &mdash;
+        check your inbox for a message from <strong>info@nori-fitness.com</strong> and tap the
+        <strong>Confirm Your Email</strong> button inside it.
+      </p>
+      <p id="sentToLine" class="confirm-sent-to" style="display:none;"></p>
+    </section>
+
+    <section class="confirm-card">
+      <div class="confirm-heading">
+        <h3>What happens next</h3>
+      </div>
+
+      <ol class="confirm-steps" id="confirmSteps">
+        <li>
+          <span class="confirm-step-num">1</span>
+          <span id="stepOpenEmailText">Open the email titled <strong>&ldquo;Confirm Your Account&rdquo;</strong>. The link works once and expires after an hour.</span>
+        </li>
+        <li>
+          <span class="confirm-step-num">2</span>
+          <span id="stepActionText">Press <strong>Confirm Your Email</strong>. That verifies your address and signs you in.</span>
+        </li>
+        <li id="stepDestination">
+          <span class="confirm-step-num">3</span>
+          <span id="stepDestinationText">
+            You will land on your dashboard, where you can complete payment and unlock your program.
+          </span>
+        </li>
+      </ol>
+
+      <p class="confirm-note">
+        Nothing in your inbox after a few minutes? Check spam and promotions, then resend the email below.
+      </p>
+
+      <div class="confirm-actions">
+        <a href="login.html" class="confirm-btn primary">Go to Login Page</a>
+        <button type="button" id="resendConfirmBtn" class="confirm-btn ghost">Resend Confirmation Email</button>
+      </div>
+
+      <p id="message" class="confirm-message"></p>
+    </section>
+
+    <section class="confirm-card confirm-pricing" id="inpersonPricing" style="display:none;">
+      <div class="confirm-heading">
+        <h3>In-person weekly pricing</h3>
+        <p>You will choose one of these on the Request / Change tab when you pick your days, times, and location.</p>
+      </div>
+
+      <div class="confirm-price-grid">
+        <div class="confirm-price-card">
+          <div class="confirm-price-name">1x / Week</div>
+          <div class="confirm-price-amount">$35</div>
+          <div class="confirm-price-meta">per week &middot; 12-week commitment</div>
+        </div>
+
+        <div class="confirm-price-card">
+          <div class="confirm-price-name">3x / Week</div>
+          <div class="confirm-price-amount">$100</div>
+          <div class="confirm-price-meta">per week &middot; 12-week commitment</div>
+        </div>
+
+        <div class="confirm-price-card">
+          <div class="confirm-price-name">Pay-As-You-Go</div>
+          <div class="confirm-price-amount">$40</div>
+          <div class="confirm-price-meta">per single session</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="confirm-card confirm-help">
+      <p>
+        Need a hand? Reply to that email or reach out at
+        <a href="mailto:info@nori-fitness.com">info@nori-fitness.com</a>.
+      </p>
+      <a href="index.html" class="confirm-btn ghost">Back to Home</a>
+    </section>
+  </main>
+
+  <footer class="nutrition-inspired-footer">
+    <nav>
+      <div class="logo">
+        <a href="index.html" class="logo">
+          <img src="logo.png" alt="Nori-Fitness LLC">
+        </a>
+      </div>
+      © 2026 Nori-Fitness LLC. All Rights Reserved. |
+      <a href="terms.html">Terms</a> |
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </footer>
+
+  <style>
+    :root{
+      --nf-cream:#e9e4d7;
+      --nf-card:#f7f3ec;
+      --nf-line:rgba(36,25,19,0.08);
+      --nf-ink:#241913;
+      --nf-muted:#62574c;
+      --nf-earth:#b07a3f;
+      --nf-olive:#7e9362;
+      --nf-olive-dark:#576b46;
+      --nf-shadow:0 14px 34px rgba(54, 40, 27, 0.10);
+    }
+
+    *{ box-sizing:border-box; }
+
+    body{
+      margin:0;
+      background:var(--nf-cream);
+      color:var(--nf-ink);
+      font-family:"Inter", sans-serif;
+    }
+
+    .nutrition-inspired-header{
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(239,233,221,0.96);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--nf-line);
+    }
+
+    .nutrition-inspired-inner{
+      max-width:1440px;
+      margin:0 auto;
+      padding:18px 22px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
+
+    .nutrition-inspired-logo-link{
+      display:inline-flex;
+      align-items:center;
+      flex:0 0 auto;
+    }
+
+    .nutrition-inspired-logo{
+      width:88px;
+      height:auto;
+      display:block;
+    }
+
+    .nutrition-inspired-branding{
+      text-align:right;
+      margin-left:auto;
+    }
+
+    .nutrition-inspired-branding h1{
+      margin:0;
+      font-family:"Poppins", sans-serif;
+      font-weight:800;
+      font-size:54px;
+      line-height:0.95;
+      color:var(--nf-olive-dark);
+      letter-spacing:-0.03em;
+      text-shadow:0 4px 10px rgba(0,0,0,0.10);
+    }
+
+    .nutrition-inspired-branding p{
+      margin:6px 0 0 0;
+      font-family:"Poppins", sans-serif;
+      font-weight:700;
+      font-size:24px;
+      color:var(--nf-earth);
+      text-transform:uppercase;
+      letter-spacing:0.03em;
+      text-shadow:0 4px 10px rgba(0,0,0,0.10);
+    }
+
+    .confirm-page{
+      max-width:980px;
+      margin:0 auto;
+      padding:34px 20px 48px;
+    }
+
+    .confirm-hero-card,
+    .confirm-card{
+      background:rgba(250,247,241,0.92);
+      border:1px solid var(--nf-line);
+      border-radius:30px;
+      box-shadow:var(--nf-shadow);
+    }
+
+    .confirm-hero-card{
+      text-align:center;
+      padding:30px 26px;
+      margin-bottom:22px;
+    }
+
+    .confirm-pill{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 16px;
+      border-radius:999px;
+      border:1px solid var(--nf-line);
+      background:rgba(126,147,98,0.10);
+      color:var(--nf-olive-dark);
+      font-family:"Poppins", sans-serif;
+      font-size:14px;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:0.03em;
+      margin-bottom:18px;
+    }
+
+    .confirm-hero-card h2{
+      margin:0;
+      font-family:"Poppins", sans-serif;
+      font-size:52px;
+      line-height:0.98;
+      letter-spacing:-0.04em;
+      color:var(--nf-ink);
+      text-shadow:0 4px 10px rgba(0,0,0,0.10);
+    }
+
+    .confirm-hero-card p{
+      max-width:760px;
+      margin:14px auto 0;
+      color:#685c50;
+      font-size:19px;
+      font-weight:600;
+      line-height:1.7;
+    }
+
+    .confirm-sent-to{
+      font-weight:800 !important;
+      color:var(--nf-olive-dark) !important;
+      font-size:17px !important;
+    }
+
+    .confirm-card{
+      padding:26px 28px 28px;
+      margin-bottom:20px;
+    }
+
+    .confirm-heading h3{
+      margin:0;
+      font-family:"Poppins", sans-serif;
+      font-size:28px;
+      letter-spacing:-0.02em;
+      color:var(--nf-ink);
+    }
+
+    .confirm-heading p{
+      margin:8px 0 0 0;
+      color:var(--nf-muted);
+      font-size:16px;
+      line-height:1.6;
+    }
+
+    .confirm-steps{
+      list-style:none;
+      margin:18px 0 0 0;
+      padding:0;
+      display:grid;
+      gap:12px;
+    }
+
+    .confirm-steps li{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      padding:14px 16px;
+      border-radius:18px;
+      border:1px solid var(--nf-line);
+      background:rgba(255,255,255,0.45);
+      color:#3a2e25;
+      font-size:16px;
+      line-height:1.6;
+    }
+
+    .confirm-step-num{
+      flex:0 0 auto;
+      width:28px;
+      height:28px;
+      border-radius:50%;
+      background:var(--nf-olive-dark);
+      color:#fff;
+      font-family:"Poppins", sans-serif;
+      font-weight:800;
+      font-size:14px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .confirm-note{
+      margin:18px 0 0 0;
+      color:var(--nf-muted);
+      font-size:15px;
+      line-height:1.6;
+    }
+
+    .confirm-actions{
+      margin-top:20px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+
+    .confirm-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:15px 26px;
+      border-radius:16px;
+      font-family:"Poppins", sans-serif;
+      font-weight:800;
+      font-size:16px;
+      text-decoration:none;
+      cursor:pointer;
+      border:1px solid transparent;
+      transition:transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .confirm-btn:hover{
+      transform:translateY(-1px);
+      box-shadow:0 10px 22px rgba(54,40,27,0.14);
+    }
+
+    .confirm-btn.primary{
+      background:var(--nf-olive-dark);
+      color:#fff;
+    }
+
+    .confirm-btn.ghost{
+      background:rgba(255,255,255,0.6);
+      border-color:var(--nf-line);
+      color:var(--nf-olive-dark);
+    }
+
+    .confirm-message{
+      margin:14px 0 0 0;
+      min-height:22px;
+      font-weight:700;
+      color:var(--nf-olive-dark);
+    }
+
+    .confirm-price-grid{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:14px;
+    }
+
+    .confirm-price-card{
+      padding:20px 18px;
+      border-radius:20px;
+      border:1px solid var(--nf-line);
+      background:rgba(255,255,255,0.5);
+    }
+
+    .confirm-price-name{
+      font-family:"Poppins", sans-serif;
+      font-weight:800;
+      font-size:18px;
+      color:var(--nf-ink);
+    }
+
+    .confirm-price-amount{
+      margin-top:6px;
+      font-family:"Poppins", sans-serif;
+      font-weight:800;
+      font-size:38px;
+      line-height:1;
+      color:var(--nf-olive-dark);
+      letter-spacing:-0.03em;
+    }
+
+    .confirm-price-meta{
+      margin-top:8px;
+      color:var(--nf-muted);
+      font-size:14px;
+      line-height:1.5;
+    }
+
+    .confirm-help{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+
+    .confirm-help p{
+      margin:0;
+      color:var(--nf-muted);
+      font-size:16px;
+    }
+
+    .confirm-help a[href^="mailto"]{
+      color:var(--nf-olive-dark);
+      font-weight:700;
+    }
+
+    .nutrition-inspired-footer{
+      border-top:1px solid var(--nf-line);
+      background:rgba(239,233,221,0.96);
+      padding:22px;
+      text-align:center;
+      color:var(--nf-muted);
+    }
+
+    .nutrition-inspired-footer .logo img{
+      width:80px;
+      height:auto;
+      display:block;
+      margin:0 auto 10px;
+    }
+
+    .nutrition-inspired-footer a{
+      color:var(--nf-olive-dark);
+      font-weight:700;
+    }
+
+    @media (max-width: 860px){
+      .nutrition-inspired-branding h1{ font-size:34px; }
+      .nutrition-inspired-branding p{ font-size:16px; }
+      .confirm-hero-card h2{ font-size:36px; }
+      .confirm-hero-card p{ font-size:17px; }
+      .confirm-price-grid{ grid-template-columns:1fr; }
+      .confirm-actions .confirm-btn{ width:100%; }
+    }
+  </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase.js"></script>
+  <script src="check-email.js"></script>
+</body>
+</html>

@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nori-Fitness LLC | Contact</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <header class="top-banner nutrition-inspired-header">
+    <div class="banner-inner nutrition-inspired-inner">
+      <a href="index.html" class="logo nutrition-inspired-logo-link">
+        <img src="logo.png" alt="Nori-Fitness LLC" class="nutrition-inspired-logo">
+      </a>
+
+      <button class="menu-toggle nutrition-inspired-toggle" aria-label="Open menu">
+        ☰
+      </button>
+
+      <nav class="banner-nav nutrition-inspired-nav">
+        <ul class="nav-links nutrition-inspired-links">
+          <li class="nav-item nutrition-inspired-item has-dropdown">
+            <a href="online-rundown.html">Online Training</a>
+            <div class="dropdown nutrition-inspired-dropdown">
+              <a href="online-rundown.html">Program Details</a>
+              <a href="online.html">Book Consultation</a>
+            </div>
+          </li>
+
+          <li class="nav-item nutrition-inspired-item has-dropdown">
+            <a href="inperson-rundown.html">In-Person</a>
+            <div class="dropdown nutrition-inspired-dropdown">
+              <a href="inperson-rundown.html">Program Details</a>
+              <a href="inperson.html">Book Consultation</a>
+            </div>
+          </li>
+
+          <li class="nav-item nutrition-inspired-item has-dropdown">
+            <a href="bootcamps-rundown.html">Bootcamps</a>
+            <div class="dropdown nutrition-inspired-dropdown">
+              <a href="bootcamps-rundown.html">Program Details</a>
+              <a href="bootcamps.html">Check Availability</a>
+            </div>
+          </li>
+
+          <li class="nav-item nutrition-inspired-item">
+            <a href="about.html">About</a>
+          </li>
+
+          <li class="nav-item nutrition-inspired-item">
+            <a href="contact.html">Contact</a>
+          </li>
+
+          <li class="nav-item nutrition-inspired-item">
+            <a href="login.html" class="book-btn nutrition-inspired-login-btn">Member Login</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contact-page">
+    <section class="contact-hero-card">
+      <div class="contact-hero-pill">Get in Touch</div>
+      <h1>Contact</h1>
+      <p>
+        Reach out for more information, ask a question, or start the conversation
+        about the training option that fits you best.
+      </p>
+    </section>
+
+    <section id="contact" class="contact-section-grid">
+      <div class="contact-form-card">
+        <div class="section-heading contact-heading">
+          <h2>Reach out for more information</h2>
+          <p>Fill out the form below and your inquiry will be sent directly.</p>
+        </div>
+
+        <form
+          id="contactForm"
+          action="https://formspree.io/f/mreegzwz"
+          method="POST"
+          class="nutrition-inspired-form"
+        >
+          <label>
+            <span>Full Name</span>
+            <input type="text" name="name" required>
+          </label>
+
+          <label>
+            <span>Phone Number</span>
+            <input type="tel" name="phone" required>
+          </label>
+
+          <label>
+            <span>Email Address</span>
+            <input type="email" name="email" required>
+          </label>
+
+          <label class="full-width">
+            <span>Your Message</span>
+            <textarea name="message" required></textarea>
+          </label>
+
+          <div class="full-width form-actions">
+            <button type="submit" class="contact-submit-btn">Submit Inquiry</button>
+            <p id="formStatus" class="form-status"></p>
+          </div>
+        </form>
+      </div>
+
+      <aside class="contact-info-card">
+        <div class="section-heading notes-heading">
+          <h2>Contact Notes</h2>
+          <p>Helpful reminders before you submit your inquiry.</p>
+        </div>
+
+        <div class="notes-stack">
+          <div class="note-mini-box">
+            <h3>Best Use</h3>
+            <p>
+              Use this form for coaching questions, program details,
+              and general support.
+            </p>
+          </div>
+
+          <div class="note-mini-box">
+            <h3>What to Include</h3>
+            <p>
+              Share your goals, preferred coaching style, training history, and anything
+              that helps make your inquiry more specific.
+            </p>
+          </div>
+
+          <div class="note-mini-box">
+            <h3>Quick Reminder</h3>
+            <ul>
+              <li>Be as clear as possible about what you need.</li>
+              <li>Include the best phone number and email to reach you.</li>
+              <li>Mention whether you are interested in online, in-person, or bootcamps.</li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="nutrition-inspired-footer">
+    <nav>
+      <div class="logo">
+        <a href="index.html" class="logo">
+          <img src="logo.png" alt="Nori-Fitness LLC">
+        </a>
+      </div>
+      © 2026 Nori-Fitness LLC. All Rights Reserved. |
+      <a href="terms.html">Terms</a> |
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </footer>
+
+  <style>
+    :root{
+      --nf-cream:#e9e4d7;
+      --nf-card:#f7f3ec;
+      --nf-line:rgba(36,25,19,0.08);
+      --nf-ink:#241913;
+      --nf-muted:#62574c;
+      --nf-earth:#b07a3f;
+      --nf-olive:#7e9362;
+      --nf-olive-dark:#576b46;
+      --nf-shadow:0 14px 34px rgba(54, 40, 27, 0.10);
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+
+    body{
+      margin:0;
+      background:var(--nf-cream);
+      color:var(--nf-ink);
+      font-family:"Inter", sans-serif;
+    }
+
+    .nutrition-inspired-header{
+      background:rgba(239,233,221,0.96);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--nf-line);
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+
+    .nutrition-inspired-inner{
+      max-width:1440px;
+      margin:0 auto;
+      padding:18px 22px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
+
+    .nutrition-inspired-logo-link{
+      display:inline-flex;
+      align-items:center;
+      flex:0 0 auto;
+    }
+
+    .nutrition-inspired-logo{
+      width:86px;
+      height:auto;
+      display:block;
+    }
+
+    .nutrition-inspired-nav{
+      flex:1 1 auto;
+      display:flex;
+      justify-content:flex-end;
+    }
+
+    .nutrition-inspired-links{
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      gap:12px;
+      margin:0;
+      padding:0;
+      list-style:none;
+      flex-wrap:wrap;
+    }
+
+    .nutrition-inspired-item{
+      list-style:none;
+      margin:0;
+      padding:0;
+      position:relative;
+    }
+
+    .nutrition-inspired-item > a{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:46px;
+      padding:11px 16px;
+      border-radius:16px;
+      background:rgba(255,255,255,0.34);
+      border:1px solid var(--nf-line);
+      color:var(--nf-ink);
+      text-decoration:none;
+      font-size:15px;
+      font-weight:700;
+      box-shadow:var(--nf-shadow);
+      transition:background 140ms ease, transform 140ms ease, border-color 140ms ease;
+    }
+
+    .nutrition-inspired-item > a:hover{
+      background:rgba(126,147,98,0.12);
+      border-color:rgba(87,107,70,0.22);
+      transform:translateY(-1px);
+    }
+
+    .nutrition-inspired-login-btn{
+      background:#829660 !important;
+      color:#fff !important;
+      border:none !important;
+      box-shadow:0 8px 18px rgba(87,107,70,0.24) !important;
+    }
+
+    .nutrition-inspired-login-btn:hover{
+      background:#728654 !important;
+    }
+
+    .nutrition-inspired-dropdown{
+      position:absolute;
+      top:calc(100% + 8px);
+      left:0;
+      min-width:220px;
+      padding:10px;
+      display:none;
+      flex-direction:column;
+      gap:8px;
+      border-radius:18px;
+      border:1px solid var(--nf-line);
+      background:rgba(247,243,236,0.98);
+      box-shadow:0 14px 30px rgba(54, 40, 27, 0.14);
+      z-index:1001;
+    }
+
+    .nutrition-inspired-dropdown a{
+      display:block;
+      padding:10px 12px;
+      border-radius:12px;
+      background:rgba(255,255,255,0.45);
+      color:var(--nf-ink);
+      text-decoration:none;
+      font-size:14px;
+      font-weight:700;
+      border:1px solid transparent;
+    }
+
+    .nutrition-inspired-dropdown a:hover{
+      background:rgba(126,147,98,0.12);
+      border-color:rgba(87,107,70,0.18);
+    }
+
+    .nutrition-inspired-item:hover .nutrition-inspired-dropdown{
+      display:flex;
+    }
+
+    .nutrition-inspired-toggle{
+      display:none;
+      margin-left:auto;
+      min-width:48px;
+      min-height:48px;
+      border-radius:14px;
+      border:1px solid var(--nf-line);
+      background:rgba(255,255,255,0.34);
+      color:var(--nf-ink);
+      box-shadow:var(--nf-shadow);
+      cursor:pointer;
+      font-size:24px;
+      line-height:1;
+    }
+
+    .contact-page{
+      max-width:1520px;
+      margin:0 auto;
+      padding:34px 20px 48px;
+    }
+
+    .contact-hero-card,
+    .contact-form-card,
+    .contact-info-card{
+      background:rgba(250,247,241,0.92);
+      border:1px solid var(--nf-line);
+      border-radius:30px;
+      box-shadow:var(--nf-shadow);
+    }
+
+    .contact-hero-card{
+      text-align:center;
+      padding:30px 26px;
+      margin-bottom:24px;
+    }
+
+    .contact-hero-pill{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 16px;
+      border-radius:999px;
+      border:1px solid var(--nf-line);
+      background:rgba(126,147,98,0.10);
+      color:var(--nf-olive-dark);
+      font-family:"Poppins", sans-serif;
+      font-size:14px;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:0.03em;
+      margin-bottom:18px;
+    }
+
+    .contact-hero-card h1{
+      margin:0;
+      font-family:"Poppins", sans-serif;
+      font-size:64px;
+      line-height:0.95;
+      letter-spacing:-0.04em;
+      color:var(--nf-ink);
+      text-shadow:0 4px 10px rgba(0,0,0,0.10);
+    }
+
+    .contact-hero-card p{
+      max-width:900px;
+      margin:16px auto 0;
+      color:#685c50;
+      font-size:20px;
+      font-weight:700;
+      line-height:1.7;
+      text-shadow:0 3px 8px rgba(0,0,0,0.08);
+    }
+
+    .contact-section-grid{
+      display:grid;
+      grid-template-columns:minmax(0,1.45fr) minmax(320px,0.75fr);
+      gap:22px;
+      align-items:start;
+    }
+
+    .contact-form-card,
+    .contact-info-card{
+      padding:28px 28px 30px;
+    }
+
+    .contact-heading,
+    .notes-heading{
+      text-align:center;
+      margin-bottom:22px;
+    }
+
+    .contact-heading h2,
+    .notes-heading h2{
+      margin:0;
+      font-family:"Poppins", sans-serif;
+      font-size:48px;
+      line-height:1;
+      letter-spacing:-0.04em;
+      color:var(--nf-ink);
+      text-shadow:0 4px 10px rgba(0,0,0,0.10);
+    }
+
+    .contact-heading p,
+    .notes-heading p{
+      margin:12px 0 0 0;
+      color:#6a5e53;
+      font-size:18px;
+      font-weight:700;
+      line-height:1.7;
+      text-shadow:0 3px 8px rgba(0,0,0,0.08);
+    }
+
+    .nutrition-inspired-form{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+
+    .nutrition-inspired-form label{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    .nutrition-inspired-form label span{
+      font-size:15px;
+      font-weight:800;
+      color:var(--nf-ink);
+      letter-spacing:0.01em;
+    }
+
+    .nutrition-inspired-form input,
+    .nutrition-inspired-form textarea{
+      width:100%;
+      border:1px solid rgba(36,25,19,0.10);
+      border-radius:18px;
+      background:#f3eee6;
+      color:var(--nf-ink);
+      padding:16px 16px;
+      font-size:16px;
+      font-weight:600;
+      font-family:"Inter", sans-serif;
+      outline:none;
+      transition:border-color 140ms ease, background 140ms ease, box-shadow 140ms ease;
+    }
+
+    .nutrition-inspired-form input:focus,
+    .nutrition-inspired-form textarea:focus{
+      border-color:rgba(87,107,70,0.45);
+      background:#faf7f1;
+      box-shadow:0 0 0 3px rgba(126,147,98,0.10);
+    }
+
+    .nutrition-inspired-form textarea{
+      min-height:170px;
+      resize:vertical;
+    }
+
+    .nutrition-inspired-form .full-width{
+      grid-column:1 / -1;
+    }
+
+    .form-actions{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:12px;
+    }
+
+    .contact-submit-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border:none;
+      border-radius:16px;
+      background:#829660;
+      color:#fff;
+      font-family:"Inter", sans-serif;
+      font-weight:800;
+      font-size:17px;
+      padding:16px 22px;
+      cursor:pointer;
+      box-shadow:0 8px 18px rgba(87,107,70,0.24);
+    }
+
+    .contact-submit-btn:hover{
+      background:#728654;
+    }
+
+    .form-status{
+      margin:0;
+      font-size:15px;
+      font-weight:700;
+      color:#675b50;
+    }
+
+    .notes-stack{
+      display:grid;
+      gap:18px;
+    }
+
+    .note-mini-box{
+      padding:24px 20px;
+      border-radius:24px;
+      border:1px solid rgba(36,25,19,0.08);
+      background:#f1eee8;
+      text-align:center;
+    }
+
+    .note-mini-box h3{
+      margin:0 0 14px 0;
+      font-family:"Poppins", sans-serif;
+      font-size:22px;
+      color:var(--nf-olive-dark);
+      text-shadow:0 3px 8px rgba(0,0,0,0.08);
+    }
+
+    .note-mini-box p,
+    .note-mini-box li{
+      margin:0;
+      color:#2b221c;
+      font-size:17px;
+      line-height:1.7;
+      font-weight:700;
+    }
+
+    .note-mini-box ul{
+      margin:0;
+      padding-left:22px;
+      text-align:left;
+    }
+
+    .nutrition-inspired-footer{
+      margin-top:30px;
+      padding:22px 20px 34px;
+      text-align:center;
+      color:#4f473e;
+    }
+
+    .nutrition-inspired-footer nav{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .nutrition-inspired-footer .logo img{
+      width:40px;
+      height:auto;
+      display:block;
+    }
+
+    .nutrition-inspired-footer a{
+      color:#4f473e;
+      text-decoration:none;
+    }
+
+    @media (max-width:1180px){
+      .contact-section-grid{
+        grid-template-columns:1fr;
+      }
+
+      .contact-hero-card h1{
+        font-size:52px;
+      }
+
+      .contact-heading h2,
+      .notes-heading h2{
+        font-size:40px;
+      }
+    }
+
+    @media (max-width:860px){
+      .nutrition-inspired-inner{
+        padding:14px 16px;
+        flex-wrap:wrap;
+        gap:12px;
+      }
+
+      .nutrition-inspired-logo{
+        width:64px;
+      }
+
+      .nutrition-inspired-toggle{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+      }
+
+      .nutrition-inspired-nav{
+        display:none;
+        width:100%;
+      }
+
+      .nutrition-inspired-header.menu-open .nutrition-inspired-nav{
+        display:block;
+      }
+
+      .nutrition-inspired-links{
+        flex-direction:column;
+        align-items:stretch;
+        gap:10px;
+      }
+
+      .nutrition-inspired-item > a{
+        width:100%;
+        justify-content:flex-start;
+      }
+
+      .nutrition-inspired-dropdown{
+        position:static;
+        display:flex;
+        min-width:unset;
+        margin-top:8px;
+        box-shadow:none;
+        background:rgba(247,243,236,0.96);
+      }
+
+      .contact-page{
+        padding:18px 14px 34px;
+      }
+
+      .contact-hero-card,
+      .contact-form-card,
+      .contact-info-card{
+        border-radius:24px;
+        padding:22px 18px 24px;
+      }
+
+      .contact-hero-card h1{
+        font-size:40px;
+      }
+
+      .contact-hero-card p{
+        font-size:17px;
+      }
+
+      .contact-heading h2,
+      .notes-heading h2{
+        font-size:32px;
+      }
+
+      .contact-heading p,
+      .notes-heading p{
+        font-size:15px;
+      }
+
+      .nutrition-inspired-form{
+        grid-template-columns:1fr;
+      }
+
+      .contact-submit-btn{
+        width:100%;
+      }
+
+      .note-mini-box{
+        padding:20px 16px;
+      }
+
+      .note-mini-box h3{
+        font-size:20px;
+      }
+
+      .note-mini-box p,
+      .note-mini-box li{
+        font-size:16px;
+      }
+    }
+  </style>
+
+  <script src="script.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var header = document.querySelector(".nutrition-inspired-header");
+      var toggle = document.querySelector(".nutrition-inspired-toggle");
+
+      if (header && toggle) {
+        toggle.addEventListener("click", function () {
+          header.classList.toggle("menu-open");
+        });
+      }
+
+      var form = document.getElementById("contactForm");
+      var formStatus = document.getElementById("formStatus");
+
+      if (form) {
+        form.addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          if (formStatus) {
+            formStatus.textContent = "Sending...";
+          }
+
+          try {
+            var response = await fetch(form.action, {
+              method: form.method,
+              body: new FormData(form),
+              headers: {
+                "Accept": "application/json"
+              }
+            });
+
+            if (response.ok) {
+              form.reset();
+              if (formStatus) {
+                formStatus.textContent = "Inquiry sent successfully.";
+              }
+            } else {
+              if (formStatus) {
+                formStatus.textContent = "There was a problem sending your inquiry.";
+              }
+            }
+          } catch (error) {
+            if (formStatus) {
+              formStatus.textContent = "There was a problem sending your inquiry.";
+            }
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

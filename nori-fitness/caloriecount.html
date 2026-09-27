@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nori-Fitness LLC | Client Calorie Tracker</title>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase.js"></script>
+</head>
+
+<body>
+  <header class="tracker-header">
+    <div class="tracker-header-inner">
+      <a href="index.html" class="tracker-logo-link">
+        <img src="logo.png" alt="Nori-Fitness LLC" class="tracker-logo">
+      </a>
+
+      <div class="tracker-header-copy">
+        <h1>Nutrition Tracking</h1>
+        <p>Eat Well | Train Strong</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="tracker-page">
+    <section class="tracker-hero-card">
+      <div class="tracker-hero-pill">Nutrition Tool</div>
+      <h2>Calorie Tracker</h2>
+      <p>
+        Estimate daily calorie needs, log meals, and compare calories consumed against the daily target.
+      </p>
+    </section>
+
+    <section class="tracker-grid">
+      <div class="tracker-card">
+        <div class="section-heading tracker-heading">
+          <h2>Daily Calorie Calculator</h2>
+          <p>Enter your details below to estimate daily calorie needs.</p>
+        </div>
+
+        <div class="tracker-form">
+          <div class="tracker-field">
+            <label for="gender">Gender</label>
+            <select id="gender" class="tracker-input">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+
+          <div class="tracker-field">
+            <label for="age">Age</label>
+            <input id="age" type="number" class="tracker-input" placeholder="Enter age">
+          </div>
+
+          <div class="tracker-height-grid">
+            <div class="tracker-field">
+              <label for="heightFeet">Height (ft)</label>
+              <input id="heightFeet" type="number" class="tracker-input" placeholder="Feet">
+            </div>
+
+            <div class="tracker-field">
+              <label for="heightInches">Height (in)</label>
+              <input id="heightInches" type="number" class="tracker-input" placeholder="Inches">
+            </div>
+          </div>
+
+          <div class="tracker-field">
+            <label for="weight">Weight (lb)</label>
+            <input id="weight" type="number" class="tracker-input" placeholder="Enter weight in pounds">
+          </div>
+
+          <div class="tracker-field">
+            <label for="activity">Activity Level</label>
+            <select id="activity" class="tracker-input">
+              <option value="1.2">Sedentary</option>
+              <option value="1.375">Light Activity</option>
+              <option value="1.55">Moderate</option>
+              <option value="1.725">Very Active</option>
+            </select>
+          </div>
+
+          <button id="calculateBtn" type="button" class="tracker-btn">
+            Calculate Daily Calories
+          </button>
+
+          <div class="result-box">
+            <div class="result-label">Estimated Daily Calories</div>
+            <div id="dailyCalories" class="result-value">—</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tracker-card">
+        <div class="section-heading tracker-heading">
+          <h2>Food Tracker</h2>
+          <p>Look calories up in WebMD, then enter the food and calories manually.</p>
+        </div>
+
+        <div class="tracker-form">
+          <div class="food-helper-card">
+            <div class="food-helper-title">Need help finding calories?</div>
+            <p class="food-helper-text">
+              Open the calorie lookup tool below in a new tab, find the food you ate, then return here and enter the food name and calories manually.
+            </p>
+
+            <div class="food-helper-actions one-btn">
+              <a
+                href="https://www.webmd.com/diet/healthtool-food-calorie-counter"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="lookup-btn"
+              >
+                Open WebMD Calorie Counter
+              </a>
+            </div>
+
+            <div class="food-helper-note">
+              Enter calories for the actual portion you ate.
+            </div>
+          </div>
+
+          <div class="tracker-field">
+            <label for="foodName">Food Name</label>
+            <input id="foodName" class="tracker-input" placeholder="e.g. Chicken and rice">
+          </div>
+
+          <div class="tracker-field">
+            <label for="foodCalories">Calories</label>
+            <input id="foodCalories" type="number" class="tracker-input" placeholder="e.g. 450">
+          </div>
+
+          <button id="addFoodBtn" type="button" class="tracker-btn">
+            Add Food
+          </button>
+
+          <div class="food-list-wrap">
+            <div class="food-list" id="foodList"></div>
+          </div>
+
+          <div class="summary-grid">
+            <div class="summary-card">
+              <div class="summary-title">Total Consumed</div>
+              <div class="summary-value"><span id="consumed">0</span> kcal</div>
+            </div>
+
+            <div class="summary-card">
+              <div class="summary-title">Remaining</div>
+              <div class="summary-value"><span id="remaining">0</span> kcal</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="tracker-footer">
+    <nav>
+      <div class="logo">
+        <a href="index.html" class="logo">
+          <img src="logo.png" alt="Nori-Fitness LLC">
+        </a>
+      </div>
+      © 2026 Nori-Fitness LLC. All Rights Reserved. |
+      <a href="terms.html">Terms</a> |
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </footer>
+
+  <style>
+    :root{
+      --nf-cream:#e9e4d7;
+      --nf-card:#f7f3ec;
+      --nf-line:rgba(36,25,19,0.08);
+      --nf-ink:#241913;
+      --nf-muted:#62574c;
+      --nf-earth:#b07a3f;
+      --nf-olive:#7e9362;
+      --nf-olive-dark:#576b46;
+      --nf-shadow:0 14px 34px rgba(54, 40, 27, 0.10);
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+
+    body{
+      margin:0;
+      background:var(--nf-cream);
+      color:var(--nf-ink);
+      font-family:"Inter", sans-serif;
+    }
+
+    .tracker-header{
+      background:rgba(239,233,221,0.96);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--nf-line);
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+
+    .tracker-header-inner{
+      max-width:1440px;
+      margin:0 auto;
+      padding:18px 22px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
+
+    .tracker-logo-link{
+      display:inline-flex;
+      align-items:center;
+      flex:0 0 auto;
+    }
+
+    .tracker-logo{
+      width:86px;
+      height:auto;
+      display:block;
+    }
+
+    .tracker-header-copy{
+      text-align:right;
+      margin-left:auto;
+    }
+
+    .tracker-header-copy h1{
+      margin:0;
+      font-family:"Poppins", sans-serif;
+      font-weight:800;
+      font-size:42px;
+      line-height:0.95;
+      color:var(--nf-olive-dark);
+      letter-spacing:-0.03em;
+      text-shadow:0 4px 10px rgba(0,0,0,0.10);
+    }
+
+    .tracker-header-copy p{
+      margin:6px 0 0 0;
+      font-family:"Poppins", sans-serif;
+      font-weight:700;
+      font-size:18px;
+      color:var(--nf-earth);
+      text-transform:uppercase;
+      letter-spacing:0.03em;
+      text-shadow:0 4px 10px rgba(0,0,0,0.10);
+    }
+
+    .tracker-page{
+      max-width:1240px;
+      margin:0 auto;
+      padding:34px 20px 48px;
+    }
+
+    .tracker-hero-card,
+    .tracker-card{
+      background:rgba(250,247,241,0.92);
+      border:1px solid var(--nf-line);
+      border-radius:30px;
+      box-shadow:var(--nf-shadow);
+    }
+
+    .tracker-hero-card{
+      text-align:center;
+      padding:30px 28px;
+      margin-bottom:22px;
+    }
+
+    .tracker-hero-pill{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 16px;
+      border-radius:999px;
+      border:1px solid var(--nf-line);
+      background:rgba(126,147,98,0.10);
+      color:var(--nf-olive-dark);
+      font-family:"Poppins", sans-serif;
+      font-size:14px;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:0.03em;
+      margin-bottom:18px;
+    }
+
+    .tracker-hero-card h2{
+      margin:0;
+      font-family:"Poppins", sans-serif;
+      font-size:54px;
+      line-height:0.98;
+      letter-spacing:-0.04em;
+      color:var(--nf-ink);
+      text-shadow:0 4px 10px rgba(0,0,0,0.10);
+    }
+
+    .tracker-hero-card p{
+      max-width:880px;
+      margin:14px auto 0;
+      color:#685c50;
+      font-size:18px;
+      font-weight:700;
+      line-height:1.75;
+      text-shadow:0 3px 8px rgba(0,0,0,0.08);
+    }
+
+    .tracker-grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:22px;
+    }
+
+    .tracker-card{
+      padding:28px 24px 26px;
+    }
+
+    .section-heading{
+      text-align:center;
+      margin-bottom:22px;
+    }
+
+    .section-heading h2{
+      margin:0;
+      font-family:"Poppins", sans-serif;
+      font-size:38px;
+      line-height:1;
+      letter-spacing:-0.04em;
+      color:var(--nf-ink);
+      text-shadow:0 4px 10px rgba(0,0,0,0.10);
+    }
+
+    .section-heading p{
+      margin:12px 0 0 0;
+      color:#6a5e53;
+      font-size:16px;
+      font-weight:700;
+      line-height:1.7;
+      text-shadow:0 3px 8px rgba(0,0,0,0.08);
+    }
+
+    .tracker-form{
+      max-width:100%;
+    }
+
+    .tracker-field{
+      margin-bottom:14px;
+    }
+
+    .tracker-field label{
+      display:block;
+      margin-bottom:8px;
+      font-size:15px;
+      font-weight:800;
+      color:var(--nf-ink);
+    }
+
+    .tracker-height-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+
+    .tracker-input{
+      width:100%;
+      padding:14px 16px;
+      border-radius:16px;
+      border:1px solid rgba(36,25,19,0.12);
+      background:#f4efe6;
+      color:var(--nf-ink);
+      font-size:16px;
+      font-weight:600;
+      outline:none;
+      transition:border-color 140ms ease, box-shadow 140ms ease, background 140ms ease;
+    }
+
+    .tracker-input:focus{
+      border-color:rgba(87,107,70,0.42);
+      box-shadow:0 0 0 4px rgba(126,147,98,0.12);
+      background:#fbf8f2;
+    }
+
+    .tracker-btn{
+      width:100%;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border:none;
+      border-radius:16px;
+      background:#829660;
+      color:#fff;
+      font-family:"Inter", sans-serif;
+      font-weight:800;
+      font-size:17px;
+      padding:15px 18px;
+      cursor:pointer;
+      box-shadow:0 8px 18px rgba(87,107,70,0.24);
+      margin-top:6px;
+    }
+
+    .tracker-btn:hover{
+      background:#728654;
+    }
+
+    .result-box{
+      margin-top:18px;
+      padding:18px;
+      border-radius:22px;
+      border:1px solid rgba(36,25,19,0.08);
+      background:#f2ede4;
+      text-align:center;
+    }
+
+    .result-label{
+      font-size:14px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:0.03em;
+      color:var(--nf-earth);
+      margin-bottom:8px;
+    }
+
+    .result-value{
+      font-family:"Poppins", sans-serif;
+      font-size:32px;
+      line-height:1.1;
+      color:var(--nf-olive-dark);
+      font-weight:800;
+    }
+
+    .food-helper-card{
+      margin-bottom:18px;
+      padding:18px;
+      border-radius:22px;
+      border:1px solid rgba(36,25,19,0.08);
+      background:#f2ede4;
+    }
+
+    .food-helper-title{
+      font-family:"Poppins", sans-serif;
+      font-size:20px;
+      line-height:1.1;
+      color:var(--nf-ink);
+      font-weight:800;
+      margin-bottom:10px;
+    }
+
+    .food-helper-text{
+      margin:0 0 14px 0;
+      color:#5f5449;
+      font-size:15px;
+      line-height:1.7;
+      font-weight:700;
+    }
+
+    .food-helper-actions{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:10px;
+    }
+
+    .lookup-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:52px;
+      border:none;
+      border-radius:14px;
+      background:#829660;
+      color:#fff;
+      text-decoration:none;
+      font-family:"Inter", sans-serif;
+      font-size:15px;
+      font-weight:800;
+      padding:12px 14px;
+      box-shadow:0 8px 18px rgba(87,107,70,0.20);
+      text-align:center;
+    }
+
+    .lookup-btn:hover{
+      background:#728654;
+    }
+
+    .food-helper-note{
+      margin-top:12px;
+      font-size:13px;
+      font-weight:800;
+      color:#6a5e53;
+      text-transform:uppercase;
+      letter-spacing:0.03em;
+    }
+
+    .food-list-wrap{
+      margin-top:18px;
+      padding:16px;
+      border-radius:22px;
+      border:1px solid rgba(36,25,19,0.08);
+      background:#f2ede4;
+      min-height:120px;
+    }
+
+    .food-list{
+      display:grid;
+      gap:10px;
+    }
+
+    .food-item{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid rgba(36,25,19,0.08);
+      background:#fbf8f2;
+      color:var(--nf-ink);
+      font-weight:700;
+      word-break:break-word;
+    }
+
+    .food-item-empty{
+      color:#6a5e53;
+      font-weight:700;
+      text-align:center;
+      padding:16px 10px;
+    }
+
+    .food-item-main{
+      flex:1 1 auto;
+      min-width:0;
+    }
+
+    .food-item-name{
+      display:block;
+    }
+
+    .food-item-meta{
+      display:block;
+      margin-top:4px;
+      font-size:13px;
+      color:#6a5e53;
+      font-weight:700;
+    }
+
+    .food-item-right{
+      flex:0 0 auto;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    .food-delete-btn{
+      border:none;
+      background:#b07a3f;
+      color:#fff;
+      border-radius:10px;
+      padding:8px 10px;
+      font-weight:800;
+      cursor:pointer;
+    }
+
+    .food-delete-btn:hover{
+      background:#966530;
+    }
+
+    .summary-grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:14px;
+      margin-top:18px;
+    }
+
+    .summary-card{
+      padding:18px 16px;
+      border-radius:22px;
+      border:1px solid rgba(36,25,19,0.08);
+      background:#f2ede4;
+      text-align:center;
+    }
+
+    .summary-title{
+      font-size:14px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:0.03em;
+      color:var(--nf-earth);
+      margin-bottom:8px;
+    }
+
+    .summary-value{
+      font-family:"Poppins", sans-serif;
+      font-size:24px;
+      line-height:1.15;
+      color:var(--nf-ink);
+      font-weight:800;
+    }
+
+    .tracker-footer{
+      margin-top:30px;
+      padding:22px 20px 34px;
+      text-align:center;
+      color:#4f473e;
+    }
+
+    .tracker-footer nav{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .tracker-footer .logo img{
+      width:40px;
+      height:auto;
+      display:block;
+    }
+
+    .tracker-footer a{
+      color:#4f473e;
+      text-decoration:none;
+    }
+
+    @media (max-width:980px){
+      .tracker-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width:860px){
+      .tracker-header-inner{
+        padding:14px 16px;
+        gap:14px;
+      }
+
+      .tracker-logo{
+        width:64px;
+      }
+
+      .tracker-header-copy h1{
+        font-size:28px;
+      }
+
+      .tracker-header-copy p{
+        font-size:14px;
+      }
+
+      .tracker-page{
+        padding:18px 14px 34px;
+      }
+
+      .tracker-hero-card,
+      .tracker-card{
+        border-radius:24px;
+      }
+
+      .tracker-hero-card{
+        padding:22px 18px;
+      }
+
+      .tracker-card{
+        padding:22px 18px 24px;
+      }
+
+      .tracker-hero-card h2{
+        font-size:36px;
+      }
+
+      .tracker-hero-card p{
+        font-size:16px;
+      }
+
+      .section-heading h2{
+        font-size:30px;
+      }
+
+      .section-heading p{
+        font-size:15px;
+      }
+
+      .tracker-height-grid,
+      .summary-grid,
+      .food-helper-actions{
+        grid-template-columns:1fr;
+      }
+
+      .result-value{
+        font-size:28px;
+      }
+
+      .summary-value{
+        font-size:22px;
+      }
+
+      .food-item{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .food-item-right{
+        width:100%;
+        justify-content:space-between;
+      }
+    }
+  </style>
+
+  <script src="caloriecount.js"></script>
+</body>
+</html>

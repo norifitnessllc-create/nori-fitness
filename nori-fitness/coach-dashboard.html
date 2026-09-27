@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nori-Fitness LLC | Coach Dashboard</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header class="coach-dashboard-header">
+    <div class="coach-dashboard-header-inner">
+      <a href="index.html" class="coach-dashboard-logo-link">
+        <img src="logo.png" alt="Nori-Fitness LLC" class="coach-dashboard-logo">
+      </a>
+
+      <div class="coach-dashboard-branding">
+        <h1>Coach Dashboard</h1>
+        <p>Train Strong | Live Confident</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="coach-dashboard-page">
+    <section class="coach-dashboard-hero-card">
+      <div class="coach-dashboard-pill">Coach Admin</div>
+      <h2>Manage clients, waitlists, requests, feedback, and nutrition logs.</h2>
+      <p>
+        Review client activity, handle in-person requests, manage waitlists, respond to form check submissions, and view calorie tracker information from one dashboard.
+      </p>
+    </section>
+
+    <div id="status" class="coach-status-banner">
+      Checking login...
+    </div>
+
+    <section id="coachDashboard" style="display:none;">
+      <div class="section-card" style="margin-bottom:16px;">
+        <div class="section-title">Clients</div>
+        <div class="section-subtitle">
+          All non-coach profiles appear here, whether paid or not.
+        </div>
+        <div id="clientOverviewBox">Loading...</div>
+      </div>
+
+      <div class="section-card" style="margin-bottom:16px;">
+        <div class="section-title">Client Messages</div>
+        <div class="section-subtitle">
+          Direct messages with online training clients. Select a client to read their thread and reply.
+        </div>
+
+        <div class="twoCol">
+          <div class="innerCard">
+            <div style="font-weight:900; color:#2c221c; margin-bottom:10px;">Conversations</div>
+            <div id="coachMsgClientList" style="display:grid; gap:10px;">Loading...</div>
+          </div>
+
+          <div class="innerCard">
+            <div id="coachMsgSelectedMeta" style="font-weight:900; color:#2c221c;">Selected client: (none)</div>
+
+            <div id="coachMsgThread" class="coach-msg-thread">Select a client to view the conversation.</div>
+
+            <div class="coach-msg-composer">
+              <textarea id="coachMsgInput" class="log-input" style="height:90px;"
+                maxlength="4000"
+                placeholder="Write a reply to this client..."></textarea>
+              <div style="margin-top:10px; display:flex; align-items:center; gap:10px;">
+                <button id="coachMsgSendBtn" type="button" class="action-btn">Send Reply</button>
+                <span id="coachMsgStatus" style="font-weight:900; color:#2c221c;"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-card" style="margin-bottom:16px;">
+        <div class="calorie-header-row">
+          <div>
+            <div class="section-title">Calorie Tracker Information</div>
+            <div class="section-subtitle">
+              View each client’s saved calorie target and logged food totals for the selected day.
+            </div>
+          </div>
+
+          <div class="calorie-actions">
+            <input id="coachCalorieDate" type="date" class="log-input calorie-date-input" />
+            <button id="refreshCalorieBtn" type="button" class="mini-action-btn">
+              Refresh
+            </button>
+            <button id="exportCalorieBtn" type="button" class="mini-action-btn">
+              Export
+            </button>
+          </div>
+        </div>
+
+        <div id="coachCalorieBox">Loading...</div>
+      </div>
+
+      <div class="section-card" style="margin-bottom:16px;">
+        <div class="section-title">In-Person Requests</div>
+        <div class="section-subtitle">
+          Approve pending requests directly from here.
+        </div>
+        <div id="inpersonRequestsBox">Loading...</div>
+      </div>
+
+      <div class="section-card" style="margin-bottom:16px;">
+        <div class="section-title">Pro Form Check Queue</div>
+        <div class="section-subtitle">
+          Select a client submission, open their video, then upload corrective video and/or written feedback.
+        </div>
+
+        <div class="twoCol">
+          <div class="innerCard">
+            <div id="coachQueueList" style="display:grid; gap:10px;">Loading...</div>
+          </div>
+
+          <div class="innerCard">
+            <div id="coachSelectedMeta" style="font-weight:900; color:#2c221c; opacity:0.96;">Selected submission: (none)</div>
+
+            <div style="height:12px;"></div>
+
+            <label style="font-weight:900; color:#2c221c;">Corrective video (optional)</label>
+            <input id="coachVideoFile" class="log-input" type="file" accept="video/*" />
+
+            <div style="height:10px;"></div>
+
+            <label style="font-weight:900; color:#2c221c;">Written feedback (optional)</label>
+            <textarea id="coachNotes" class="log-input" style="height:160px;"
+              placeholder="Cues, corrections, tempo, form notes..."></textarea>
+
+            <div style="margin-top:12px;">
+              <button id="coachSendBtn" type="button" class="action-btn">
+                Send Feedback
+              </button>
+              <span id="coachSendMsg" style="margin-left:10px; font-weight:900; color:#2c221c;"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="twoCol" style="margin-bottom:16px;">
+        <div class="section-card">
+          <div class="section-title">Online Waitlist</div>
+          <div class="section-subtitle">
+            Mark people as invited, active, or removed.
+          </div>
+          <div id="onlineWaitlistBox">Loading...</div>
+        </div>
+
+        <div class="section-card">
+          <div class="section-title">In-Person Waitlist</div>
+          <div class="section-subtitle">
+            Mark people as invited, active, or removed.
+          </div>
+          <div id="inpersonWaitlistBox">Loading...</div>
+        </div>
+      </div>
+
+      <div class="section-card" style="margin-bottom:16px;">
+        <div class="section-title">Bootcamp Signups</div>
+        <div class="section-subtitle">
+          Paid bootcamp signups appear here.
+        </div>
+        <div id="bootcampSignupsBox">Loading...</div>
+      </div>
+    </section>
+
+    <div class="logout-row">
+      <button id="logoutBtn" type="button" class="logout-btn">
+        Log Out
+      </button>
+    </div>
+
+    <div id="videoModal">
+      <div class="videoModalInner">
+        <div class="videoModalHeader">
+          <div id="videoModalTitle" class="title">Video</div>
+          <button id="videoModalClose" class="closeBtn" type="button">Close</button>
+        </div>
+
+        <video id="videoModalPlayer" controls playsinline>
+          <source id="videoModalSource" src="" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+
+    <style>
+      :root{
+        --nf-cream:#e9e4d7;
+        --nf-card:#f7f3ec;
+        --nf-card-2:#eef2e6;
+        --nf-line:rgba(36,25,19,0.08);
+        --nf-ink:#241913;
+        --nf-muted:#62574c;
+        --nf-earth:#b07a3f;
+        --nf-olive:#7e9362;
+        --nf-olive-dark:#576b46;
+        --nf-olive-soft:#dfe8d1;
+        --nf-shadow:0 14px 34px rgba(54,40,27,0.10);
+      }
+
+      *{
+        box-sizing:border-box;
+      }
+
+      body{
+        margin:0;
+        background:linear-gradient(180deg, #e7e2d5 0%, #e9e4d7 45%, #e4ebd9 100%);
+        color:var(--nf-ink);
+        font-family:"Inter", sans-serif;
+      }
+
+      .coach-dashboard-header{
+        position:sticky;
+        top:0;
+        z-index:30;
+        background:rgba(239,233,221,0.96);
+        backdrop-filter:blur(10px);
+        border-bottom:1px solid var(--nf-line);
+      }
+
+      .coach-dashboard-header-inner{
+        max-width:1440px;
+        margin:0 auto;
+        padding:18px 22px;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:18px;
+      }
+
+      .coach-dashboard-logo-link{
+        display:inline-flex;
+        align-items:center;
+        flex:0 0 auto;
+      }
+
+      .coach-dashboard-logo{
+        width:88px;
+        height:auto;
+        display:block;
+      }
+
+      .coach-dashboard-branding{
+        text-align:right;
+        margin-left:auto;
+      }
+
+      .coach-dashboard-branding h1{
+        margin:0;
+        font-family:"Poppins", sans-serif;
+        font-weight:800;
+        font-size:52px;
+        line-height:0.95;
+        color:var(--nf-olive-dark);
+        letter-spacing:-0.03em;
+        text-shadow:0 4px 10px rgba(0,0,0,0.10);
+      }
+
+      .coach-dashboard-branding p{
+        margin:6px 0 0 0;
+        font-family:"Poppins", sans-serif;
+        font-weight:700;
+        font-size:22px;
+        color:var(--nf-earth);
+        text-transform:uppercase;
+        letter-spacing:0.03em;
+        text-shadow:0 4px 10px rgba(0,0,0,0.10);
+      }
+
+      .coach-dashboard-page{
+        max-width:1280px;
+        margin:0 auto;
+        padding:34px 20px 48px;
+      }
+
+      .coach-dashboard-hero-card{
+        background:rgba(250,247,241,0.92);
+        border:1px solid var(--nf-line);
+        border-radius:30px;
+        box-shadow:var(--nf-shadow);
+        text-align:center;
+        padding:30px 28px;
+        margin-bottom:20px;
+      }
+
+      .coach-dashboard-pill{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        padding:10px 16px;
+        border-radius:999px;
+        border:1px solid var(--nf-line);
+        background:rgba(126,147,98,0.10);
+        color:var(--nf-olive-dark);
+        font-family:"Poppins", sans-serif;
+        font-size:14px;
+        font-weight:700;
+        text-transform:uppercase;
+        letter-spacing:0.03em;
+        margin-bottom:18px;
+      }
+
+      .coach-dashboard-hero-card h2{
+        margin:0;
+        font-family:"Poppins", sans-serif;
+        font-size:52px;
+        line-height:1;
+        letter-spacing:-0.04em;
+        color:var(--nf-ink);
+        text-shadow:0 4px 10px rgba(0,0,0,0.10);
+      }
+
+      .coach-dashboard-hero-card p{
+        max-width:900px;
+        margin:16px auto 0;
+        color:#544a40;
+        font-size:18px;
+        font-weight:700;
+        line-height:1.75;
+        text-shadow:0 3px 8px rgba(0,0,0,0.08);
+      }
+
+      .coach-status-banner{
+        margin-bottom:22px;
+        padding:18px 20px;
+        border-radius:22px;
+        border:1px solid rgba(36,25,19,0.08);
+        background:rgba(250,247,241,0.92);
+        box-shadow:var(--nf-shadow);
+        color:#2d241e;
+        font-size:17px;
+        font-weight:800;
+      }
+
+      .section-card{
+        background:rgba(250,247,241,0.92);
+        border:1px solid var(--nf-line);
+        border-radius:26px;
+        padding:20px;
+        box-shadow:var(--nf-shadow);
+      }
+
+      .section-title{
+        font-family:"Poppins", sans-serif;
+        font-weight:800;
+        font-size:28px;
+        line-height:1.05;
+        margin:0 0 10px 0;
+        color:var(--nf-ink);
+        text-shadow:0 3px 8px rgba(0,0,0,0.08);
+      }
+
+      .section-subtitle{
+        color:#5a5046;
+        font-size:16px;
+        font-weight:700;
+        line-height:1.7;
+        margin:0 0 14px 0;
+        text-shadow:0 3px 8px rgba(0,0,0,0.05);
+      }
+
+      .log-input{
+        width:100%;
+        padding:14px 16px;
+        border-radius:16px;
+        border:1px solid rgba(36,25,19,0.12);
+        background:#f4efe6;
+        color:#2c221c;
+        font-size:16px;
+        font-weight:600;
+        outline:none;
+        box-sizing:border-box;
+      }
+
+      .log-input:focus{
+        border-color:rgba(87,107,70,0.42);
+        box-shadow:0 0 0 4px rgba(126,147,98,0.12);
+        background:#fbf8f2;
+      }
+
+      .twoCol{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:14px;
+      }
+
+      .innerCard{
+        background:#f1ece3;
+        border:1px solid rgba(36,25,19,0.08);
+        border-radius:22px;
+        padding:16px;
+      }
+
+      .queueItem{
+        text-align:left;
+        padding:12px;
+        border-radius:14px;
+        border:1px solid rgba(36,25,19,0.10);
+        background:#f8f4ed;
+        color:#2c221c;
+      }
+
+      .queueItem.selected{
+        border:2px solid rgba(126,147,98,0.78);
+        background:rgba(126,147,98,0.12);
+      }
+
+      .coach-msg-thread{
+        display:flex;
+        flex-direction:column;
+        gap:10px;
+        max-height:420px;
+        min-height:200px;
+        overflow-y:auto;
+        padding:14px;
+        margin:12px 0;
+        border-radius:16px;
+        border:1px solid rgba(36,25,19,0.10);
+        background:#f8f4ed;
+      }
+
+      .coach-msg-bubble{
+        max-width:80%;
+        padding:10px 13px;
+        border-radius:14px;
+        font-weight:600;
+        line-height:1.45;
+        white-space:pre-wrap;
+        word-break:break-word;
+      }
+
+      .coach-msg-bubble .coach-msg-meta{
+        display:block;
+        margin-top:6px;
+        font-size:11px;
+        font-weight:800;
+        opacity:0.7;
+      }
+
+      .coach-msg-mine{
+        align-self:flex-end;
+        background:#829660;
+        color:#fff;
+        border-bottom-right-radius:5px;
+      }
+
+      .coach-msg-theirs{
+        align-self:flex-start;
+        background:#fff;
+        color:#2c221c;
+        border:1px solid rgba(36,25,19,0.08);
+        border-bottom-left-radius:5px;
+      }
+
+      .coach-msg-empty{
+        margin:auto;
+        text-align:center;
+        font-weight:800;
+        color:#62574c;
+      }
+
+      .coach-convo-item{
+        text-align:left;
+        width:100%;
+        cursor:pointer;
+        padding:12px;
+        border-radius:14px;
+        border:1px solid rgba(36,25,19,0.10);
+        background:#f8f4ed;
+        color:#2c221c;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        gap:10px;
+      }
+
+      .coach-convo-item.selected{
+        border:2px solid rgba(126,147,98,0.78);
+        background:rgba(126,147,98,0.12);
+      }
+
+      .coach-convo-unread{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        min-width:22px;
+        height:22px;
+        padding:0 7px;
+        border-radius:999px;
+        background:#a04545;
+        color:#fff;
+        font-size:12px;
+        font-weight:900;
+        flex:0 0 auto;
+      }
+
+      .queueVideo{
+        width:100%;
+        border-radius:14px;
+        border:1px solid rgba(36,25,19,0.08);
+        background:#000;
+        max-height:200px;
+        object-fit:cover;
+      }
+
+      .pill{
+        display:inline-flex;
+        align-items:center;
+        padding:6px 10px;
+        border-radius:999px;
+        font-weight:900;
+        font-size:12px;
+        border:1px solid rgba(36,25,19,0.10);
+        background:#f6f2ea;
+        color:#2c221c;
+      }
+
+      .pill-green{
+        border-color:rgba(87,107,70,0.30);
+        background:rgba(126,147,98,0.14);
+        color:var(--nf-olive-dark);
+      }
+
+      .pill-yellow{
+        border-color:rgba(176,122,63,0.28);
+        background:rgba(176,122,63,0.10);
+        color:#8a5b25;
+      }
+
+      .pill-blue{
+        border-color:rgba(98,128,102,0.28);
+        background:rgba(223,232,209,0.90);
+        color:#4e6540;
+      }
+
+      .tableWrap{
+        overflow-x:auto;
+        width:100%;
+      }
+
+      table{
+        width:100%;
+        border-collapse:collapse;
+      }
+
+      th{
+        text-align:left;
+        padding:10px;
+        border-bottom:1px solid rgba(36,25,19,0.12);
+        white-space:nowrap;
+        color:#2c221c;
+        font-weight:800;
+      }
+
+      td{
+        padding:10px;
+        border-bottom:1px solid rgba(36,25,19,0.08);
+        vertical-align:top;
+        color:#3f352d;
+        font-weight:600;
+      }
+
+      .action-btn,
+      .mini-action-btn,
+      .video-link-btn,
+      button.action-btn,
+      button.mini-action-btn,
+      button.video-link-btn{
+        background:#829660;
+        color:#fff;
+        border:none;
+        box-shadow:0 8px 18px rgba(87,107,70,0.20);
+      }
+
+      .action-btn{
+        padding:13px 18px;
+        border-radius:14px;
+        cursor:pointer;
+        font-weight:900;
+      }
+
+      .mini-action-btn{
+        padding:8px 10px;
+        border-radius:10px;
+        cursor:pointer;
+        font-weight:900;
+      }
+
+      .video-link-btn{
+        padding:8px 10px;
+        border-radius:10px;
+        cursor:pointer;
+        font-weight:900;
+      }
+
+      .action-btn:hover,
+      .mini-action-btn:hover,
+      .video-link-btn:hover{
+        background:#728654;
+      }
+
+      .action-row{
+        display:flex;
+        flex-wrap:wrap;
+        gap:8px;
+      }
+
+      .logout-row{
+        margin-top:26px;
+        display:flex;
+        justify-content:center;
+      }
+
+      .logout-btn{
+        min-width:240px;
+        padding:14px 18px;
+        border-radius:16px;
+        border:none;
+        background:#829660;
+        color:#fff;
+        cursor:pointer;
+        font-weight:900;
+        font-size:16px;
+        box-shadow:0 8px 18px rgba(87,107,70,0.24);
+      }
+
+      .logout-btn:hover{
+        background:#728654;
+      }
+
+      .calorie-header-row{
+        display:flex;
+        justify-content:space-between;
+        align-items:flex-end;
+        gap:14px;
+        flex-wrap:wrap;
+        margin-bottom:14px;
+      }
+
+      .calorie-actions{
+        display:flex;
+        gap:10px;
+        align-items:center;
+        flex-wrap:wrap;
+      }
+
+      .calorie-date-input{
+        min-width:220px;
+      }
+
+      .foods-mini-list{
+        display:grid;
+        gap:6px;
+      }
+
+      .foods-mini-item{
+        padding:8px 10px;
+        border-radius:10px;
+        background:#f7f2ea;
+        border:1px solid rgba(36,25,19,0.08);
+        color:#3c3229;
+        font-size:13px;
+        font-weight:700;
+      }
+
+      #videoModal{
+        display:none;
+        position:fixed;
+        inset:0;
+        z-index:9999;
+        background:rgba(0,0,0,0.72);
+        backdrop-filter:blur(6px);
+        align-items:center;
+        justify-content:center;
+        padding:18px;
+      }
+
+      .videoModalInner{
+        width:min(720px, 95vw);
+        display:flex;
+        flex-direction:column;
+        gap:12px;
+      }
+
+      .videoModalHeader{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:12px 14px;
+        border-radius:16px;
+        background:#f6f2ea;
+        border:1px solid rgba(36,25,19,0.10);
+      }
+
+      .videoModalHeader .title{
+        font-weight:900;
+        color:#2c221c;
+        overflow:hidden;
+        text-overflow:ellipsis;
+        white-space:nowrap;
+      }
+
+      .videoModalHeader .closeBtn{
+        cursor:pointer;
+        border:0;
+        border-radius:12px;
+        padding:10px 12px;
+        font-weight:900;
+        background:#829660;
+        color:#fff;
+      }
+
+      .videoModalHeader .closeBtn:hover{
+        background:#728654;
+      }
+
+      #videoModalPlayer{
+        width:100%;
+        max-height:80vh;
+        display:block;
+        margin:0 auto;
+        border-radius:16px;
+        background:#000;
+        object-fit:contain;
+        border:1px solid rgba(255,255,255,0.14);
+        box-shadow:0 12px 40px rgba(0,0,0,0.35);
+      }
+
+      @media (max-width:980px){
+        .twoCol{
+          grid-template-columns:1fr;
+        }
+      }
+
+      @media (max-width:860px){
+        .coach-dashboard-header-inner{
+          padding:14px 16px;
+        }
+
+        .coach-dashboard-logo{
+          width:64px;
+        }
+
+        .coach-dashboard-branding h1{
+          font-size:34px;
+        }
+
+        .coach-dashboard-branding p{
+          font-size:16px;
+        }
+
+        .coach-dashboard-page{
+          padding:18px 14px 34px;
+        }
+
+        .coach-dashboard-hero-card,
+        .section-card{
+          border-radius:24px;
+        }
+
+        .coach-dashboard-hero-card{
+          padding:22px 18px;
+        }
+
+        .section-card{
+          padding:18px;
+        }
+
+        .coach-dashboard-hero-card h2{
+          font-size:34px;
+        }
+
+        .coach-dashboard-hero-card p{
+          font-size:16px;
+        }
+
+        .section-title{
+          font-size:24px;
+        }
+
+        .section-subtitle{
+          font-size:15px;
+        }
+
+        .logout-btn{
+          width:100%;
+        }
+
+        .calorie-actions{
+          width:100%;
+        }
+
+        .calorie-date-input{
+          min-width:unset;
+          width:100%;
+        }
+
+        .calorie-actions .mini-action-btn{
+          width:100%;
+        }
+      }
+
+      @media (max-width:700px){
+        #inpersonRequestsBox .tableWrap{
+          overflow:visible;
+        }
+
+        #inpersonRequestsBox table,
+        #inpersonRequestsBox tbody,
+        #inpersonRequestsBox tr,
+        #inpersonRequestsBox td{
+          display:block;
+          width:100%;
+        }
+
+        #inpersonRequestsBox thead{
+          display:none;
+        }
+
+        #inpersonRequestsBox tbody{
+          display:grid;
+          gap:12px;
+        }
+
+        #inpersonRequestsBox tr{
+          border:1px solid rgba(36,25,19,0.10);
+          border-radius:18px;
+          background:#f8f4ed;
+          padding:12px;
+          box-shadow:0 6px 14px rgba(54,40,27,0.05);
+        }
+
+        #inpersonRequestsBox td{
+          border-bottom:none;
+          padding:0;
+          margin:0 0 12px 0;
+          white-space:normal;
+          word-break:break-word;
+        }
+
+        #inpersonRequestsBox td:last-child{
+          margin-bottom:0;
+        }
+
+        #inpersonRequestsBox td::before{
+          display:block;
+          margin-bottom:4px;
+          font-size:12px;
+          line-height:1.2;
+          font-weight:900;
+          text-transform:uppercase;
+          letter-spacing:0.03em;
+          color:var(--nf-olive-dark);
+        }
+
+        #inpersonRequestsBox td:nth-child(1)::before{ content:"Client"; }
+        #inpersonRequestsBox td:nth-child(2)::before{ content:"Email"; }
+        #inpersonRequestsBox td:nth-child(3)::before{ content:"Plan"; }
+        #inpersonRequestsBox td:nth-child(4)::before{ content:"Status"; }
+        #inpersonRequestsBox td:nth-child(5)::before{ content:"Requested"; }
+        #inpersonRequestsBox td:nth-child(6)::before{ content:"Requested Schedule"; }
+        #inpersonRequestsBox td:nth-child(7)::before{ content:"Action"; }
+
+        #inpersonRequestsBox .action-row{
+          display:grid;
+          grid-template-columns:1fr;
+          gap:8px;
+        }
+
+        #inpersonRequestsBox .mini-action-btn{
+          width:100%;
+        }
+      }
+    </style>
+  </main>
+
+  <footer class="coach-dashboard-footer">
+    <nav>
+      <div class="logo">
+        <a href="index.html" class="logo">
+          <img src="logo.png" alt="Nori-Fitness LLC">
+        </a>
+      </div>
+      © 2026 Nori-Fitness LLC. All Rights Reserved. |
+      <a href="terms.html">Terms</a> |
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </footer>
+
+  <style>
+    .coach-dashboard-footer{
+      margin-top:30px;
+      padding:22px 20px 34px;
+      text-align:center;
+      color:#4f473e;
+    }
+
+    .coach-dashboard-footer nav{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .coach-dashboard-footer .logo img{
+      width:40px;
+      height:auto;
+      display:block;
+    }
+
+    .coach-dashboard-footer a{
+      color:#4f473e;
+      text-decoration:none;
+    }
+  </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase.js"></script>
+  <script src="coach-dashboard.js"></script>
+</body>
+</html>
