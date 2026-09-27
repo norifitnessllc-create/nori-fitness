@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nori-Fitness LLC | Create Account</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header class="top-banner signup-nutrition-header">
+    <div class="banner-inner signup-nutrition-inner">
+      <a href="index.html" class="logo signup-logo-link">
+        <img src="logo.png" alt="Nori-Fitness LLC" class="signup-logo">
+      </a>
+
+      <div class="signup-branding">
+        <h1>Create Account</h1>
+        <p>Train Strong | Live Confident</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="signup-page">
+    <section class="signup-hero-card">
+      <div class="signup-hero-pill">New Member Setup</div>
+      <h2>Start your fitness journey</h2>
+      <p>
+        Choose your training path, create your account, and get ready to begin with structured coaching built around your goals.
+      </p>
+    </section>
+
+    <section class="signup-card">
+      <div class="section-heading signup-heading">
+        <h2>Training Type</h2>
+        <p>Select the coaching format that fits you best.</p>
+      </div>
+
+      <div class="plan-grid signup-type-grid" id="typeGrid">
+        <button type="button" class="plan-card selected nutrition-style-plan-card" data-type="online">
+          <div class="plan-title">Online Training</div>
+          <div class="plan-sub">Workout videos + weekly calendar</div>
+          <div class="plan-price">Choose Starter or Pro below</div>
+        </button>
+
+        <button type="button" class="plan-card nutrition-style-plan-card" data-type="inperson">
+          <div class="plan-title">In-Person Training</div>
+          <div class="plan-sub">Request your days/times first</div>
+          <div class="plan-price">Pay only after approval</div>
+        </button>
+      </div>
+
+      <p class="form-status nutrition-status" id="typePickMsg"></p>
+    </section>
+
+    <section class="signup-card form-card">
+      <div class="section-heading signup-heading">
+        <h2>Create Your Account</h2>
+        <p>Fill out your details below to get started.</p>
+      </div>
+
+      <form id="signupForm" class="signup-form nutrition-signup-form">
+        <div class="signup-field">
+          <label for="fullName">Full Name</label>
+          <input id="fullName" type="text" placeholder="Full Name" required class="nutrition-input" />
+        </div>
+
+        <div class="signup-field">
+          <label>Date of Birth</label>
+          <div class="dob-grid">
+            <div>
+              <label for="dobMonth" class="sub-label">Month</label>
+              <select id="dobMonth" class="nutrition-input" required>
+                <option value="">Month</option>
+                <option value="1">January</option>
+                <option value="2">February</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="dobDay" class="sub-label">Day</label>
+              <select id="dobDay" class="nutrition-input" required>
+                <option value="">Day</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="dobYear" class="sub-label">Year</label>
+              <select id="dobYear" class="nutrition-input" required>
+                <option value="">Year</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="signup-field">
+          <label for="phone">Phone Number</label>
+          <input id="phone" type="tel" placeholder="Phone Number" required class="nutrition-input" />
+        </div>
+
+        <div class="two-col-fields">
+          <div class="signup-field">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="you@example.com" required autocomplete="email" class="nutrition-input" />
+          </div>
+
+          <div class="signup-field">
+            <label for="confirmEmail">Confirm Email</label>
+            <input type="email" id="confirmEmail" placeholder="Re-enter your email" required autocomplete="off" class="nutrition-input" />
+          </div>
+        </div>
+
+        <div class="signup-field">
+          <label for="address">Mailing Address (optional)</label>
+          <input id="address" type="text" placeholder="Street Address" class="nutrition-input" />
+        </div>
+
+        <div class="signup-field">
+          <label for="cityStateZip">City, State, ZIP (optional)</label>
+          <input id="cityStateZip" type="text" placeholder="City, State ZIP" class="nutrition-input" />
+        </div>
+
+        <div class="two-col-fields">
+          <div class="signup-field">
+            <label for="password">Password</label>
+            <div class="password-wrap">
+              <input
+                type="password"
+                id="password"
+                placeholder="Create a password"
+                required
+                class="nutrition-input password-input"
+              />
+              <button
+                type="button"
+                id="toggleSignupPassword"
+                aria-label="Show password"
+                title="Show password"
+                class="toggle-password-btn"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="signup-field">
+            <label for="confirmPassword">Confirm Password</label>
+            <div class="password-wrap">
+              <input
+                type="password"
+                id="confirmPassword"
+                placeholder="Confirm your password"
+                required
+                class="nutrition-input password-input"
+              />
+              <button
+                type="button"
+                id="toggleConfirmPassword"
+                aria-label="Show password"
+                title="Show password"
+                class="toggle-password-btn"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="signup-ack-box">
+          <div class="ack-grid">
+            <input id="ack18" type="checkbox" required />
+            <label for="ack18">
+              I confirm that I am at least 18 years of age.
+            </label>
+
+            <input id="ackTerms" type="checkbox" required />
+            <label for="ackTerms">
+              I have read and agree to the
+              <a href="terms.html" target="_blank">Terms</a>
+              and
+              <a href="privacy.html" target="_blank">Privacy Policy</a>
+              of NoriFitnessLLC.
+            </label>
+
+            <input id="ackParq" type="checkbox" required />
+            <label for="ackParq">
+              I agree to read the Important Notice below and complete the Physical Activity Readiness Questionnaire (PAR-Q) that will be emailed to me.
+            </label>
+          </div>
+        </div>
+
+        <input type="hidden" id="trainingType" value="online" />
+
+        <div class="plan-grid signup-plan-grid" id="planGrid">
+  <button type="button" class="plan-card selected nutrition-style-plan-card featured-offer-card" data-plan="starter_intro">
+    <div class="offer-pill">Limited Offer</div>
+
+    <div class="plan-title">Starter</div>
+
+    <div class="plan-sub">
+      First Month Special
+    </div>
+
+    <div class="plan-price special-price-line">
+      <span class="old-price">$150</span>
+      $75 First Month
+    </div>
+
+ <div class="plan-disclaimer">
+  One-time intro purchase for your first month of coaching.
+</div>
+  </button>
+
+  <button type="button" class="plan-card nutrition-style-plan-card" data-plan="starter_monthly">
+    <div class="plan-title">Starter</div>
+    <div class="plan-sub">Monthly</div>
+    <div class="plan-price">$150 / month</div>
+  </button>
+
+  <button type="button" class="plan-card nutrition-style-plan-card" data-plan="starter_3">
+    <div class="plan-title">Starter</div>
+    <div class="plan-sub">3 Months</div>
+    <div class="plan-price">$375 (3 months)</div>
+  </button>
+
+  <button type="button" class="plan-card nutrition-style-plan-card" data-plan="starter_6">
+    <div class="plan-title">Starter</div>
+    <div class="plan-sub">6 Months</div>
+    <div class="plan-price">$750 (6 months)</div>
+  </button>
+
+  <button type="button" class="plan-card nutrition-style-plan-card" data-plan="pro_monthly">
+    <div class="plan-title">Pro</div>
+    <div class="plan-sub">Monthly</div>
+    <div class="plan-price">$300 / month</div>
+  </button>
+
+  <button type="button" class="plan-card nutrition-style-plan-card" data-plan="pro_3">
+    <div class="plan-title">Pro</div>
+    <div class="plan-sub">3 Months</div>
+    <div class="plan-price">$850 (3 months)</div>
+  </button>
+</div>
+
+          <input type="hidden" id="planChoice" value="starter_intro" />
+          <p class="form-status nutrition-status" id="planPickMsg"></p>
+        </div>
+
+        <button type="submit" class="nutrition-btn signup-submit-btn">Create Account</button>
+        <p class="form-status nutrition-status" id="message">Ready.</p>
+      </form>
+    </section>
+
+    <section class="signup-card notice-card">
+      <div class="section-heading signup-heading notice-heading">
+        <h2>Important Notice</h2>
+        <p>Please read before completing your signup.</p>
+      </div>
+
+      <div class="notice-copy">
+        <p>
+          You must be physically able to perform fitness activities. Always consult with a Physician or relevant Healthcare Professional before beginning any fitness program.
+        </p>
+
+        <p>
+          By creating an account and signing up for coaching, you acknowledge that you have/will read the Physical Activity Readiness Questionnaire (PAR-Q)<br>
+           You agree to complete and return it before beginning your training program. You also acknowledge that you are voluntarily participating in this fitness program and assume all risks associated with it.
+      </div>
+    </section>
+  </main>
+
+  <footer class="signup-footer">
+    <nav>
+      <div class="logo">
+        <a href="index.html" class="logo">
+          <img src="logo.png" alt="Nori-Fitness LLC">
+        </a>
+      </div>
+      © 2026 Nori-Fitness LLC. All Rights Reserved. |
+      <a href="terms.html">Terms</a> |
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </footer>
+
+  <style>
+    :root{
+      --nf-cream:#e9e4d7;
+      --nf-card:#f7f3ec;
+      --nf-line:rgba(36,25,19,0.08);
+      --nf-ink:#241913;
+      --nf-muted:#62574c;
+      --nf-earth:#b07a3f;
+      --nf-olive:#7e9362;
+      --nf-olive-dark:#576b46;
+      --nf-shadow:0 14px 34px rgba(54, 40, 27, 0.10);
+      --nf-cucumber:#2a4715;
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+
+    body{
+      margin:0;
+      background:var(--nf-cream);
+      color:var(--nf-ink);
+      font-family:"Inter", sans-serif;
+    }
+
+    .signup-nutrition-header{
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(239,233,221,0.96);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--nf-line);
+    }
+
+    .signup-nutrition-inner{
+      max-width:1440px;
+      margin:0 auto;
+      padding:18px 22px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
+
+    .signup-logo-link{
+      display:inline-flex;
+      align-items:center;
+      flex:0 0 auto;
+    }
+
+    .signup-logo{
+      width:88px;
+      height:auto;
+      display:block;
+    }
+
+    .signup-branding{
+      text-align:right;
+      margin-left:auto;
+    }
+
+    .signup-branding h1{
+      margin:0;
+      font-family:"Poppins", sans-serif;
+      font-weight:800;
+      font-size:54px;
+      line-height:0.95;
+      color:var(--nf-olive-dark);
+      letter-spacing:-0.03em;
+      text-shadow:0 4px 10px rgba(0,0,0,0.10);
+    }
+
+    .signup-branding p{
+      margin:6px 0 0 0;
+      font-family:"Poppins", sans-serif;
+      font-weight:700;
+      font-size:24px;
+      color:var(--nf-earth);
+      text-transform:uppercase;
+      letter-spacing:0.03em;
+      text-shadow:0 4px 10px rgba(0,0,0,0.10);
+    }
+
+    .signup-page{
+      max-width:1120px;
+      margin:0 auto;
+      padding:34px 20px 48px;
+    }
+
+    .signup-hero-card,
+    .signup-card{
+      background:rgba(250,247,241,0.92);
+      border:1px solid var(--nf-line);
+      border-radius:30px;
+      box-shadow:var(--nf-shadow);
+    }
+
+    .signup-hero-card{
+      text-align:center;
+      padding:28px 26px;
+      margin-bottom:22px;
+    }
+
+    .signup-hero-pill{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 16px;
+      border-radius:999px;
+      border:1px solid var(--nf-line);
+      background:rgba(126,147,98,0.10);
+      color:var(--nf-olive-dark);
+      font-family:"Poppins", sans-serif;
+      font-size:14px;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:0.03em;
+      margin-bottom:18px;
+    }
+
+    .signup-hero-card h2{
+      margin:0;
+      font-family:"Poppins", sans-serif;
+      font-size:52px;
+      line-height:0.98;
+      letter-spacing:-0.04em;
+      color:var(--nf-ink);
+      text-shadow:0 4px 10px rgba(0,0,0,0.10);
+    }
+
+    .signup-hero-card p{
+      max-width:780px;
+      margin:14px auto 0;
+      color:#685c50;
+      font-size:19px;
+      font-weight:700;
+      line-height:1.7;
+      text-shadow:0 3px 8px rgba(0,0,0,0.08);
+    }
+
+    .signup-card{
+      padding:28px 28px 30px;
+      margin-bottom:22px;
+    }
+
+    .section-heading{
+      text-align:center;
+      margin-bottom:22px;
+    }
+
+    .section-heading h2{
+      margin:0;
+      font-family:"Poppins", sans-serif;
+      font-size:42px;
+      line-height:1;
+      letter-spacing:-0.04em;
+      color:var(--nf-ink);
+      text-shadow:0 4px 10px rgba(0,0,0,0.10);
+    }
+
+    .section-heading p{
+      margin:12px 0 0 0;
+      color:#6a5e53;
+      font-size:17px;
+      font-weight:700;
+      line-height:1.7;
+      text-shadow:0 3px 8px rgba(0,0,0,0.08);
+    }
+
+    .notice-heading h2,
+    .notice-heading p,
+    .notice-copy,
+    .notice-copy p{
+      color:var(--nf-cucumber) !important;
+      text-shadow:0 3px 8px rgba(0,0,0,0.14) !important;
+    }
+
+    .signup-type-grid{
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:16px;
+      max-width:760px;
+      margin:0 auto;
+    }
+
+    .signup-plan-grid{
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:16px;
+    }
+
+    .plan-grid{
+      display:grid;
+    }
+
+    .nutrition-style-plan-card{
+      text-align:left;
+      padding:20px 18px;
+      border-radius:22px;
+      border:1px solid rgba(36,25,19,0.10);
+      background:#f2ede4;
+      color:var(--nf-ink);
+      cursor:pointer;
+      transition:transform 140ms ease, border-color 140ms ease, background 140ms ease, box-shadow 140ms ease;
+      box-shadow:0 6px 18px rgba(54,40,27,0.06);
+    }
+
+    .nutrition-style-plan-card:hover{
+      transform:translateY(-2px);
+      border-color:rgba(126,147,98,0.45);
+      background:#f7f3ea;
+    }
+
+    .nutrition-style-plan-card.selected{
+      border:2px solid rgba(126,147,98,0.80);
+      background:rgba(126,147,98,0.10);
+      box-shadow:0 10px 22px rgba(87,107,70,0.12);
+    }
+
+    .plan-title{
+      font-family:"Poppins", sans-serif;
+      font-size:24px;
+      font-weight:700;
+      color:var(--nf-ink);
+      margin-bottom:8px;
+    }
+
+    .plan-sub{
+      font-size:15px;
+      font-weight:700;
+      color:#6b5f53;
+      margin-bottom:10px;
+      line-height:1.5;
+    }
+
+    .plan-price{
+      font-size:16px;
+      font-weight:800;
+      color:var(--nf-earth);
+      line-height:1.4;
+    }
+.featured-offer-card{
+  position:relative;
+  border:2px solid rgba(126,147,98,0.70);
+  background:linear-gradient(
+    180deg,
+    rgba(126,147,98,0.16) 0%,
+    rgba(255,255,255,0.92) 100%
+  );
+  overflow:hidden;
+}
+
+.featured-offer-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at top right,
+    rgba(176,122,63,0.18),
+    transparent 45%);
+  pointer-events:none;
+}
+
+.offer-pill{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:7px 12px;
+  border-radius:999px;
+  background:rgba(87,107,70,0.16);
+  border:1px solid rgba(87,107,70,0.22);
+  color:var(--nf-olive-dark);
+  font-size:12px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:0.04em;
+  margin-bottom:14px;
+}
+
+.special-price-line{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  font-size:22px;
+  color:var(--nf-cucumber);
+}
+
+.old-price{
+  font-size:15px;
+  font-weight:800;
+  color:#8a7d70;
+  text-decoration:line-through;
+}
+
+.plan-disclaimer{
+  margin-top:10px;
+  font-size:13px;
+  line-height:1.5;
+  color:#5f564d;
+  font-weight:700;
+}
+    .nutrition-signup-form{
+      max-width:760px;
+      margin:0 auto;
+    }
+
+    .signup-field{
+      margin-bottom:16px;
+    }
+
+    .signup-field label{
+      display:block;
+      margin-bottom:8px;
+      font-size:15px;
+      font-weight:800;
+      color:var(--nf-ink);
+    }
+
+    .sub-label{
+      font-size:13px !important;
+      margin-bottom:6px !important;
+      color:#62574c !important;
+    }
+
+    .nutrition-input{
+      width:100%;
+      box-sizing:border-box;
+      padding:14px 16px;
+      border-radius:16px;
+      border:1px solid rgba(36,25,19,0.12);
+      background:#f4efe6;
+      color:var(--nf-ink);
+      font-size:16px;
+      font-weight:600;
+      outline:none;
+      transition:border-color 140ms ease, box-shadow 140ms ease, background 140ms ease;
+    }
+
+    .nutrition-input:focus{
+      border-color:rgba(87,107,70,0.42);
+      box-shadow:0 0 0 4px rgba(126,147,98,0.12);
+      background:#fbf8f2;
+    }
+
+    .dob-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr;
+      gap:12px;
+    }
+
+    .two-col-fields{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+
+    .password-wrap{
+      position:relative;
+    }
+
+    .password-input{
+      padding-right:52px;
+    }
+
+    .toggle-password-btn{
+      position:absolute;
+      right:14px;
+      top:50%;
+      transform:translateY(-50%);
+      border:0;
+      background:transparent;
+      cursor:pointer;
+      padding:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:24px;
+      height:24px;
+      color:#2e241d;
+    }
+
+    .signup-ack-box{
+      margin-top:16px;
+      padding:16px;
+      border:1px solid rgba(36,25,19,0.10);
+      border-radius:20px;
+      background:#f2ede4;
+    }
+
+    .ack-grid{
+      display:grid;
+      grid-template-columns:18px 1fr;
+      column-gap:10px;
+      row-gap:12px;
+      align-items:start;
+    }
+
+    .ack-grid input{
+      margin:2px 0 0 0;
+      accent-color:#7e9362;
+    }
+
+    .ack-grid label{
+      margin:0;
+      text-align:left;
+      font-size:14px;
+      line-height:1.5;
+      font-weight:700;
+      color:#4f463d;
+    }
+
+    .ack-grid a{
+      color:var(--nf-olive-dark);
+      text-decoration:underline;
+      font-weight:800;
+    }
+
+    .online-plans-block{
+      margin-top:24px;
+      padding-top:8px;
+    }
+
+    .plan-heading{
+      margin-bottom:18px;
+    }
+
+    .nutrition-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border:none;
+      border-radius:16px;
+      background:#829660;
+      color:#fff;
+      font-family:"Inter", sans-serif;
+      font-weight:800;
+      font-size:18px;
+      padding:16px 22px;
+      text-decoration:none;
+      cursor:pointer;
+      box-shadow:0 8px 18px rgba(87,107,70,0.24);
+    }
+
+    .nutrition-btn:hover{
+      background:#728654;
+    }
+
+    .signup-submit-btn{
+      width:100%;
+      margin-top:18px;
+    }
+
+    .nutrition-status{
+      margin:12px 0 0 0;
+      text-align:center;
+      font-size:15px;
+      font-weight:800;
+      color:var(--nf-ink);
+    }
+
+    .notice-copy{
+      max-width:860px;
+      margin:0 auto;
+      font-size:18px;
+      line-height:1.8;
+      font-weight:700;
+      text-align:center;
+    }
+
+    .notice-copy p{
+      margin:0 0 18px 0;
+    }
+
+    .notice-copy p:last-child{
+      margin-bottom:0;
+    }
+
+    .signup-footer{
+      margin-top:30px;
+      padding:22px 20px 34px;
+      text-align:center;
+      color:#4f473e;
+    }
+
+    .signup-footer nav{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .signup-footer .logo img{
+      width:40px;
+      height:auto;
+      display:block;
+    }
+
+    .signup-footer a{
+      color:#4f473e;
+      text-decoration:none;
+    }
+
+    @media (max-width:860px){
+      .signup-nutrition-inner{
+        padding:14px 16px;
+      }
+
+      .signup-logo{
+        width:64px;
+      }
+
+      .signup-branding h1{
+        font-size:34px;
+      }
+
+      .signup-branding p{
+        font-size:16px;
+      }
+
+      .signup-page{
+        padding:18px 14px 34px;
+      }
+
+      .signup-hero-card,
+      .signup-card{
+        border-radius:24px;
+      }
+
+      .signup-hero-card{
+        padding:22px 18px;
+      }
+
+      .signup-card{
+        padding:22px 18px 24px;
+      }
+
+      .signup-hero-card h2{
+        font-size:36px;
+      }
+
+      .signup-hero-card p{
+        font-size:16px;
+      }
+
+      .section-heading h2{
+        font-size:32px;
+      }
+
+      .section-heading p{
+        font-size:15px;
+      }
+
+      .signup-type-grid,
+      .signup-plan-grid,
+      .two-col-fields,
+      .dob-grid{
+        grid-template-columns:1fr;
+      }
+
+      .nutrition-btn{
+        width:100%;
+        font-size:16px;
+        padding:14px 18px;
+      }
+    }
+  </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="script.js"></script>
+  <script src="signup.js"></script>
+</body>
+</html>

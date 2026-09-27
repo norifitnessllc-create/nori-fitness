@@ -224,6 +224,13 @@ otp_expiry = 3600
 # admin_email = "admin@email.com"
 # sender_name = "Admin"
 
+# The live "Confirm signup" template is edited in the Supabase dashboard
+# (Authentication -> Emails). This copy keeps it in source control and is what
+# local development sends.
+[auth.email.template.confirmation]
+subject = "Confirm Your Account - Nori-Fitness LLC"
+content_path = "./supabase/templates/confirmation.html"
+
 # Uncomment to customize email template
 # [auth.email.template.invite]
 # subject = "You have been invited"
@@ -233,7 +240,7 @@ otp_expiry = 3600
 # [auth.email.notification.password_changed]
 # enabled = true
 # subject = "Your password has been changed"
-# content_path = "./templates/password_changed_notification.html"
+# content_path = "./supabase/templates/password_changed_notification.html"
 
 [auth.sms]
 # Allow/disallow new user signups via SMS to your project.
