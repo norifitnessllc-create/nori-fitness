@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nori Fitness | Online Training Waitlist</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <header class="waitlist-header">
+    <div class="waitlist-header-inner">
+      <a href="index.html" class="waitlist-logo-link">
+        <img src="logo.png" alt="Nori Fitness" class="waitlist-logo">
+      </a>
+
+      <div class="waitlist-branding">
+        <h1>Online Waitlist</h1>
+        <p>Train Strong | Live Confident</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="waitlist-page">
+
+    <section class="waitlist-hero-card">
+      <div class="waitlist-hero-pill">Current Capacity Full</div>
+      <h2>Join the Online Training Waitlist</h2>
+      <p>
+        Online training capacity is currently full. Join the waitlist and you’ll be contacted when the next opening becomes available.
+      </p>
+    </section>
+
+    <section class="waitlist-card">
+      <div class="section-heading waitlist-heading">
+        <h2>Waitlist Registration</h2>
+        <p>Secure your place now and be first in line when online coaching spots reopen.</p>
+      </div>
+
+      <div class="waitlist-fee-box">
+        <h3>Waitlist Registration Fee</h3>
+        <p>$25</p>
+      </div>
+
+      <form id="waitlistForm" class="waitlist-form">
+
+        <div class="waitlist-field">
+          <label for="fullName">Full Name</label>
+          <input id="fullName" type="text" required class="waitlist-input">
+        </div>
+
+        <div class="waitlist-field">
+          <label for="email">Email</label>
+          <input id="email" type="email" required autocomplete="email" class="waitlist-input">
+        </div>
+
+        <div class="waitlist-field">
+          <label for="confirmEmail">Confirm Email</label>
+          <input id="confirmEmail" type="email" required autocomplete="off" class="waitlist-input">
+        </div>
+
+        <div class="waitlist-field">
+          <label for="phone">Phone Number</label>
+          <input id="phone" type="tel" required class="waitlist-input">
+        </div>
+
+        <button type="submit" class="waitlist-btn">
+          Join Waitlist
+        </button>
+
+        <p id="message" class="waitlist-status">Ready.</p>
+
+      </form>
+    </section>
+
+  </main>
+
+  <footer class="waitlist-footer">
+    <nav>
+      <div class="logo">
+        <a href="index.html">
+          <img src="logo.png" alt="Nori Fitness">
+        </a>
+      </div>
+
+      © 2026 Nori-Fitness LLC |
+      <a href="terms.html">Terms</a> |
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </footer>
+
+  <style>
+    :root{
+      --nf-cream:#e9e4d7;
+      --nf-card:#f7f3ec;
+      --nf-line:rgba(36,25,19,0.08);
+      --nf-ink:#241913;
+      --nf-muted:#62574c;
+      --nf-earth:#b07a3f;
+      --nf-olive:#7e9362;
+      --nf-olive-dark:#576b46;
+      --nf-shadow:0 14px 34px rgba(54,40,27,0.10);
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+
+    body{
+      margin:0;
+      background:var(--nf-cream);
+      color:var(--nf-ink);
+      font-family:"Inter", sans-serif;
+    }
+
+    .waitlist-header{
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(239,233,221,0.96);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--nf-line);
+    }
+
+    .waitlist-header-inner{
+      max-width:1440px;
+      margin:0 auto;
+      padding:18px 22px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
+
+    .waitlist-logo-link{
+      display:inline-flex;
+      align-items:center;
+      flex:0 0 auto;
+    }
+
+    .waitlist-logo{
+      width:88px;
+      height:auto;
+      display:block;
+    }
+
+    .waitlist-branding{
+      text-align:right;
+      margin-left:auto;
+    }
+
+    .waitlist-branding h1{
+      margin:0;
+      font-family:"Poppins", sans-serif;
+      font-weight:800;
+      font-size:52px;
+      line-height:0.95;
+      color:var(--nf-olive-dark);
+      letter-spacing:-0.03em;
+      text-shadow:0 4px 10px rgba(0,0,0,0.10);
+    }
+
+    .waitlist-branding p{
+      margin:6px 0 0 0;
+      font-family:"Poppins", sans-serif;
+      font-weight:700;
+      font-size:22px;
+      color:var(--nf-earth);
+      text-transform:uppercase;
+      letter-spacing:0.03em;
+      text-shadow:0 4px 10px rgba(0,0,0,0.10);
+    }
+
+    .waitlist-page{
+      max-width:980px;
+      margin:0 auto;
+      padding:34px 20px 48px;
+    }
+
+    .waitlist-hero-card,
+    .waitlist-card{
+      background:rgba(250,247,241,0.92);
+      border:1px solid var(--nf-line);
+      border-radius:30px;
+      box-shadow:var(--nf-shadow);
+    }
+
+    .waitlist-hero-card{
+      text-align:center;
+      padding:30px 28px;
+      margin-bottom:22px;
+    }
+
+    .waitlist-hero-pill{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 16px;
+      border-radius:999px;
+      border:1px solid var(--nf-line);
+      background:rgba(126,147,98,0.10);
+      color:var(--nf-olive-dark);
+      font-family:"Poppins", sans-serif;
+      font-size:14px;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:0.03em;
+      margin-bottom:18px;
+    }
+
+    .waitlist-hero-card h2{
+      margin:0;
+      font-family:"Poppins", sans-serif;
+      font-size:50px;
+      line-height:1;
+      letter-spacing:-0.04em;
+      color:var(--nf-ink);
+      text-shadow:0 4px 10px rgba(0,0,0,0.10);
+    }
+
+    .waitlist-hero-card p{
+      max-width:760px;
+      margin:16px auto 0;
+      color:#5b5147;
+      font-size:18px;
+      font-weight:700;
+      line-height:1.75;
+      text-shadow:0 3px 8px rgba(0,0,0,0.08);
+    }
+
+    .waitlist-card{
+      padding:28px 28px 30px;
+    }
+
+    .section-heading{
+      text-align:center;
+      margin-bottom:22px;
+    }
+
+    .section-heading h2{
+      margin:0;
+      font-family:"Poppins", sans-serif;
+      font-size:40px;
+      line-height:1;
+      letter-spacing:-0.04em;
+      color:var(--nf-ink);
+      text-shadow:0 4px 10px rgba(0,0,0,0.10);
+    }
+
+    .section-heading p{
+      margin:12px 0 0 0;
+      color:#5b5147;
+      font-size:17px;
+      font-weight:700;
+      line-height:1.7;
+      text-shadow:0 3px 8px rgba(0,0,0,0.08);
+    }
+
+    .waitlist-fee-box{
+      max-width:420px;
+      margin:0 auto 24px;
+      padding:22px 20px;
+      border-radius:24px;
+      border:1px solid rgba(36,25,19,0.08);
+      background:#ece6d9;
+      text-align:center;
+    }
+
+    .waitlist-fee-box h3{
+      margin:0 0 10px 0;
+      font-family:"Poppins", sans-serif;
+      font-size:22px;
+      color:var(--nf-olive-dark);
+      text-shadow:0 3px 8px rgba(0,0,0,0.08);
+    }
+
+    .waitlist-fee-box p{
+      margin:0;
+      font-family:"Poppins", sans-serif;
+      font-size:34px;
+      line-height:1;
+      font-weight:800;
+      color:var(--nf-earth);
+      text-shadow:0 3px 8px rgba(0,0,0,0.08);
+    }
+
+    .waitlist-form{
+      max-width:620px;
+      margin:0 auto;
+    }
+
+    .waitlist-field{
+      margin-bottom:16px;
+    }
+
+    .waitlist-field label{
+      display:block;
+      margin-bottom:8px;
+      font-size:15px;
+      font-weight:800;
+      color:var(--nf-ink);
+    }
+
+    .waitlist-input{
+      width:100%;
+      padding:14px 16px;
+      border-radius:16px;
+      border:1px solid rgba(36,25,19,0.12);
+      background:#f4efe6;
+      color:var(--nf-ink);
+      font-size:16px;
+      font-weight:600;
+      outline:none;
+      transition:border-color 140ms ease, box-shadow 140ms ease, background 140ms ease;
+    }
+
+    .waitlist-input:focus{
+      border-color:rgba(87,107,70,0.42);
+      box-shadow:0 0 0 4px rgba(126,147,98,0.12);
+      background:#fbf8f2;
+    }
+
+    .waitlist-btn{
+      width:100%;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border:none;
+      border-radius:16px;
+      background:#829660;
+      color:#fff;
+      font-family:"Inter", sans-serif;
+      font-weight:800;
+      font-size:18px;
+      padding:16px 22px;
+      cursor:pointer;
+      box-shadow:0 8px 18px rgba(87,107,70,0.24);
+      margin-top:6px;
+    }
+
+    .waitlist-btn:hover{
+      background:#728654;
+    }
+
+    .waitlist-status{
+      margin:14px 0 0 0;
+      text-align:center;
+      font-size:15px;
+      font-weight:800;
+      color:var(--nf-ink);
+    }
+
+    .waitlist-footer{
+      margin-top:30px;
+      padding:22px 20px 34px;
+      text-align:center;
+      color:#4f473e;
+    }
+
+    .waitlist-footer nav{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .waitlist-footer .logo img{
+      width:40px;
+      height:auto;
+      display:block;
+    }
+
+    .waitlist-footer a{
+      color:#4f473e;
+      text-decoration:none;
+    }
+
+    @media (max-width:860px){
+      .waitlist-header-inner{
+        padding:14px 16px;
+      }
+
+      .waitlist-logo{
+        width:64px;
+      }
+
+      .waitlist-branding h1{
+        font-size:34px;
+      }
+
+      .waitlist-branding p{
+        font-size:16px;
+      }
+
+      .waitlist-page{
+        padding:18px 14px 34px;
+      }
+
+      .waitlist-hero-card,
+      .waitlist-card{
+        border-radius:24px;
+      }
+
+      .waitlist-hero-card{
+        padding:22px 18px;
+      }
+
+      .waitlist-card{
+        padding:22px 18px 24px;
+      }
+
+      .waitlist-hero-card h2{
+        font-size:34px;
+      }
+
+      .waitlist-hero-card p{
+        font-size:16px;
+      }
+
+      .section-heading h2{
+        font-size:30px;
+      }
+
+      .section-heading p{
+        font-size:15px;
+      }
+
+      .waitlist-fee-box p{
+        font-size:28px;
+      }
+
+      .waitlist-btn{
+        font-size:16px;
+        padding:14px 18px;
+      }
+    }
+  </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="online-waitlist.js"></script>
+
+</body>
+</html>

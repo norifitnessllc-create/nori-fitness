@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nori-Fitness LLC | Nutrition</title>
+  <link rel="stylesheet" href="style.css"/>
+
+  <style>
+    /* Hidden until nutrition.js confirms a signed-in client. Revealed in revealPage(). */
+    body { visibility: hidden; }
+  </style>
+</head>
+
+<body>
+  <header class="nutrition-header">
+    <div class="nutrition-header-inner">
+      <a href="index.html" class="logo nutrition-logo-link">
+        <img src="logo.png" alt="Nori-Fitness LLC" class="nutrition-logo">
+      </a>
+
+      <div class="nutrition-branding">
+        <h1>Nutrition</h1>
+        <p>Eat Well | Train Strong</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="nutrition-page">
+    <!-- TOP BANNER -->
+    <section class="priority-banner">
+      <div class="priority-date-pill">Week of September 21st</div>
+
+      <div class="priority-copy">
+        <h2>This week’s priority: Adding more protein to your meals</h2>
+        <p>
+          Protein is essential for muscle repair, recovery, and growth. Aim to include a protein source in every meal and snack to support your training (espcecially for muscle growth and definition) and overall health.
+        </p>
+      </div>
+
+      <div class="priority-points">
+        <div class="priority-point">Aim for consistency first, not perfection.</div>
+        <div class="priority-point">Anchor each meal around a protein source.</div>
+        <div class="priority-point">Use the sample meal plan as a template, not a rigid rulebook.</div>
+      </div>
+    </section>
+
+       <!-- WEEKLY NOTE -->
+    <section class="nutrition-card note-card">
+      <div class="section-heading">
+        <h2>Weekly Nutrition Note</h2>
+        <p class="note-subtitle">PROTEIN: Building Blocks for Muscle Growth</p>
+      </div>
+
+      <div class="note-body">
+        <p>
+          This week, the focus is on protein. Protein is essential for muscle repair, recovery, and growth. It also helps keep you full and satisfied, which can support your overall nutrition goals.
+        </p>
+
+        <p>
+          A helpful structure is protein first, then produce, then a smart carb or healthy fat depending
+          on your needs and training day. That could look like eggs with fruit and toast in the morning,
+          a chicken bowl at lunch, and salmon, rice, and vegetables at dinner.
+        </p>
+
+        <p>
+          If your week gets busy, simplify instead of skipping. A Greek yogurt bowl, protein smoothie,
+          rotisserie chicken. The goal is to keep protein consistent, even if the rest of the meal is simplified.
+        </p>
+      </div>
+
+      <div class="coach-cue-box">
+        <h3>Coach cue for the week</h3>
+        <p>
+          Before each meal, ask: “Where is my protein? Am I getting enough?” If the answer is no, add a protein source to your meal or snack.
+        </p>
+      </div>
+
+     
+    </section>
+
+    <!-- MEAL PLAN + CLIENT NOTES -->
+    <section class="meal-notes-grid">
+      <div class="nutrition-card meal-plan-card">
+        <div class="section-heading">
+          <h2>Suggested Meal Plan</h2>
+          <p>
+            Use this as a table-style weekly guide. You can edit meals week to week or swap foods
+            while keeping the same structure.
+          </p>
+        </div>
+
+        <div class="meal-plan-download-row">
+          <button type="button" id="downloadMealPlanBtn" class="nutrition-btn">
+            Download Suggested Meal Plan
+          </button>
+        </div>
+
+        <!-- Desktop / tablet table -->
+        <div class="meal-table-wrap">
+          <table class="meal-table">
+            <thead>
+              <tr>
+                <th>Day</th>
+                <th>Breakfast</th>
+                <th>Mid-Morning Snack</th>
+                <th>Lunch</th>
+                <th>Mid-Day Snack</th>
+                <th>Dinner</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Monday</td>
+                <td>Boiled Eggs, Chicken Sausage, Avocado</td>
+                <td>Apple with Peanut Butter</td>
+                <td>Grilled Tilapia, Asparagus, Quinoa</td>
+                <td>Guava with Greek Yogurt</td>
+                <td>Roasted Sweet Potatoes, Green Beans, Tuna</td>
+              </tr>
+              <tr>
+                <td>Tuesday</td>
+                <td>Sardines on Whole Wheat Bread, Brussels Sprouts</td>
+                <td>Berry Bowl (Strawberries, Blueberries, Raspberries)</td>
+                <td>Turkey Sandwich, Side Salad</td>
+                <td>Banana, Cashews</td>
+                <td>Grilled Chicken, Brown Rice, Steamed Vegetables</td>
+              </tr>
+              <tr>
+                <td>Wednesday</td>
+                <td>Salmon, Sautéed Bell Peppers, Scrambled Eggs</td>
+                <td>Pineapple with Greek Yogurt</td>
+                <td>Chick Pea Salad</td>
+                <td>Fruit Smoothie (Spinach, Banana, Berries, Ginger)</td>
+                <td>Caesar Salad Wrap</td>
+              </tr>
+              <tr>
+                <td>Thursday</td>
+                <td>Egg White Omelet with Spinach & Mushrooms</td>
+                <td>Peanuts with Apple</td>
+                <td>Lean Sirloin Steak with Sweet Potato</td>
+                <td>Watermelon with Lime</td>
+                <td>Cucumber Salad with Smoked Salmon</td>
+              </tr>
+              <tr>
+                <td>Friday</td>
+                <td>Breakfast Burrito Bowl </td>
+                <td>Protein bar</td>
+                <td>Stuffed Chicken Breast (With Cooked Kale, Mushrooms, Onions and Mozzarella)</td>
+                <td>Granola Bar</td>
+                <td>Light Pasta with Shrimp</td>
+              </tr>
+              <tr>
+                <td>Saturday</td>
+                <td>Protein Pancakes, Turkey Bacon, Fried Egg</td>
+                <td>Mango, Banana</td>
+                <td>Steamed Carrots with Baked Chicken Quarters</td>
+                <td>Yogurt with Granola</td>
+                <td>Baked Fish with Vegetables</td>
+              </tr>
+              <tr>
+                <td>Sunday</td>
+                <td>Have a Cheat Day!</td>
+                <td>Have a Cheat Day!</td>
+                <td>Have a Cheat Day!</td>
+                <td>Have a Cheat Day!</td>
+                <td>Have a Cheat Day!</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Mobile cards -->
+        <div class="meal-cards-mobile">
+          <article class="meal-day-card">
+            <h3>Monday</h3>
+            <div class="meal-day-grid">
+              <div class="meal-item"><span>Breakfast</span><p>Boiled Eggs, Chicken Sausage, Avocado</p></div>
+              <div class="meal-item"><span>Mid-Morning Snack</span><p>Apple with Peanut Butter</p></div>
+              <div class="meal-item"><span>Lunch</span><p>Grilled Tilapia, Asparagus, Quinoa</p></div>
+              <div class="meal-item"><span>Mid-Day Snack</span><p>Guava with Greek Yogurt</p></div>
+              <div class="meal-item"><span>Dinner</span><p>Roasted Sweet Potatoes, Green Beans, Tuna</p></div>
+            </div>
+          </article>
+
+          <article class="meal-day-card">
+            <h3>Tuesday</h3>
+            <div class="meal-day-grid">
+              <div class="meal-item"><span>Breakfast</span><p>Sardines on Whole Wheat Bread, Brussels Sprouts</p></div>
+              <div class="meal-item"><span>Mid-Morning Snack</span><p>Berry Bowl (Strawberries, Blueberries, Raspberries)</p></div>
+              <div class="meal-item"><span>Lunch</span><p>Turkey Sandwich, Side Salad</p></div>
+              <div class="meal-item"><span>Mid-Day Snack</span><p>Banana, Cashews</p></div>
+              <div class="meal-item"><span>Dinner</span><p>Grilled Salmon, Steamed Broccoli, Brown Rice</p></div>
+            </div>
+          </article>
+
+          <article class="meal-day-card">
+            <h3>Wednesday</h3>
+            <div class="meal-day-grid">
+              <div class="meal-item"><span>Breakfast</span><p>Salmon, Sautéed Bell Peppers, Scrambled Eggs</p></div>
+              <div class="meal-item"><span>Mid-Morning Snack</span><p>Pineapple with Greek Yogurt</p></div>
+              <div class="meal-item"><span>Lunch</span><p>Chick Pea Salad</p></div>
+              <div class="meal-item"><span>Mid-Day Snack</span><p>Fruit Smoothie (Spinach, Banana, Berries, Ginger)</p></div>
+              <div class="meal-item"><span>Dinner</span><p>Caesar Salad Wrap</p></div>
+            </div>
+          </article>
+
+          <article class="meal-day-card">
+            <h3>Thursday</h3>
+            <div class="meal-day-grid">
+              <div class="meal-item"><span>Breakfast</span><p>Egg White Omelet with Spinach & Mushrooms</p></div>
+              <div class="meal-item"><span>Mid-Morning Snack</span><p>Peanuts with Apple</p></div>
+              <div class="meal-item"><span>Lunch</span><p>Lean Sirloin Steak with Sweet Potato</p></div>
+              <div class="meal-item"><span>Mid-Day Snack</span><p>Watermelon with Lime</p></div>
+              <div class="meal-item"><span>Dinner</span><p>Cucumber Salad with Smoked Salmon</p></div>
+            </div>
+          </article>
+
+          <article class="meal-day-card">
+            <h3>Friday</h3>
+            <div class="meal-day-grid">
+              <div class="meal-item"><span>Breakfast</span><p>Breakfast Burrito Bowl</p></div>
+              <div class="meal-item"><span>Mid-Morning Snack</span><p>Protein bar</p></div>
+              <div class="meal-item"><span>Lunch</span><p>Stuffed Chicken Breast (With Cooked Kale, Mushrooms, Onions and Mozzarella)</p></div>
+              <div class="meal-item"><span>Mid-Day Snack</span><p>Granola Bar</p></div>
+              <div class="meal-item"><span>Dinner</span><p>Light Pasta with Shrimp</p></div>
+            </div>
+          </article>
+
+          <article class="meal-day-card">
+            <h3>Saturday</h3>
+            <div class="meal-day-grid">
+              <div class="meal-item"><span>Breakfast</span><p>Protein Pancakes, Turkey Bacon, Fried Egg</p></div>
+              <div class="meal-item"><span>Mid-Morning Snack</span><p>Mango, Banana</p></div>
+              <div class="meal-item"><span>Lunch</span><p>Steamed Carrots with Baked Chicken Quarters</p></div>
+              <div class="meal-item"><span>Mid-Day Snack</span><p>Yogurt with Granola</p></div>
+              <div class="meal-item"><span>Dinner</span><p>Baked Fish with Vegetables</p></div>
+            </div>
+          </article>
+
+          <article class="meal-day-card">
+            <h3>Sunday</h3>
+            <div class="meal-day-grid">
+              <div class="meal-item"><span>Breakfast</span><p>Have a Cheat Day!</p></div>
+              <div class="meal-item"><span>Mid-Morning Snack</span><p>Have a Cheat Day!</p></div>
+              <div class="meal-item"><span>Lunch</span><p>Have a Cheat Day!</p></div>
+              <div class="meal-item"><span>Mid-Day Snack</span><p>Have a Cheat Day!</p></div>
+              <div class="meal-item"><span>Dinner</span><p>Have a Cheat Day!</p></div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <aside class="nutrition-card client-notes-card">
+        <div class="section-heading notes-heading">
+          <h2>Member Notes</h2>
+          <p>Useful for quick reminders, grocery prep ideas, and flexible substitutions.</p>
+        </div>
+
+        <div class="notes-stack">
+          <div class="note-mini-box">
+            <h3>Grocery Focus</h3>
+            <p>
+              Keep protein easy: eggs, Greek yogurt, rotisserie chicken, turkey, salmon,
+              tuna packets, protein powder.
+            </p>
+          </div>
+
+          <div class="note-mini-box">
+            <h3>Carb Options</h3>
+            <p>
+              Really focus on complex carbs: brown rice, quinoa, sweet potatoes, whole wheat bread, oats, beans. Avoid simple carbs like white bread, pastries, and sugary cereals.
+            </p>
+          </div>
+
+          <div class="note-mini-box">
+            <h3>Simple Substitutions</h3>
+            <ul>
+              <li>Swap chicken for turkey or salmon.</li>
+              <li>Swap rice for potatoes, wraps, or quinoa.</li>
+              <li>Swap yogurt for cottage cheese or a protein shake.</li>
+              <li>Swap vegetables based on preference and availability.</li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="nutrition-footer">
+    <nav>
+      <div class="logo">
+        <a href="index.html" class="logo">
+          <img src="logo.png" alt="Nori-Fitness LLC">
+        </a>
+      </div>
+      © 2026 Nori-Fitness LLC. All Rights Reserved. |
+      <a href="terms.html">Terms</a> |
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </footer>
+
+  <style>
+    :root{
+      --cream-bg:#e9e4d7;
+      --card:#f5f2eb;
+      --card-2:#f8f5ef;
+      --line:#d8d2c4;
+      --earth:#b07a3f;
+      --olive:#7e9362;
+      --olive-dark:#576b46;
+      --ink:#241913;
+      --muted:#62574c;
+      --shadow:0 14px 34px rgba(54, 40, 27, 0.10);
+    }
+
+    *{ box-sizing:border-box; }
+
+    body{
+      margin:0;
+      background:var(--cream-bg);
+      color:var(--ink);
+      font-family:"Inter", sans-serif;
+    }
+
+    .nutrition-header{
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(239,233,221,0.96);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(36,25,19,0.08);
+    }
+
+    .nutrition-header-inner{
+      max-width:1440px;
+      margin:0 auto;
+      padding:18px 22px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
+
+    .nutrition-logo-link{
+      display:inline-flex;
+      align-items:center;
+      flex:0 0 auto;
+    }
+
+    .nutrition-logo{
+      width:88px;
+      height:auto;
+      display:block;
+    }
+
+    .nutrition-branding{
+      text-align:right;
+      margin-left:auto;
+    }
+
+    .nutrition-branding h1{
+      margin:0;
+      font-family:"Poppins", sans-serif;
+      font-weight:800;
+      font-size:56px;
+      line-height:0.95;
+      color:var(--olive-dark);
+      letter-spacing:-0.03em;
+      text-shadow:0 4px 10px rgba(0,0,0,0.10);
+    }
+
+    .nutrition-branding p{
+      margin:6px 0 0 0;
+      font-family:"Poppins", sans-serif;
+      font-weight:700;
+      font-size:24px;
+      color:var(--earth);
+      text-transform:uppercase;
+      letter-spacing:0.03em;
+      text-shadow:0 4px 10px rgba(0,0,0,0.10);
+    }
+
+    .nutrition-page{
+      max-width:1520px;
+      margin:0 auto;
+      padding:34px 20px 48px;
+    }
+
+    .nutrition-card,
+    .priority-banner{
+      background:rgba(250,247,241,0.92);
+      border:1px solid rgba(36,25,19,0.08);
+      border-radius:30px;
+      box-shadow:var(--shadow);
+    }
+
+    /* TOP BANNER */
+    .priority-banner{
+      display:grid;
+      grid-template-columns:260px minmax(0,1fr) 360px;
+      gap:14px;
+      align-items:center;
+      padding:12px 20px;
+      min-height:unset;
+      margin-bottom:24px;
+    }
+
+    .priority-date-pill{
+      min-height:62px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      border-radius:24px;
+      border:1px solid rgba(36,25,19,0.08);
+      background:rgba(255,255,255,0.35);
+      font-family:"Poppins", sans-serif;
+      font-weight:700;
+      font-size:18px;
+      color:var(--earth);
+      text-transform:uppercase;
+      letter-spacing:0.02em;
+      text-shadow:0 4px 10px rgba(0,0,0,0.12);
+      padding:10px 18px;
+    }
+
+    .priority-copy{
+      text-align:center;
+      max-width:640px;
+      margin:0 auto;
+    }
+
+    .priority-copy h2{
+      margin:0 0 6px 0;
+      font-family:"Poppins", sans-serif;
+      font-size:28px;
+      line-height:1.02;
+      font-weight:800;
+      letter-spacing:-0.04em;
+      color:var(--ink);
+      text-shadow:0 4px 10px rgba(0,0,0,0.10);
+    }
+
+    .priority-copy p{
+      margin:0;
+      font-size:15px;
+      line-height:1.35;
+      font-weight:700;
+      color:#685c50;
+      text-shadow:0 3px 8px rgba(0,0,0,0.10);
+    }
+
+    .priority-points{
+      display:grid;
+      gap:8px;
+    }
+
+    .priority-point{
+      min-height:66px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:12px 16px 12px 40px;
+      border-radius:20px;
+      border:1px solid rgba(36,25,19,0.08);
+      background:rgba(255,255,255,0.45);
+      position:relative;
+      font-size:14px;
+      line-height:1.25;
+      font-weight:800;
+      color:var(--ink);
+      text-shadow:0 2px 6px rgba(0,0,0,0.06);
+    }
+
+    .priority-point::before{
+      content:"";
+      position:absolute;
+      left:16px;
+      top:50%;
+      transform:translateY(-50%);
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      background:#95a66f;
+    }
+
+    .section-heading{
+      text-align:center;
+      margin-bottom:18px;
+    }
+
+    .section-heading h2{
+      margin:0;
+      font-family:"Poppins", sans-serif;
+      font-size:54px;
+      line-height:1;
+      letter-spacing:-0.04em;
+      color:var(--ink);
+      text-shadow:0 4px 10px rgba(0,0,0,0.10);
+    }
+
+    .section-heading p{
+      margin:12px 0 0 0;
+      color:#6a5e53;
+      font-size:18px;
+      font-weight:700;
+      text-shadow:none;
+    }
+
+    .welcome-card,
+    .note-card,
+    .meal-plan-card,
+    .client-notes-card{
+      padding:28px 28px 30px;
+    }
+
+    .welcome-card{
+      margin-bottom:24px;
+    }
+
+    .welcome-video-shell{
+      max-width:980px;
+      margin:0 auto;
+      display:grid;
+      gap:0;
+      border-radius:26px;
+      overflow:hidden;
+      border:1px solid rgba(36,25,19,0.10);
+      background:#e7e1d5;
+      box-shadow:0 10px 28px rgba(54, 40, 27, 0.10);
+    }
+
+    .welcome-video-frame{
+      background:#0c0c0f;
+      min-height:520px;
+    }
+
+    .welcome-video-frame video{
+      display:block;
+      width:100%;
+      height:520px;
+      object-fit:cover;
+      background:#0c0c0f;
+    }
+
+    .welcome-video-caption{
+      padding:18px 20px 20px;
+      text-align:center;
+      background:#ece7dc;
+    }
+
+    .welcome-video-title{
+      font-size:18px;
+      font-weight:800;
+      color:var(--ink);
+      margin-bottom:8px;
+    }
+
+    .welcome-video-text{
+      color:#695d52;
+      font-size:16px;
+      font-weight:700;
+      line-height:1.6;
+      margin-bottom:16px;
+    }
+
+    .nutrition-btn,
+    .nutrition-link-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border:none;
+      border-radius:16px;
+      background:#829660;
+      color:#fff;
+      font-family:"Inter", sans-serif;
+      font-weight:800;
+      font-size:18px;
+      padding:16px 22px;
+      text-decoration:none;
+      cursor:pointer;
+      box-shadow:0 8px 18px rgba(87,107,70,0.24);
+    }
+
+    .nutrition-btn:hover,
+    .nutrition-link-btn:hover{
+      background:#728654;
+    }
+
+    .note-card{
+      margin-bottom:24px;
+    }
+
+    /* FORCE DARKER WEEKLY NUTRITION NOTE TEXT */
+    .note-card .section-heading h2{
+      color:#241913 !important;
+      text-shadow:none !important;
+    }
+
+    .note-card .section-heading p,
+    .note-card .note-subtitle{
+      color:#54483d !important;
+      text-shadow:none !important;
+    }
+
+    .note-card .note-body{
+      max-width:1280px;
+      margin:0 auto;
+      color:#2f251e !important;
+      font-size:21px;
+      line-height:1.95;
+      font-weight:700;
+      text-align:center;
+      text-shadow:none !important;
+    }
+
+    .note-card .note-body p{
+      margin:0 0 22px 0;
+      color:#2f251e !important;
+      text-shadow:none !important;
+    }
+
+    .note-card .coach-cue-box{
+      margin-top:22px;
+      padding:24px 22px;
+      border-radius:24px;
+      border:1px solid rgba(36,25,19,0.08);
+      background:#e6e1d5;
+      text-align:center;
+    }
+
+    .note-card .coach-cue-box h3{
+      margin:0 0 12px 0;
+      font-family:"Poppins", sans-serif;
+      font-size:24px;
+      color:var(--olive-dark) !important;
+      text-shadow:none !important;
+    }
+
+    .note-card .coach-cue-box p{
+      margin:0;
+      font-size:19px;
+      line-height:1.7;
+      font-weight:800;
+      color:#2b221c !important;
+      text-shadow:none !important;
+    }
+
+    .note-action{
+      margin-top:26px;
+      text-align:center;
+    }
+
+    .meal-notes-grid{
+      display:grid;
+      grid-template-columns:minmax(0,1.7fr) minmax(340px,0.9fr);
+      gap:22px;
+      align-items:start;
+    }
+
+    .meal-plan-download-row{
+      display:flex;
+      justify-content:center;
+      margin-bottom:18px;
+    }
+
+    .meal-table-wrap{
+      overflow-x:auto;
+      border-radius:24px;
+      border:1px solid rgba(36,25,19,0.08);
+      background:#ece8df;
+    }
+
+    .meal-table{
+      width:100%;
+      min-width:1180px;
+      border-collapse:collapse;
+    }
+
+    .meal-table thead th{
+      background:#d9d8cf;
+      color:#556846;
+      font-family:"Poppins", sans-serif;
+      font-size:18px;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:0.02em;
+      padding:18px 14px;
+      text-align:center;
+      border-bottom:1px solid rgba(36,25,19,0.08);
+    }
+
+    .meal-table tbody td{
+      padding:18px 16px;
+      border-bottom:1px solid rgba(36,25,19,0.08);
+      text-align:center;
+      vertical-align:top;
+      font-size:16px;
+      line-height:1.6;
+      font-weight:700;
+      color:#2d241e;
+      background:#f2efea;
+    }
+
+    .meal-table tbody tr:last-child td{
+      border-bottom:none;
+    }
+
+    .meal-table tbody td:first-child{
+      font-family:"Poppins", sans-serif;
+      font-weight:700;
+      width:120px;
+      white-space:nowrap;
+    }
+
+    .meal-cards-mobile{
+      display:none;
+    }
+
+    .meal-day-card{
+      background:#f2efea;
+      border:1px solid rgba(36,25,19,0.08);
+      border-radius:22px;
+      padding:18px 16px;
+      margin-bottom:16px;
+    }
+
+    .meal-day-card:last-child{
+      margin-bottom:0;
+    }
+
+    .meal-day-card h3{
+      margin:0 0 14px 0;
+      font-family:"Poppins", sans-serif;
+      font-size:24px;
+      color:#241913;
+      text-align:center;
+    }
+
+    .meal-day-grid{
+      display:grid;
+      gap:12px;
+    }
+
+    .meal-item{
+      background:#fbf8f2;
+      border:1px solid rgba(36,25,19,0.08);
+      border-radius:16px;
+      padding:12px;
+      text-align:left;
+    }
+
+    .meal-item span{
+      display:block;
+      font-family:"Poppins", sans-serif;
+      font-size:13px;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:0.03em;
+      color:#556846;
+      margin-bottom:6px;
+    }
+
+    .meal-item p{
+      margin:0;
+      font-size:15px;
+      line-height:1.5;
+      font-weight:700;
+      color:#2d241e;
+    }
+
+    .notes-heading{
+      text-align:center;
+    }
+
+    .notes-stack{
+      display:grid;
+      gap:18px;
+    }
+
+    .note-mini-box{
+      padding:24px 20px;
+      border-radius:24px;
+      border:1px solid rgba(36,25,19,0.08);
+      background:#f1eee8;
+      text-align:center;
+    }
+
+    .note-mini-box h3{
+      margin:0 0 14px 0;
+      font-family:"Poppins", sans-serif;
+      font-size:22px;
+      color:var(--olive-dark);
+      text-shadow:0 3px 8px rgba(0,0,0,0.08);
+    }
+
+    .note-mini-box p,
+    .note-mini-box li{
+      margin:0;
+      color:#2b221c;
+      font-size:17px;
+      line-height:1.7;
+      font-weight:700;
+    }
+
+    .note-mini-box ul{
+      margin:0;
+      padding-left:22px;
+      text-align:left;
+    }
+
+    .nutrition-footer{
+      margin-top:26px;
+      padding:18px 20px 32px;
+      text-align:center;
+      color:#4f473e;
+    }
+
+    .nutrition-footer nav{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .nutrition-footer .logo img{
+      width:40px;
+      height:auto;
+      display:block;
+    }
+
+    .nutrition-footer a{
+      color:#4f473e;
+      text-decoration:none;
+    }
+
+    @media (max-width:1380px){
+      .priority-banner{
+        grid-template-columns:220px minmax(0,1fr) 300px;
+        gap:12px;
+        padding:10px 16px;
+      }
+
+      .priority-date-pill{
+        min-height:58px;
+        font-size:16px;
+      }
+
+      .priority-copy h2{
+        font-size:24px;
+      }
+
+      .priority-copy p{
+        font-size:14px;
+      }
+
+      .priority-point{
+        min-height:60px;
+        font-size:13px;
+      }
+    }
+
+    @media (max-width:1180px){
+      .nutrition-branding h1{ font-size:46px; }
+      .nutrition-branding p{ font-size:20px; }
+      .nutrition-logo{ width:76px; }
+
+      .priority-banner{
+        grid-template-columns:1fr;
+        padding:16px 18px;
+      }
+
+      .priority-date-pill{
+        min-height:58px;
+      }
+
+      .priority-copy{
+        max-width:100%;
+      }
+
+      .priority-copy h2{
+        font-size:26px;
+      }
+
+      .priority-points{
+        grid-template-columns:1fr;
+      }
+
+      .priority-point{
+        min-height:60px;
+        font-size:14px;
+      }
+
+      .meal-notes-grid{
+        grid-template-columns:1fr;
+      }
+
+      .section-heading h2{
+        font-size:42px;
+      }
+
+      .welcome-video-frame,
+      .welcome-video-frame video{
+        min-height:420px;
+        height:420px;
+      }
+    }
+
+    @media (max-width:760px){
+      .nutrition-header-inner{
+        padding:14px 16px;
+      }
+
+      .nutrition-logo{ width:62px; }
+
+      .nutrition-branding h1{
+        font-size:34px;
+      }
+
+      .nutrition-branding p{
+        font-size:16px;
+      }
+
+      .nutrition-page{
+        padding:18px 14px 34px;
+      }
+
+      .priority-banner,
+      .welcome-card,
+      .note-card,
+      .meal-plan-card,
+      .client-notes-card{
+        border-radius:24px;
+        padding:18px 16px 20px;
+      }
+
+      .priority-banner{
+        padding:14px;
+      }
+
+      .priority-date-pill{
+        font-size:16px;
+        min-height:54px;
+        border-radius:22px;
+      }
+
+      .priority-copy h2{
+        font-size:22px;
+      }
+
+      .priority-copy p{
+        font-size:14px;
+      }
+
+      .priority-point{
+        min-height:58px;
+        font-size:13px;
+        padding:12px 12px 12px 36px;
+        border-radius:18px;
+      }
+
+      .priority-point::before{
+        left:14px;
+        width:10px;
+        height:10px;
+      }
+
+      .section-heading h2{
+        font-size:32px;
+      }
+
+      .section-heading p{
+        font-size:15px;
+      }
+
+      .welcome-video-frame,
+      .welcome-video-frame video{
+        min-height:260px;
+        height:260px;
+      }
+
+      .note-card .note-body{
+        font-size:17px;
+        line-height:1.8;
+      }
+
+      .note-card .coach-cue-box h3{
+        font-size:20px;
+      }
+
+      .note-card .coach-cue-box p{
+        font-size:16px;
+      }
+
+      .meal-plan-download-row{
+        margin-bottom:16px;
+      }
+
+      .meal-table-wrap{
+        display:none;
+      }
+
+      .meal-cards-mobile{
+        display:block;
+      }
+
+      .meal-plan-card,
+      .client-notes-card{
+        padding:20px 16px 22px;
+      }
+
+      .meal-day-card{
+        padding:16px 14px;
+        border-radius:18px;
+      }
+
+      .meal-day-card h3{
+        font-size:22px;
+        margin-bottom:12px;
+      }
+
+      .meal-item{
+        padding:11px 10px;
+        border-radius:14px;
+      }
+
+      .meal-item span{
+        font-size:12px;
+      }
+
+      .meal-item p{
+        font-size:14px;
+        line-height:1.45;
+      }
+
+      .notes-stack{
+        gap:14px;
+      }
+
+      .note-mini-box{
+        padding:18px 14px;
+        border-radius:18px;
+      }
+
+      .note-mini-box h3{
+        font-size:18px;
+        margin-bottom:10px;
+      }
+
+      .note-mini-box p,
+      .note-mini-box li{
+        font-size:15px;
+        line-height:1.6;
+      }
+
+      .note-mini-box ul{
+        padding-left:18px;
+      }
+
+      .nutrition-btn,
+      .nutrition-link-btn{
+        width:100%;
+        font-size:16px;
+        padding:14px 18px;
+      }
+    }
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var downloadBtn = document.getElementById("downloadMealPlanBtn");
+
+      if (!downloadBtn) return;
+
+      downloadBtn.addEventListener("click", function () {
+        var rows = [
+          ["Day","Breakfast","Mid-Morning Snack","Lunch","Mid-Day Snack","Dinner"],
+          ["Monday","Greek yogurt, berries, granola, chia seeds","Apple with peanut butter","Chicken rice bowl with mixed vegetables","Protein shake","Salmon, roasted potatoes, green beans"],
+          ["Tuesday","Egg scramble, toast, avocado, fruit","Greek yogurt cup","Turkey wrap, side salad, hummus","Banana and almonds","Ground turkey pasta with spinach"],
+          ["Wednesday","Oatmeal with protein powder and berries","Rice cakes with peanut butter","Salmon bowl with quinoa and cucumber","Greek yogurt and walnuts","Chicken stir fry with rice"],
+          ["Thursday","Protein smoothie with spinach, banana, oats","Hard-boiled eggs and fruit","Chicken Caesar wrap and fruit","Cottage cheese and crackers","Lean beef, sweet potato, broccoli"],
+          ["Friday","Eggs, turkey sausage, toast","Protein bar","Tuna bowl with rice and edamame","Trail mix and fruit","Homemade burrito bowl"],
+          ["Saturday","Protein pancakes and fruit","Greek yogurt","Turkey sandwich, carrots, yogurt","Protein shake","Grilled chicken, rice, roasted vegetables"],
+          ["Sunday","Overnight oats with berries","Apple and string cheese","Chicken salad bowl with avocado","Dark chocolate and strawberries","Sheet pan salmon, potatoes, asparagus"]
+        ];
+
+        var csvContent = rows.map(function (row) {
+          return row.map(function (cell) {
+            return '"' + String(cell).replace(/"/g, '""') + '"';
+          }).join(",");
+        }).join("\n");
+
+        var blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+        var url = URL.createObjectURL(blob);
+        var link = document.createElement("a");
+
+        link.href = url;
+        link.download = "nori-fitness-suggested-meal-plan.csv";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+      });
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase.js"></script>
+  <script src="nutrition.js"></script>
+</body>
+</html>

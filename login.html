@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nori-Fitness LLC | Member Login</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header class="top-banner nutrition-inspired-header">
+    <div class="banner-inner nutrition-inspired-inner">
+      <a href="index.html" class="logo nutrition-inspired-logo-link">
+        <img src="logo.png" alt="Nori-Fitness LLC" class="nutrition-inspired-logo">
+      </a>
+
+      <div class="nutrition-inspired-branding">
+        <h1>Member Login</h1>
+        <p>Train Strong | Live Confident</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="login-page">
+    <section class="login-hero-card">
+      <div class="login-hero-pill">Member Access</div>
+      <h2>Access your training dashboard</h2>
+      <p>
+        Log in to view your program, track your progress, and stay connected to your coaching.
+      </p>
+    </section>
+
+    <section class="login-card">
+      <div class="login-card-inner">
+        <div class="section-heading login-heading">
+          <h2>Welcome Back</h2>
+          <p>Enter your details below to continue.</p>
+        </div>
+
+        <form id="loginForm" class="login-form nutrition-login-form">
+          <div class="login-field">
+            <label for="email">Username (Email)</label>
+            <input
+              type="email"
+              id="email"
+              required
+              autocomplete="username"
+              class="nutrition-input"
+            />
+          </div>
+
+          <div class="login-field">
+            <label for="password">Password</label>
+
+            <div class="password-wrap">
+              <input
+                type="password"
+                id="password"
+                required
+                autocomplete="current-password"
+                class="nutrition-input password-input"
+              />
+              <button
+                type="button"
+                id="togglePassword"
+                aria-label="Show password"
+                title="Show password"
+                class="toggle-password-btn"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <button type="submit" class="nutrition-btn login-submit-btn">Login</button>
+
+          <div class="login-links">
+            <a href="#" id="forgotPasswordBtn">Forgot Password</a>
+            <a href="#" id="resendConfirmBtn">Resend Confirmation Email</a>
+          </div>
+        </form>
+
+        <p id="message" class="login-message">Ready.</p>
+      </div>
+    </section>
+
+    <section class="signup-card">
+      <p>
+        Not yet signed up? Create your account today.
+      </p>
+      <a href="signup.html" class="nutrition-link-btn signup-link-btn">Sign Up Here</a>
+    </section>
+  </main>
+
+  <footer class="nutrition-inspired-footer">
+    <nav>
+      <div class="logo">
+        <a href="index.html" class="logo">
+          <img src="logo.png" alt="Nori-Fitness LLC">
+        </a>
+      </div>
+      © 2026 Nori-Fitness LLC. All Rights Reserved. |
+      <a href="terms.html">Terms</a> |
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </footer>
+
+  <style>
+    :root{
+      --nf-cream:#e9e4d7;
+      --nf-card:#f7f3ec;
+      --nf-line:rgba(36,25,19,0.08);
+      --nf-ink:#241913;
+      --nf-muted:#62574c;
+      --nf-earth:#b07a3f;
+      --nf-olive:#7e9362;
+      --nf-olive-dark:#576b46;
+      --nf-shadow:0 14px 34px rgba(54, 40, 27, 0.10);
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+
+    body{
+      margin:0;
+      background:var(--nf-cream);
+      color:var(--nf-ink);
+      font-family:"Inter", sans-serif;
+    }
+
+    .nutrition-inspired-header{
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(239,233,221,0.96);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--nf-line);
+    }
+
+    .nutrition-inspired-inner{
+      max-width:1440px;
+      margin:0 auto;
+      padding:18px 22px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
+
+    .nutrition-inspired-logo-link{
+      display:inline-flex;
+      align-items:center;
+      flex:0 0 auto;
+    }
+
+    .nutrition-inspired-logo{
+      width:88px;
+      height:auto;
+      display:block;
+    }
+
+    .nutrition-inspired-branding{
+      text-align:right;
+      margin-left:auto;
+    }
+
+    .nutrition-inspired-branding h1{
+      margin:0;
+      font-family:"Poppins", sans-serif;
+      font-weight:800;
+      font-size:54px;
+      line-height:0.95;
+      color:var(--nf-olive-dark);
+      letter-spacing:-0.03em;
+      text-shadow:0 4px 10px rgba(0,0,0,0.10);
+    }
+
+    .nutrition-inspired-branding p{
+      margin:6px 0 0 0;
+      font-family:"Poppins", sans-serif;
+      font-weight:700;
+      font-size:24px;
+      color:var(--nf-earth);
+      text-transform:uppercase;
+      letter-spacing:0.03em;
+      text-shadow:0 4px 10px rgba(0,0,0,0.10);
+    }
+
+    .login-page{
+      max-width:980px;
+      margin:0 auto;
+      padding:34px 20px 48px;
+    }
+
+    .login-hero-card,
+    .login-card,
+    .signup-card{
+      background:rgba(250,247,241,0.92);
+      border:1px solid var(--nf-line);
+      border-radius:30px;
+      box-shadow:var(--nf-shadow);
+    }
+
+    .login-hero-card{
+      text-align:center;
+      padding:28px 26px;
+      margin-bottom:22px;
+    }
+
+    .login-hero-pill{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 16px;
+      border-radius:999px;
+      border:1px solid var(--nf-line);
+      background:rgba(126,147,98,0.10);
+      color:var(--nf-olive-dark);
+      font-family:"Poppins", sans-serif;
+      font-size:14px;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:0.03em;
+      margin-bottom:18px;
+    }
+
+    .login-hero-card h2{
+      margin:0;
+      font-family:"Poppins", sans-serif;
+      font-size:52px;
+      line-height:0.98;
+      letter-spacing:-0.04em;
+      color:var(--nf-ink);
+      text-shadow:0 4px 10px rgba(0,0,0,0.10);
+    }
+
+    .login-hero-card p{
+      max-width:760px;
+      margin:14px auto 0;
+      color:#685c50;
+      font-size:19px;
+      font-weight:700;
+      line-height:1.7;
+      text-shadow:0 3px 8px rgba(0,0,0,0.08);
+    }
+
+    .login-card{
+      padding:28px 28px 30px;
+      margin-bottom:20px;
+    }
+
+    .login-card-inner{
+      max-width:500px;
+      margin:0 auto;
+    }
+
+    .section-heading{
+      text-align:center;
+      margin-bottom:22px;
+    }
+
+    .section-heading h2{
+      margin:0;
+      font-family:"Poppins", sans-serif;
+      font-size:42px;
+      line-height:1;
+      letter-spacing:-0.04em;
+      color:var(--nf-ink);
+      text-shadow:0 4px 10px rgba(0,0,0,0.10);
+    }
+
+    .section-heading p{
+      margin:12px 0 0 0;
+      color:#6a5e53;
+      font-size:17px;
+      font-weight:700;
+      line-height:1.7;
+      text-shadow:0 3px 8px rgba(0,0,0,0.08);
+    }
+
+    .nutrition-login-form{
+      width:100%;
+    }
+
+    .login-field{
+      margin-bottom:16px;
+    }
+
+    .login-field label{
+      display:block;
+      margin-bottom:8px;
+      font-size:15px;
+      font-weight:800;
+      color:var(--nf-ink);
+    }
+
+    .nutrition-input{
+      width:100%;
+      box-sizing:border-box;
+      padding:14px 16px;
+      border-radius:16px;
+      border:1px solid rgba(36,25,19,0.12);
+      background:#f4efe6;
+      color:var(--nf-ink);
+      font-size:16px;
+      font-weight:600;
+      outline:none;
+      transition:border-color 140ms ease, box-shadow 140ms ease, background 140ms ease;
+    }
+
+    .nutrition-input:focus{
+      border-color:rgba(87,107,70,0.42);
+      box-shadow:0 0 0 4px rgba(126,147,98,0.12);
+      background:#fbf8f2;
+    }
+
+    .password-wrap{
+      position:relative;
+    }
+
+    .password-input{
+      padding-right:52px;
+    }
+
+    .toggle-password-btn{
+      position:absolute;
+      right:14px;
+      top:50%;
+      transform:translateY(-50%);
+      border:0;
+      background:transparent;
+      cursor:pointer;
+      padding:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:24px;
+      height:24px;
+      color:#2e241d;
+    }
+
+    .nutrition-btn,
+    .nutrition-link-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border:none;
+      border-radius:16px;
+      background:#829660;
+      color:#fff;
+      font-family:"Inter", sans-serif;
+      font-weight:800;
+      font-size:18px;
+      padding:16px 22px;
+      text-decoration:none;
+      cursor:pointer;
+      box-shadow:0 8px 18px rgba(87,107,70,0.24);
+    }
+
+    .nutrition-btn:hover,
+    .nutrition-link-btn:hover{
+      background:#728654;
+    }
+
+    .login-submit-btn{
+      width:100%;
+      margin-top:4px;
+    }
+
+    .login-links{
+      margin-top:16px;
+      display:grid;
+      gap:10px;
+      justify-items:center;
+      text-align:center;
+    }
+
+    .login-links a{
+      color:var(--nf-olive-dark);
+      text-decoration:none;
+      font-size:14px;
+      font-weight:800;
+    }
+
+    .login-links a:hover{
+      color:var(--nf-earth);
+    }
+
+    .login-message{
+      margin:18px 0 0 0;
+      text-align:center;
+      font-size:15px;
+      font-weight:800;
+      color:var(--nf-ink);
+    }
+
+    .signup-card{
+      padding:20px 22px;
+      text-align:center;
+    }
+
+    .signup-card p{
+      margin:0 0 14px 0;
+      font-size:17px;
+      font-weight:700;
+      color:#5e5449;
+    }
+
+    .signup-link-btn{
+      min-width:220px;
+    }
+
+    .nutrition-inspired-footer{
+      margin-top:30px;
+      padding:22px 20px 34px;
+      text-align:center;
+      color:#4f473e;
+    }
+
+    .nutrition-inspired-footer nav{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .nutrition-inspired-footer .logo img{
+      width:40px;
+      height:auto;
+      display:block;
+    }
+
+    .nutrition-inspired-footer a{
+      color:#4f473e;
+      text-decoration:none;
+    }
+
+    @media (max-width:860px){
+      .nutrition-inspired-inner{
+        padding:14px 16px;
+      }
+
+      .nutrition-inspired-logo{
+        width:64px;
+      }
+
+      .nutrition-inspired-branding h1{
+        font-size:34px;
+      }
+
+      .nutrition-inspired-branding p{
+        font-size:16px;
+      }
+
+      .login-page{
+        padding:18px 14px 34px;
+      }
+
+      .login-hero-card,
+      .login-card,
+      .signup-card{
+        border-radius:24px;
+      }
+
+      .login-hero-card{
+        padding:22px 18px;
+      }
+
+      .login-card{
+        padding:22px 18px 24px;
+      }
+
+      .login-hero-card h2{
+        font-size:36px;
+      }
+
+      .login-hero-card p{
+        font-size:16px;
+      }
+
+      .section-heading h2{
+        font-size:32px;
+      }
+
+      .section-heading p{
+        font-size:15px;
+      }
+
+      .nutrition-btn,
+      .nutrition-link-btn{
+        width:100%;
+        font-size:16px;
+        padding:14px 18px;
+      }
+
+      .signup-link-btn{
+        min-width:unset;
+      }
+    }
+  </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase.js"></script>
+  <script src="script.js"></script>
+  <script src="login.js"></script>
+</body>
+</html>
